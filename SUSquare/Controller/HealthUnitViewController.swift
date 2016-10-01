@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import SVProgressHUD
 
 class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -25,6 +26,7 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         if let location = locationManager.location{
+            SVProgressHUD.show(withStatus: "Loading HealthUnits")
             let coordinate : CLLocationCoordinate2D = location.coordinate
             RestManager.sharedInstance.requestEstablishment(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
                 if error == nil {
@@ -34,8 +36,10 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
                             self.tableView.reloadData()
                         }
                     }
+                    SVProgressHUD.dismiss()
                 } else {
                     print(error)
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 }
             })
         }
