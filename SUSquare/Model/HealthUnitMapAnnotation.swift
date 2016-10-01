@@ -20,6 +20,11 @@ class HealthUnitMapAnnotation:NSObject, MKAnnotation {
         self.init(name: name, description: nil, coordinate: coordinate)
     }
     
+    convenience init(healthUnit: HealthUnit) {
+        let coordinate = CLLocationCoordinate2D(latitude: healthUnit.lat!, longitude: healthUnit.lng!)
+        self.init(name: healthUnit.unitName!, description: healthUnit.address.city, coordinate: coordinate)
+    }
+    
     init(name: String, description: String?, coordinate: CLLocationCoordinate2D) {
         self.name = name
         self.desc = description

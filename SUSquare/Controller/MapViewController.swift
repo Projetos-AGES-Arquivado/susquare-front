@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import SVProgressHUD
 
 class MapViewController: UIViewController {
 
@@ -17,19 +18,38 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let location = CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444)
+        print(location)
         locationManager.delegate = self
-        let loc = HealthUnitMapAnnotation(name: "Fabrilho", coordinate: location)
-        mapView.addAnnotation(loc)
         addButton()
+        loadUnits()
+    }
+    
+    func loadUnits() {
+        SVProgressHUD.show(withStatus: "Loading HealthUnits")
+        let coordinate: CLLocationCoordinate2D = (locationManager.location?.coordinate)!
+        RestManager.sharedInstance.requestEstablishment(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
+            if error == nil {
+                for unit in units! {
+                    let a = HealthUnitMapAnnotation(healthUnit: unit)
+                    self.mapView.addAnnotation(a)
+                }
+                SVProgressHUD.dismiss()
+            } else {
+                print(error)
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        })
     }
     
     func addButton() {
-        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        btn.titleLabel?.text = "Me acha"
-        btn.backgroundColor = .red
-        btn.setTitle("Me acha", for: .normal)
-        btn.addTarget(self, action: #selector(centerMap), for: UIControlEvents.touchUpInside)
-        self.view.addSubview(btn)
+//        let locationButtonItem = MKUserTrackingBarButtonItem(mapView: mapView)
+//        self.navigationItem.rightBarButtonItem = locationButtonItem
+//        let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
+//        btn.titleLabel?.text = "Me acha"
+//        btn.backgroundColor = .red
+//        btn.setTitle("Me acha", for: .normal)
+//        btn.addTarget(self, action: #selector(centerMap), for: UIControlEvents.touchUpInside)
+//        self.view.addSubview(btn)
     }
     
     func centerMap() {

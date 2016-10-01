@@ -14,7 +14,7 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var healthUnits = ["Unidade de Saude Modelo", "Simone Stumpf", "Clinica Dallavinci Servicos Medicos Sociedade Simples", "Ernani Miura"]
+    var healthUnits = [String]()
     
     var locationManager : CLLocationManager!
 

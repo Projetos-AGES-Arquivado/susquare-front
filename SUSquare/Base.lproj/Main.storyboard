@@ -10,7 +10,7 @@
         <scene sceneID="eq6-fn-L3m">
             <objects>
                 <viewControllerPlaceholder storyboardName="MapView" id="96V-99-EME" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="search" id="YgN-eM-2uK"/>
+                    <tabBarItem key="tabBarItem" title="Mapa" id="YgN-eM-2uK"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NY1-uT-rg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -20,7 +20,7 @@
         <scene sceneID="LXT-LZ-t6U">
             <objects>
                 <viewControllerPlaceholder storyboardName="HealthUnit" id="vsS-y3-ezR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="wTJ-Wv-sk1"/>
+                    <tabBarItem key="tabBarItem" title="Lista" id="wTJ-Wv-sk1"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rtj-1L-RqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
