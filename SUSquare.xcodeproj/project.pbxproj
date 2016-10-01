@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */; };
 		358ABEB81DA033AD008B28E7 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ABEB71DA033AD008B28E7 /* MapView.storyboard */; };
 		358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ABEB91DA033F8008B28E7 /* MapViewController.swift */; };
-		358ABEBD1DA03703008B28E7 /* HealthUnitMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ABEBC1DA03703008B28E7 /* HealthUnitMapAnnotation.swift */; };
 		65912CCF1033F42DD731EE7C /* Pods_SUSquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */; };
 		7A0CF1BB1D9FFA7B006EEBAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */; };
 		7A0CF1BD1D9FFA7B006EEBAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BC1D9FFA7B006EEBAF /* ViewController.swift */; };
@@ -26,9 +26,9 @@
 
 /* Begin PBXFileReference section */
 		2BD2E70567D13A74F0D346FB /* Pods-SUSquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare.debug.xcconfig"; sourceTree = "<group>"; };
+		353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitMapAnnotation.swift; path = Model/HealthUnitMapAnnotation.swift; sourceTree = "<group>"; };
 		358ABEB71DA033AD008B28E7 /* MapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MapView.storyboard; path = View/MapView.storyboard; sourceTree = "<group>"; };
 		358ABEB91DA033F8008B28E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
-		358ABEBC1DA03703008B28E7 /* HealthUnitMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitMapAnnotation.swift; path = Model/HealthUnitMapAnnotation.swift; sourceTree = "<group>"; };
 		7A0CF1B71D9FFA7B006EEBAF /* SUSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A0CF1BC1D9FFA7B006EEBAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,14 +58,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		358ABEBB1DA036D2008B28E7 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				358ABEBC1DA03703008B28E7 /* HealthUnitMapAnnotation.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
 		3AE13D7130AA87DB3DACE25D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,8 +88,8 @@
 			isa = PBXGroup;
 			children = (
 				7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */,
-				7AF9B8E11DA035880095F9A6 /* Model */,
 				7A0D0E3B1DA01FE200B25B02 /* RestManager.swift */,
+				7AF9B8E11DA035880095F9A6 /* Model */,
 				7A0D0E351DA0060200B25B02 /* View */,
 				7A0D0E361DA0060700B25B02 /* Controller */,
 				7A0CF1C11D9FFA7B006EEBAF /* Assets.xcassets */,
@@ -131,9 +123,9 @@
 		7AF9B8E11DA035880095F9A6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */,
 				7AF9B8E21DA037090095F9A6 /* Address.swift */,
 				7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */,
-				7A0D0E3B1DA01FE200B25B02 /* RestManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -273,9 +265,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				358ABEBD1DA03703008B28E7 /* HealthUnitMapAnnotation.swift in Sources */,
 				7A0CF1BD1D9FFA7B006EEBAF /* ViewController.swift in Sources */,
 				7AF9B8E01DA0357F0095F9A6 /* HealthUnit.swift in Sources */,
+				353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */,
 				358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */,
 				7A0D0E3C1DA01FE200B25B02 /* RestManager.swift in Sources */,
 				7A0D0E3A1DA010D500B25B02 /* HealthUnitTableViewCell.swift in Sources */,

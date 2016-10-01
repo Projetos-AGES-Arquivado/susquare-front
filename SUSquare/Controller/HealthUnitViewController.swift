@@ -11,7 +11,9 @@ import CoreLocation
 
 class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
     
-    let healthUnit = ["Unidade de Saude Modelo", "Simone Stumpf", "Clinica Dallavinci Servicos Medicos Sociedade Simples", "Ernani Miura"]
+    @IBOutlet weak var tableView: UITableView!
+    
+    var healthUnits = ["Unidade de Saude Modelo", "Simone Stumpf", "Clinica Dallavinci Servicos Medicos Sociedade Simples", "Ernani Miura"]
     
     var locationManager : CLLocationManager!
 
@@ -24,7 +26,18 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         if let location = locationManager.location{
             let coordinate : CLLocationCoordinate2D = location.coordinate
-            RestManager.sharedInstance.requestEstablishment(byLocation: coordinate, withRange: 10)
+            RestManager.sharedInstance.requestEstablishment(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
+                if error == nil {
+                    for unit in units! {
+                        if let name = unit.unitName {
+                            self.healthUnits.append(name)
+                            self.tableView.reloadData()
+                        }
+                    }
+                } else {
+                    print(error)
+                }
+            })
         }
         locationManager.stopUpdatingLocation()
         
@@ -43,13 +56,13 @@ extension HealthUnitViewController : UITableViewDelegate {
 
 extension HealthUnitViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return healthUnit.count
+        return healthUnits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "healthUnitIdentifier", for: indexPath) as! HealthUnitTableViewCell
             
-        cell.lblHealthUnit.text = healthUnit[indexPath.row]
+        cell.lblHealthUnit.text = healthUnits[indexPath.row]
         
         return cell
         

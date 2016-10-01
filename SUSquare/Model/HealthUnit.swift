@@ -18,7 +18,7 @@ class HealthUnit{
     let location : CLLocationCoordinate2D?
     let address : Address
     
-    init(json: JSON){
+    init(json: JSON) {
         self.unitName = json["nomeFantasia"].string
         self.lat = json["lat"].double
         self.lng = json["long"].double

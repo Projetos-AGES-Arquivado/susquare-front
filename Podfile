@@ -8,6 +8,7 @@ target 'SUSquare' do
   # Pods for SUSquare
   pod 'Alamofire', '~> 4.0'
   pod 'SwiftyJSON'
+  pod 'SVProgressHUD'
 end
 
 post_install do |installer|
