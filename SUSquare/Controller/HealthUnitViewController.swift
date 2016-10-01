@@ -7,14 +7,27 @@
 //
 
 import UIKit
+import CoreLocation
 
-class HealthUnitViewController: UIViewController {
+class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
     
     let healthUnit = ["Unidade de Saude Modelo", "Simone Stumpf", "Clinica Dallavinci Servicos Medicos Sociedade Simples", "Ernani Miura"]
+    
+    var locationManager : CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.startUpdatingLocation()
+        if let location = locationManager.location{
+            let coordinate : CLLocationCoordinate2D = location.coordinate
+            RestManager.sharedInstance.requestEstablishment(byLocation: coordinate, withRange: 10)
+        }
+        locationManager.stopUpdatingLocation()
+        
         // Do any additional setup after loading the view.
     }
 
