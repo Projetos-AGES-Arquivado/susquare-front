@@ -17,6 +17,8 @@ class RestManager {
     
     static let sharedInstance = RestManager()
     
+    //LOCAL
+//    let apiUrl = "localhost:8888"
     
     //DEV
 //    let apiUrl = "http://10.32.223.6/susquare/api"
@@ -29,18 +31,18 @@ class RestManager {
     //PROD
     let apiUrl = "http://www.ages.pucrs.br/susquare"
     
-    let getEstablishment = "/estabelecimentos"
+    let getHealthUnits = "/estabelecimentos"
     
     
-    func requestEstablishment(byLocation location: CLLocationCoordinate2D,
+    func requestHealthUnits(byLocation location: CLLocationCoordinate2D,
                               withRange range: Int,
                               withBlock block: @escaping HealthUnitResponseBlock) {
         
-        let parameters = ["latitude": location.latitude,"longitude": location.longitude,"raio": range] as [String : Any]
+//        let parameters = ["latitude": location.latitude,"longitude": location.longitude,"raio": range] as [String : Any]
         
-        let url = apiUrl.appending(getEstablishment)
+        let url = apiUrl.appending(getHealthUnits)
         
-        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
+        Alamofire.request(url, method: .get, parameters: nil).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let jsons = JSON(value)

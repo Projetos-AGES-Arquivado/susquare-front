@@ -16,6 +16,9 @@ class HealthUnit{
     let lat : Double?
     let lng : Double?
     let location : CLLocationCoordinate2D?
+    let category : String?
+    var services = [String:String]()
+    let schedule : String?
     let address : Address
     
     init(json: JSON) {
@@ -27,6 +30,14 @@ class HealthUnit{
         } else {
             self.location = nil
         }
+        self.services["temAtendimentoUrgencia"] = json["temAtendimentoUrgencia"].string
+        self.services["temAtendimentoAmbulatorial"] = json["temAtendimentoAmbulatorial"].string
+        self.services["temCentroCirurgico"] = json["temCentroCirurgico"].string
+        self.services["temObstetra"] = json["temObstetra"].string
+        self.services["temNeoNatal"] = json["temNeoNatal"].string
+        self.services["temDialise"] = json["temDialise"].string
+        self.category = json["tipoUnidade"].string
+        self.schedule = json["turnoAtendimento"].string
         self.address = Address(json: json)
     }
 }

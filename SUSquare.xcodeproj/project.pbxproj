@@ -12,7 +12,7 @@
 		358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ABEB91DA033F8008B28E7 /* MapViewController.swift */; };
 		65912CCF1033F42DD731EE7C /* Pods_SUSquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */; };
 		7A0CF1BB1D9FFA7B006EEBAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */; };
-		7A0CF1BD1D9FFA7B006EEBAF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BC1D9FFA7B006EEBAF /* ViewController.swift */; };
+		7A0CF1BD1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */; };
 		7A0CF1C01D9FFA7B006EEBAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BE1D9FFA7B006EEBAF /* Main.storyboard */; };
 		7A0CF1C21D9FFA7B006EEBAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CF1C11D9FFA7B006EEBAF /* Assets.xcassets */; };
 		7A0CF1C51D9FFA7B006EEBAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CF1C31D9FFA7B006EEBAF /* LaunchScreen.storyboard */; };
@@ -34,7 +34,7 @@
 		358ABEB91DA033F8008B28E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
 		7A0CF1B71D9FFA7B006EEBAF /* SUSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7A0CF1BC1D9FFA7B006EEBAF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthUnitDetailsViewController.swift; sourceTree = "<group>"; };
 		7A0CF1BF1D9FFA7B006EEBAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A0CF1C11D9FFA7B006EEBAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A0CF1C41D9FFA7B006EEBAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -119,7 +119,7 @@
 		7A0D0E361DA0060700B25B02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7A0CF1BC1D9FFA7B006EEBAF /* ViewController.swift */,
+				7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */,
 				7A0D0E371DA00F5600B25B02 /* HealthUnitViewController.swift */,
 				7A0D0E391DA010D500B25B02 /* HealthUnitTableViewCell.swift */,
 				358ABEB91DA033F8008B28E7 /* MapViewController.swift */,
@@ -290,7 +290,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A0CF1BD1D9FFA7B006EEBAF /* ViewController.swift in Sources */,
+				7A0CF1BD1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift in Sources */,
 				7AF9B8E01DA0357F0095F9A6 /* HealthUnit.swift in Sources */,
 				353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */,
 				358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */,
