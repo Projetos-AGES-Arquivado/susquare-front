@@ -40,6 +40,9 @@ class LoginViewController: UIViewController {
                 let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: .none))
                 self.present(alertController, animated: true, completion: .none)
+                if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                    delegate.gotoStoryboard(initialStoryboard: "Main")
+                }
             } else {
                 let message = error!.localizedDescription
                 let alertController = UIAlertController(title: "Authentication Error: ", message: message, preferredStyle: .alert)

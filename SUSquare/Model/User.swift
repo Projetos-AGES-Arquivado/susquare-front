@@ -15,7 +15,7 @@ class User {
     
     var session : DGTSession? {
         set {
-            AuthenticationManager.sharedInstance.saveUserSession(session: session!)
+            AuthenticationManager.sharedInstance.saveUserSession(session: newValue!)
         } get {
             return AuthenticationManager.sharedInstance.getUserSession()
         }
