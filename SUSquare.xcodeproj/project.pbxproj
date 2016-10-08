@@ -10,6 +10,7 @@
 		353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */; };
 		358ABEB81DA033AD008B28E7 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ABEB71DA033AD008B28E7 /* MapView.storyboard */; };
 		358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ABEB91DA033F8008B28E7 /* MapViewController.swift */; };
+		35AA115F1DA94BFF00BCA999 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */; };
 		65912CCF1033F42DD731EE7C /* Pods_SUSquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */; };
 		7A0CF1BB1D9FFA7B006EEBAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */; };
 		7A0CF1BD1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */; };
@@ -33,6 +34,7 @@
 		353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitMapAnnotation.swift; path = Model/HealthUnitMapAnnotation.swift; sourceTree = "<group>"; };
 		358ABEB71DA033AD008B28E7 /* MapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MapView.storyboard; path = View/MapView.storyboard; sourceTree = "<group>"; };
 		358ABEB91DA033F8008B28E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
+		35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		7A0CF1B71D9FFA7B006EEBAF /* SUSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthUnitDetailsViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */,
 				7A0D0E3B1DA01FE200B25B02 /* RestManager.swift */,
 				7AA644C31DAC358600635DEB /* Utils.swift */,
+				35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */,
 				7AF9B8E11DA035880095F9A6 /* Model */,
 				7A0D0E351DA0060200B25B02 /* View */,
 				7A0D0E361DA0060700B25B02 /* Controller */,
@@ -299,6 +302,7 @@
 				358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */,
 				7A0D0E3C1DA01FE200B25B02 /* RestManager.swift in Sources */,
 				7A0D0E3A1DA010D500B25B02 /* HealthUnitTableViewCell.swift in Sources */,
+				35AA115F1DA94BFF00BCA999 /* AuthenticationManager.swift in Sources */,
 				7A0CF1BB1D9FFA7B006EEBAF /* AppDelegate.swift in Sources */,
 				7A0D0E381DA00F5600B25B02 /* HealthUnitViewController.swift in Sources */,
 				7A6CD58D1DA9153700B4954A /* LoginViewController.swift in Sources */,

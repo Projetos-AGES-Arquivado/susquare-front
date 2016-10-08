@@ -22,8 +22,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setDefaultStyle(.light)
         SVProgressHUD.setDefaultMaskType(.black)
         Fabric.with([Digits.self])
+        
+        if let _ = User.sharedInstance.session {
+            gotoStoryboard(initialStoryboard: "Main")
+        } else {
+            gotoStoryboard(initialStoryboard: "Login")
+        }
         // Override point for customization after application launch.
         return true
+    }
+    
+    func gotoStoryboard(initialStoryboard:String){
+        let sb = UIStoryboard(name: initialStoryboard, bundle: Bundle.main)
+        let vc = sb.instantiateInitialViewController()
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

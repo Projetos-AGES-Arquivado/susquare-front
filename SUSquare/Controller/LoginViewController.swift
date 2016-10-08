@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,14 +35,15 @@ class LoginViewController: UIViewController {
         configuration?.phoneNumber = "+55"
         digits.authenticate(with: nil, configuration: configuration!) { session, error in
             if (session != nil) {
-                // TODO: associate the session userID with your user model
-                User.sharedInstance.session = session?.userID
+                User.sharedInstance.session = session
                 let message = "Phone number: \(session!.phoneNumber)"
                 let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: .none))
+                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: .none))
                 self.present(alertController, animated: true, completion: .none)
             } else {
-                NSLog("Authentication error: %@", error!.localizedDescription)
+                let message = error!.localizedDescription
+                let alertController = UIAlertController(title: "Authentication Error: ", message: message, preferredStyle: .alert)
+                self.present(alertController, animated: true, completion: .none)
             }
         }
     }

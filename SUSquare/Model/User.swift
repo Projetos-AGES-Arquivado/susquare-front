@@ -8,12 +8,16 @@
 
 import Foundation
 import DigitsKit
-import CoreLocation
 
 class User {
     
     static let sharedInstance = User()
     
-    var session : String?
-    var location : CLLocationCoordinate2D?
+    var session : DGTSession? {
+        set {
+            AuthenticationManager.sharedInstance.saveUserSession(session: session!)
+        } get {
+            return AuthenticationManager.sharedInstance.getUserSession()
+        }
+    }
 }
