@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1104" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vYY-Ad-LeF">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cXG-xe-hgb">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Health Unit View Controller-->
+        <!--Postos de Saúde-->
         <scene sceneID="b0g-i1-N1P">
             <objects>
                 <viewController id="vYY-Ad-LeF" customClass="HealthUnitViewController" customModule="SUSquare" customModuleProvider="target" sceneMemberID="viewController">
@@ -23,7 +25,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="healthUnitIdentifier" rowHeight="104" id="4sa-Kl-x8A" customClass="HealthUnitTableViewCell" customModule="SUSquare" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="104"/>
+                                        <rect key="frame" x="0.0" y="92" width="375" height="104"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4sa-Kl-x8A" id="zkf-2R-rV9">
                                             <frame key="frameInset" width="375" height="103.5"/>
@@ -90,18 +92,172 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="eWE-Ao-8Wr" secondAttribute="trailing" id="Tmm-3l-9zY"/>
-                            <constraint firstItem="eWE-Ao-8Wr" firstAttribute="top" secondItem="Rnb-hU-hW1" secondAttribute="top" constant="20" id="hib-SP-wiV"/>
+                            <constraint firstItem="eWE-Ao-8Wr" firstAttribute="top" secondItem="Rnb-hU-hW1" secondAttribute="top" id="hib-SP-wiV"/>
                             <constraint firstItem="eWE-Ao-8Wr" firstAttribute="leading" secondItem="Rnb-hU-hW1" secondAttribute="leading" id="skI-fm-ccA"/>
                             <constraint firstItem="4rR-qD-SY8" firstAttribute="top" secondItem="eWE-Ao-8Wr" secondAttribute="bottom" id="uvc-9v-QLv"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Postos de Saúde" id="JTo-Qx-bSm"/>
                     <connections>
                         <outlet property="tableView" destination="eWE-Ao-8Wr" id="34v-NJ-UXc"/>
+                        <segue destination="aSn-aq-YfD" kind="show" identifier="healthUnitDetails" id="zBx-1m-M30"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vae-RA-h78" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="100" y="14.842578710644679"/>
+            <point key="canvasLocation" x="1039.2" y="14.842578710644679"/>
+        </scene>
+        <!--Health Unit Details View Controller-->
+        <scene sceneID="lZ6-o6-Orl">
+            <objects>
+                <viewController id="aSn-aq-YfD" customClass="HealthUnitDetailsViewController" customModule="SUSquare" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TRj-7C-DII"/>
+                        <viewControllerLayoutGuide type="bottom" id="3uM-0J-VwL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="d1H-8p-ABk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BUW-m2-y90"/>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTX-y3-8rF">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="5OD-Z0-Z9G"/>
+                                    <constraint firstAttribute="width" constant="136" id="5yc-ad-MsO"/>
+                                </constraints>
+                                <state key="normal" title="CheckIn"/>
+                            </button>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Prm-Hz-sjM">
+                                <state key="normal" title="Elogiar/Reclamar"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5U-mQ-YIh">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7d-sX-OE5">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dialise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="516-38-gAw">
+                                <color key="backgroundColor" red="1" green="0.29380024023919282" blue="0.24407328731774558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NeoNatal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbn-ZL-Fdb">
+                                <color key="backgroundColor" red="1" green="0.29380024023919282" blue="0.24407328731774558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atendimento" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-Np-lVc">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centro Cirurgico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOe-KB-g7F">
+                                <color key="backgroundColor" red="1" green="0.29380024023919282" blue="0.24407328731774558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atendimento Urgência" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqH-ni-oN9">
+                                <color key="backgroundColor" red="1" green="0.29380024023919282" blue="0.24407328731774558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atendimento Ambulatorial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaS-89-tUN">
+                                <color key="backgroundColor" red="1" green="0.29380024023919282" blue="0.24407328731774558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obstetra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4W5-mh-cdD">
+                                <color key="backgroundColor" red="1" green="0.29380024023919282" blue="0.24407328731774558" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Prm-Hz-sjM" firstAttribute="baseline" secondItem="OTX-y3-8rF" secondAttribute="firstBaseline" id="06u-0m-wbi"/>
+                            <constraint firstItem="OTX-y3-8rF" firstAttribute="top" secondItem="xaS-89-tUN" secondAttribute="bottom" constant="24" id="1b3-ef-c48"/>
+                            <constraint firstItem="a7d-sX-OE5" firstAttribute="leading" secondItem="Mqh-Np-lVc" secondAttribute="leading" id="1hh-3d-NNP"/>
+                            <constraint firstItem="a7d-sX-OE5" firstAttribute="top" secondItem="BUW-m2-y90" secondAttribute="bottom" constant="8" symbolic="YES" id="3y3-Dq-QCZ"/>
+                            <constraint firstItem="nOe-KB-g7F" firstAttribute="top" secondItem="4W5-mh-cdD" secondAttribute="bottom" constant="8" symbolic="YES" id="46Z-b1-aVd"/>
+                            <constraint firstItem="4W5-mh-cdD" firstAttribute="trailing" secondItem="nOe-KB-g7F" secondAttribute="trailing" id="6VH-L4-uoB"/>
+                            <constraint firstItem="BUW-m2-y90" firstAttribute="trailing" secondItem="a7d-sX-OE5" secondAttribute="trailing" id="6fg-dr-JdE"/>
+                            <constraint firstItem="516-38-gAw" firstAttribute="top" secondItem="Mqh-Np-lVc" secondAttribute="bottom" constant="24" id="Aik-xc-gor"/>
+                            <constraint firstItem="nOe-KB-g7F" firstAttribute="trailing" secondItem="fqH-ni-oN9" secondAttribute="trailing" id="CQn-qO-3Q4"/>
+                            <constraint firstItem="4W5-mh-cdD" firstAttribute="top" secondItem="Sbn-ZL-Fdb" secondAttribute="bottom" constant="8" symbolic="YES" id="DmQ-YW-G8R"/>
+                            <constraint firstItem="OTX-y3-8rF" firstAttribute="leading" secondItem="d1H-8p-ABk" secondAttribute="leadingMargin" constant="34" id="HIY-8j-ZCv"/>
+                            <constraint firstItem="fqH-ni-oN9" firstAttribute="top" secondItem="nOe-KB-g7F" secondAttribute="bottom" constant="8" symbolic="YES" id="I36-Dr-AgZ"/>
+                            <constraint firstItem="516-38-gAw" firstAttribute="leading" secondItem="Sbn-ZL-Fdb" secondAttribute="leading" id="JPl-27-01k"/>
+                            <constraint firstItem="Mqh-Np-lVc" firstAttribute="top" secondItem="a7d-sX-OE5" secondAttribute="bottom" constant="8" symbolic="YES" id="Kab-TL-DSH"/>
+                            <constraint firstItem="Mqh-Np-lVc" firstAttribute="leading" secondItem="516-38-gAw" secondAttribute="leading" id="Lpb-cP-xbn"/>
+                            <constraint firstItem="516-38-gAw" firstAttribute="trailing" secondItem="Sbn-ZL-Fdb" secondAttribute="trailing" id="Lw0-q4-HYM"/>
+                            <constraint firstItem="D5U-mQ-YIh" firstAttribute="trailing" secondItem="BUW-m2-y90" secondAttribute="trailing" id="Qcn-iH-1TI"/>
+                            <constraint firstItem="D5U-mQ-YIh" firstAttribute="centerX" secondItem="d1H-8p-ABk" secondAttribute="centerX" id="SwO-b0-3NH"/>
+                            <constraint firstItem="fqH-ni-oN9" firstAttribute="leading" secondItem="xaS-89-tUN" secondAttribute="leading" id="U38-EH-9rI"/>
+                            <constraint firstItem="D5U-mQ-YIh" firstAttribute="top" secondItem="TRj-7C-DII" secondAttribute="bottom" constant="8" symbolic="YES" id="UWC-oU-3ug"/>
+                            <constraint firstItem="3uM-0J-VwL" firstAttribute="top" secondItem="OTX-y3-8rF" secondAttribute="bottom" constant="69" id="VNV-0R-iHB"/>
+                            <constraint firstItem="Sbn-ZL-Fdb" firstAttribute="trailing" secondItem="4W5-mh-cdD" secondAttribute="trailing" id="VzG-eQ-msS"/>
+                            <constraint firstItem="Sbn-ZL-Fdb" firstAttribute="leading" secondItem="4W5-mh-cdD" secondAttribute="leading" id="aTx-70-A0G"/>
+                            <constraint firstItem="BUW-m2-y90" firstAttribute="top" secondItem="D5U-mQ-YIh" secondAttribute="bottom" constant="8" symbolic="YES" id="aja-HI-HD7"/>
+                            <constraint firstItem="xaS-89-tUN" firstAttribute="top" secondItem="fqH-ni-oN9" secondAttribute="bottom" constant="8" symbolic="YES" id="e1R-Gr-nM0"/>
+                            <constraint firstItem="OTX-y3-8rF" firstAttribute="top" secondItem="Prm-Hz-sjM" secondAttribute="top" id="fEm-DS-3xA"/>
+                            <constraint firstItem="BUW-m2-y90" firstAttribute="leading" secondItem="a7d-sX-OE5" secondAttribute="leading" id="fPP-0Z-scJ"/>
+                            <constraint firstItem="a7d-sX-OE5" firstAttribute="trailing" secondItem="Mqh-Np-lVc" secondAttribute="trailing" id="h08-we-G0V"/>
+                            <constraint firstItem="D5U-mQ-YIh" firstAttribute="leading" secondItem="BUW-m2-y90" secondAttribute="leading" id="h59-Pz-X2p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Prm-Hz-sjM" secondAttribute="trailing" constant="29" id="hBa-CI-G3N"/>
+                            <constraint firstItem="Mqh-Np-lVc" firstAttribute="trailing" secondItem="516-38-gAw" secondAttribute="trailing" id="iUR-dm-8Ks"/>
+                            <constraint firstItem="Prm-Hz-sjM" firstAttribute="leading" secondItem="OTX-y3-8rF" secondAttribute="trailing" constant="8" symbolic="YES" id="jnr-8j-Hor"/>
+                            <constraint firstItem="4W5-mh-cdD" firstAttribute="leading" secondItem="nOe-KB-g7F" secondAttribute="leading" id="ksV-fe-ujj"/>
+                            <constraint firstItem="fqH-ni-oN9" firstAttribute="trailing" secondItem="xaS-89-tUN" secondAttribute="trailing" id="lHy-od-NJ2"/>
+                            <constraint firstItem="nOe-KB-g7F" firstAttribute="leading" secondItem="fqH-ni-oN9" secondAttribute="leading" id="qBV-E4-8Bg"/>
+                            <constraint firstItem="OTX-y3-8rF" firstAttribute="baseline" secondItem="Prm-Hz-sjM" secondAttribute="firstBaseline" id="wHH-Sb-ozL"/>
+                            <constraint firstItem="Sbn-ZL-Fdb" firstAttribute="top" secondItem="516-38-gAw" secondAttribute="bottom" constant="8" symbolic="YES" id="wfv-LW-2R0"/>
+                            <constraint firstItem="D5U-mQ-YIh" firstAttribute="leading" secondItem="d1H-8p-ABk" secondAttribute="leadingMargin" constant="51" id="xLc-d8-5st"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imgHealthUnit" destination="BUW-m2-y90" id="yg4-pk-9nG"/>
+                        <outlet property="lblAddress" destination="a7d-sX-OE5" id="K8F-Gq-Wkl"/>
+                        <outlet property="lblCategory" destination="D5U-mQ-YIh" id="ulK-14-Jip"/>
+                        <outlet property="lblSchedule" destination="Mqh-Np-lVc" id="79J-2R-Ab3"/>
+                        <outlet property="lblServiceAtendimentoAmbulatorial" destination="xaS-89-tUN" id="9m3-gS-NxJ"/>
+                        <outlet property="lblServiceAtendimentoUrgencia" destination="fqH-ni-oN9" id="v5K-tH-gtQ"/>
+                        <outlet property="lblServiceCentroCirurgico" destination="nOe-KB-g7F" id="4NY-Wg-yWv"/>
+                        <outlet property="lblServiceDialise" destination="516-38-gAw" id="ltf-ht-XeD"/>
+                        <outlet property="lblServiceNeoNatal" destination="Sbn-ZL-Fdb" id="Rhp-a3-dER"/>
+                        <outlet property="lblServiceObstetra" destination="4W5-mh-cdD" id="YcG-6S-cTf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSi-yz-hqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1904.8" y="14.842578710644679"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="crM-PL-AUK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cXG-xe-hgb" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eDC-c9-Cls">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vYY-Ad-LeF" kind="relationship" relationship="rootViewController" id="l06-VT-Brr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mN7-7I-zMH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="382" y="15"/>
         </scene>
     </scenes>
 </document>

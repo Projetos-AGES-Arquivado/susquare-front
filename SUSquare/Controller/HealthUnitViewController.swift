@@ -14,7 +14,7 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var healthUnits = [String]()
+    var healthUnits = [HealthUnit]()
     
     var locationManager : CLLocationManager!
 
@@ -28,11 +28,11 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
         if let location = locationManager.location{
             SVProgressHUD.show(withStatus: "Loading HealthUnits")
             let coordinate : CLLocationCoordinate2D = location.coordinate
-            RestManager.sharedInstance.requestEstablishment(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
+            RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
                 if error == nil {
                     for unit in units! {
                         if let name = unit.unitName {
-                            self.healthUnits.append(name)
+                            self.healthUnits.append(unit)
                             self.tableView.reloadData()
                         }
                     }
@@ -52,13 +52,27 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "healthUnitDetails"{
+            let vcDetails = segue.destination as? HealthUnitDetailsViewController
+            if let healthUnit = sender as? HealthUnit{
+                vcDetails?.healthUnit = healthUnit
+            } else {
+                print(sender.customMirror.subjectType)
+            }
+        }
+    }
 }
 
 extension HealthUnitViewController : UITableViewDelegate {
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "healthUnitDetails", sender: healthUnits[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: false)
+    }
 }
 
-extension HealthUnitViewController : UITableViewDataSource{
+extension HealthUnitViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return healthUnits.count
     }
@@ -66,9 +80,8 @@ extension HealthUnitViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "healthUnitIdentifier", for: indexPath) as! HealthUnitTableViewCell
             
-        cell.lblHealthUnit.text = healthUnits[indexPath.row]
+        cell.lblHealthUnit.text = healthUnits[indexPath.row].unitName
         
         return cell
-        
     }
 }
