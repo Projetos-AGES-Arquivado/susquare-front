@@ -15,7 +15,11 @@ class User {
     
     var session : DGTSession? {
         set {
-            AuthenticationManager.sharedInstance.saveUserSession(session: newValue!)
+            if (newValue != nil) {
+                AuthenticationManager.sharedInstance.saveUserSession(session: newValue!)
+            } else {
+                NSLog("session set value shouldnt be nil, otherwise the session will not be ssaved on the UserDefaults")
+            }
         } get {
             return AuthenticationManager.sharedInstance.getUserSession()
         }
