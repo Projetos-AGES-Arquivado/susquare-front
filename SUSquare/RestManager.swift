@@ -17,9 +17,17 @@ class RestManager {
     
     static let sharedInstance = RestManager()
     
+    
+    //DEV
 //    let apiUrl = "http://10.32.223.6/susquare/api"
     
-    let apiUrl = "http://www.homo.ages.pucrs.br:3000"
+    
+    //HOMO
+//    let apiUrl = "http://www.homo.ages.pucrs.br/susquare"
+    
+    
+    //PROD
+    let apiUrl = "http://www.ages.pucrs.br/susquare"
     
     let getEstablishment = "/estabelecimentos"
     

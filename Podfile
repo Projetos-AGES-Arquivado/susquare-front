@@ -9,6 +9,9 @@ target 'SUSquare' do
   pod 'Alamofire', '~> 4.0'
   pod 'SwiftyJSON'
   pod 'SVProgressHUD'
+  pod 'Fabric'
+  pod 'Digits'
+  pod 'TwitterCore'
 end
 
 post_install do |installer|

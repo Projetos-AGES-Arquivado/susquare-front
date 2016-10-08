@@ -20,6 +20,9 @@
 		7A0D0E381DA00F5600B25B02 /* HealthUnitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D0E371DA00F5600B25B02 /* HealthUnitViewController.swift */; };
 		7A0D0E3A1DA010D500B25B02 /* HealthUnitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D0E391DA010D500B25B02 /* HealthUnitTableViewCell.swift */; };
 		7A0D0E3C1DA01FE200B25B02 /* RestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0D0E3B1DA01FE200B25B02 /* RestManager.swift */; };
+		7A6CD58B1DA9152400B4954A /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A6CD58A1DA9152400B4954A /* Login.storyboard */; };
+		7A6CD58D1DA9153700B4954A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6CD58C1DA9153700B4954A /* LoginViewController.swift */; };
+		7A7A4E041DA9216B002CBAAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A4E031DA9216B002CBAAB /* User.swift */; };
 		7AF9B8E01DA0357F0095F9A6 /* HealthUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */; };
 		7AF9B8E31DA037090095F9A6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9B8E21DA037090095F9A6 /* Address.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +43,9 @@
 		7A0D0E371DA00F5600B25B02 /* HealthUnitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitViewController.swift; path = Controller/HealthUnitViewController.swift; sourceTree = "<group>"; };
 		7A0D0E391DA010D500B25B02 /* HealthUnitTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitTableViewCell.swift; path = Controller/HealthUnitTableViewCell.swift; sourceTree = "<group>"; };
 		7A0D0E3B1DA01FE200B25B02 /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
+		7A6CD58A1DA9152400B4954A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		7A6CD58C1DA9153700B4954A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
+		7A7A4E031DA9216B002CBAAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 		7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnit.swift; path = Model/HealthUnit.swift; sourceTree = "<group>"; };
 		7AF9B8E21DA037090095F9A6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Address.swift; path = Model/Address.swift; sourceTree = "<group>"; };
 		7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SUSquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +111,7 @@
 				7A0CF1BE1D9FFA7B006EEBAF /* Main.storyboard */,
 				7A0D0E331DA005F300B25B02 /* HealthUnit.storyboard */,
 				358ABEB71DA033AD008B28E7 /* MapView.storyboard */,
+				7A6CD58A1DA9152400B4954A /* Login.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -116,6 +123,7 @@
 				7A0D0E371DA00F5600B25B02 /* HealthUnitViewController.swift */,
 				7A0D0E391DA010D500B25B02 /* HealthUnitTableViewCell.swift */,
 				358ABEB91DA033F8008B28E7 /* MapViewController.swift */,
+				7A6CD58C1DA9153700B4954A /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -126,6 +134,7 @@
 				353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */,
 				7AF9B8E21DA037090095F9A6 /* Address.swift */,
 				7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */,
+				7A7A4E031DA9216B002CBAAB /* User.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -152,6 +161,7 @@
 				7A0CF1B51D9FFA7B006EEBAF /* Resources */,
 				739376DAD43983C9542C0475 /* [CP] Embed Pods Frameworks */,
 				1781D041A811F2EA690A9FE3 /* [CP] Copy Pods Resources */,
+				7A6CD58E1DA9157C00B4954A /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -204,6 +214,7 @@
 			files = (
 				7A0CF1C51D9FFA7B006EEBAF /* LaunchScreen.storyboard in Resources */,
 				7A0CF1C21D9FFA7B006EEBAF /* Assets.xcassets in Resources */,
+				7A6CD58B1DA9152400B4954A /* Login.storyboard in Resources */,
 				7A0D0E341DA005F300B25B02 /* HealthUnit.storyboard in Resources */,
 				358ABEB81DA033AD008B28E7 /* MapView.storyboard in Resources */,
 				7A0CF1C01D9FFA7B006EEBAF /* Main.storyboard in Resources */,
@@ -243,6 +254,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7A6CD58E1DA9157C00B4954A /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 45d923538dbcfc4c0d76aecc43cbc7231cd5bc47 4ec684fe0f779ed1bc57ae19b340790c5986b3f2b649a755a0d4be8369a3cf94";
+		};
 		9E1A34C8D4DB119830B3AAEF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,7 +298,9 @@
 				7A0D0E3A1DA010D500B25B02 /* HealthUnitTableViewCell.swift in Sources */,
 				7A0CF1BB1D9FFA7B006EEBAF /* AppDelegate.swift in Sources */,
 				7A0D0E381DA00F5600B25B02 /* HealthUnitViewController.swift in Sources */,
+				7A6CD58D1DA9153700B4954A /* LoginViewController.swift in Sources */,
 				7AF9B8E31DA037090095F9A6 /* Address.swift in Sources */,
+				7A7A4E041DA9216B002CBAAB /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
