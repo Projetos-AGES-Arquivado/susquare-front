@@ -28,12 +28,36 @@ class HealthUnitDetailsViewController: UIViewController {
         super.viewDidLoad()
         print(healthUnit)
         
+        self.navigationItem.title = self.healthUnit?.unitName
+        
         self.lblCategory.text = healthUnit?.category
-        if let street = healthUnit?.address, let number = healthUnit?.address.number{
-            self.lblAddress.text = "\(street), \(number)"
+        if let street = healthUnit?.address.street! {
+            if let city = healthUnit?.address.city!{
+                self.lblAddress.text = "\(street), \(city)"
+            }
         } else {
             self.lblAddress.text = "Endereço não informado"
         }
+        
+        if healthUnit?.services["temDialise"] == "Sim" {
+            self.lblServiceDialise.backgroundColor = UIColor.green
+        }
+        if healthUnit?.services["temNeoNatal"] == "Sim" {
+            self.lblServiceDialise.backgroundColor = UIColor.green
+        }
+        if healthUnit?.services["temObstetra"] == "Sim" {
+            self.lblServiceDialise.backgroundColor = UIColor.green
+        }
+        if healthUnit?.services["temCentroCirurgico"] == "Sim" {
+            self.lblServiceDialise.backgroundColor = UIColor.green
+        }
+        if healthUnit?.services["temAtendimentoUrgencia"] == "Sim" {
+            self.lblServiceDialise.backgroundColor = UIColor.green
+        }
+        if healthUnit?.services["temAtendimentoAmbulatorial"] == "Sim" {
+            self.lblServiceDialise.backgroundColor = UIColor.green
+        }
+        
         self.lblSchedule.text = healthUnit?.schedule
         
         
