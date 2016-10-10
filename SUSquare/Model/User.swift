@@ -8,11 +8,12 @@
 
 import Foundation
 import DigitsKit
+import MapKit
 
 class User {
     
     static let sharedInstance = User()
-    
+    var location : CLLocationCoordinate2D?
     var session : DGTSession? {
         set {
             if (newValue != nil) {
