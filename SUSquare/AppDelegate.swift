@@ -23,11 +23,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setDefaultMaskType(.black)
         Fabric.with([Digits.self])
         
-        if let _ = User.sharedInstance.session {
-            gotoStoryboard(initialStoryboard: "Main")
-        } else {
-            gotoStoryboard(initialStoryboard: "Login")
-        }
+//        if let _ = User.sharedInstance.session {
+            gotoStoryboard(initialStoryboard: "HealthUnit")
+//        } else {
+//            gotoStoryboard(initialStoryboard: "Login")
+//        }
         // Override point for customization after application launch.
         return true
     }

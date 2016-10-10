@@ -103,10 +103,23 @@ extension MapViewController: MKMapViewDelegate {
         }
         return nil
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "healthUnitDetails"{
+            let vcDetails = segue.destination as? HealthUnitDetailsViewController
+            if let healthUnit = sender as? HealthUnit{
+                vcDetails?.healthUnit = healthUnit
+            } else {
+                print(sender.customMirror.subjectType)
+            }
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation as? HealthUnitMapAnnotation {
-            
-//            annotation.healthUnit
+            if let hu = annotation.healthUnit {
+                performSegue(withIdentifier: "healthUnitDetails", sender: hu)
+            }
         }
     }
 }

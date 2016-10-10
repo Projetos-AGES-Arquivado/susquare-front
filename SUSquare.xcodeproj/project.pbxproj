@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */; };
-		358ABEB81DA033AD008B28E7 /* MapView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 358ABEB71DA033AD008B28E7 /* MapView.storyboard */; };
 		358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ABEB91DA033F8008B28E7 /* MapViewController.swift */; };
 		35AA115F1DA94BFF00BCA999 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */; };
 		65912CCF1033F42DD731EE7C /* Pods_SUSquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */; };
@@ -32,7 +31,6 @@
 /* Begin PBXFileReference section */
 		2BD2E70567D13A74F0D346FB /* Pods-SUSquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare.debug.xcconfig"; sourceTree = "<group>"; };
 		353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitMapAnnotation.swift; path = Model/HealthUnitMapAnnotation.swift; sourceTree = "<group>"; };
-		358ABEB71DA033AD008B28E7 /* MapView.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MapView.storyboard; path = View/MapView.storyboard; sourceTree = "<group>"; };
 		358ABEB91DA033F8008B28E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
 		35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		7A0CF1B71D9FFA7B006EEBAF /* SUSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +114,6 @@
 			children = (
 				7A0CF1BE1D9FFA7B006EEBAF /* Main.storyboard */,
 				7A0D0E331DA005F300B25B02 /* HealthUnit.storyboard */,
-				358ABEB71DA033AD008B28E7 /* MapView.storyboard */,
 				7A6CD58A1DA9152400B4954A /* Login.storyboard */,
 			);
 			name = View;
@@ -222,7 +219,6 @@
 				7A0CF1C21D9FFA7B006EEBAF /* Assets.xcassets in Resources */,
 				7A6CD58B1DA9152400B4954A /* Login.storyboard in Resources */,
 				7A0D0E341DA005F300B25B02 /* HealthUnit.storyboard in Resources */,
-				358ABEB81DA033AD008B28E7 /* MapView.storyboard in Resources */,
 				7A0CF1C01D9FFA7B006EEBAF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
