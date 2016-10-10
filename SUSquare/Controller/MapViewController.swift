@@ -104,6 +104,10 @@ extension MapViewController: MKMapViewDelegate {
         return nil
     }
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? HealthUnitMapAnnotation {
+            
+//            annotation.healthUnit
+        }
     }
 }
 

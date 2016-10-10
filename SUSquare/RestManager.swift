@@ -29,7 +29,9 @@ class RestManager {
     
     
     //PROD
-    let apiUrl = "http://www.ages.pucrs.br/susquare"
+//    let apiUrl = "http://www.ages.pucrs.br:3000/susquare"
+    
+    let apiUrl = "http://susquare-api.herokuapp.com"
     
     let getHealthUnits = "/estabelecimentos"
     

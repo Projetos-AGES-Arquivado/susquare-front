@@ -15,21 +15,23 @@ class HealthUnitMapAnnotation:NSObject, MKAnnotation {
     var title: String?
     var desc: String?
     var coordinate: CLLocationCoordinate2D
+    var healthUnit: HealthUnit?
     
     convenience init(name: String, coordinate: CLLocationCoordinate2D) {
-        self.init(name: name, description: nil, coordinate: coordinate)
+        self.init(name: name, description: nil, coordinate: coordinate, healthUnit: nil)
     }
     
     convenience init(healthUnit: HealthUnit) {
         let coordinate = CLLocationCoordinate2D(latitude: healthUnit.lat!, longitude: healthUnit.lng!)
-        self.init(name: healthUnit.unitName!, description: healthUnit.address.city, coordinate: coordinate)
+        self.init(name: healthUnit.unitName!, description: healthUnit.address.city, coordinate: coordinate, healthUnit: healthUnit)
     }
     
-    init(name: String, description: String?, coordinate: CLLocationCoordinate2D) {
+    init(name: String, description: String?, coordinate: CLLocationCoordinate2D, healthUnit: HealthUnit?) {
         self.name = name
         self.desc = description
         self.coordinate = coordinate
         self.title = name
+        self.healthUnit = healthUnit
     }
     
 }
