@@ -28,10 +28,11 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
         if let location = locationManager.location{
             SVProgressHUD.show(withStatus: "Loading HealthUnits")
             let coordinate : CLLocationCoordinate2D = location.coordinate
+            User.sharedInstance.location = coordinate
             RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
                 if error == nil {
                     for unit in units! {
-                        if let name = unit.unitName {
+                        if let _ = unit.unitName {
                             self.healthUnits.append(unit)
                             self.tableView.reloadData()
                         }
@@ -63,6 +64,15 @@ class HealthUnitViewController: UIViewController, CLLocationManagerDelegate {
             }
         }
     }
+    
+    func calcDistanceToHealthUnit(healthUnitLocation : CLLocationCoordinate2D) -> String {
+        let userLocation = CLLocation(latitude: (User.sharedInstance.location?.latitude)!, longitude: (User.sharedInstance.location?.longitude)!)
+        let unitLocation = CLLocation(latitude: healthUnitLocation.latitude, longitude: healthUnitLocation.longitude)
+        
+        let distanceInMeters : CLLocationDistance = userLocation.distance(from: unitLocation)
+        
+        return "\(distanceInMeters)km"
+    }
 }
 
 extension HealthUnitViewController : UITableViewDelegate {
@@ -79,8 +89,11 @@ extension HealthUnitViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "healthUnitIdentifier", for: indexPath) as! HealthUnitTableViewCell
-            
-        cell.lblHealthUnit.text = healthUnits[indexPath.row].unitName
+        
+        let healthUnit : HealthUnit = healthUnits[indexPath.row]
+        
+        cell.lblDistance.text = self.calcDistanceToHealthUnit(healthUnitLocation: healthUnit.location!)
+        cell.lblHealthUnit.text = healthUnit.unitName
         
         return cell
     }

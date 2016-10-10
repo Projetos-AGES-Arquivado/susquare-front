@@ -29,6 +29,8 @@ class HealthUnitDetailsViewController: UIViewController {
         print(healthUnit)
         
         self.navigationItem.title = self.healthUnit?.unitName
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
         
         self.lblCategory.text = healthUnit?.category
         if let street = healthUnit?.address.street! {
@@ -39,23 +41,25 @@ class HealthUnitDetailsViewController: UIViewController {
             self.lblAddress.text = "Endereço não informado"
         }
         
+        self.resetBackgroundColorsForServices()
+        
         if healthUnit?.services["temDialise"] == "Sim" {
-            self.lblServiceDialise.backgroundColor = UIColor.green
+            self.lblServiceDialise.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temNeoNatal"] == "Sim" {
-            self.lblServiceDialise.backgroundColor = UIColor.green
+            self.lblServiceNeoNatal.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temObstetra"] == "Sim" {
-            self.lblServiceDialise.backgroundColor = UIColor.green
+            self.lblServiceObstetra.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temCentroCirurgico"] == "Sim" {
-            self.lblServiceDialise.backgroundColor = UIColor.green
+            self.lblServiceCentroCirurgico.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temAtendimentoUrgencia"] == "Sim" {
-            self.lblServiceDialise.backgroundColor = UIColor.green
+            self.lblServiceAtendimentoUrgencia.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temAtendimentoAmbulatorial"] == "Sim" {
-            self.lblServiceDialise.backgroundColor = UIColor.green
+            self.lblServiceAtendimentoAmbulatorial.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
         }
         
         self.lblSchedule.text = healthUnit?.schedule
@@ -64,6 +68,15 @@ class HealthUnitDetailsViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    private func resetBackgroundColorsForServices(){
+        self.lblServiceDialise.backgroundColor = UIColor.red
+        self.lblServiceNeoNatal.backgroundColor = UIColor.red
+        self.lblServiceObstetra.backgroundColor = UIColor.red
+        self.lblServiceCentroCirurgico.backgroundColor = UIColor.red
+        self.lblServiceAtendimentoUrgencia.backgroundColor = UIColor.red
+        self.lblServiceAtendimentoAmbulatorial.backgroundColor = UIColor.red
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

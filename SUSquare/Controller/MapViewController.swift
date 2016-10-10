@@ -17,8 +17,8 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let location = CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444)
-        print(location)
+//        User.sharedInstance.location = CLLocationCoordinate2D(latitude: 21.282778, longitude: -157.829444)
+//        print(User.sharedInstance.location)
         locationManager.delegate = self
         addButton()
         loadUnits()
@@ -112,8 +112,8 @@ extension MapViewController: CLLocationManagerDelegate {
     private func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
         let location = locations.last as! CLLocation
         
-        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+        User.sharedInstance.location = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: User.sharedInstance.location!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         mapView.setRegion(region, animated: true)
     }

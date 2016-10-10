@@ -38,11 +38,11 @@ class RestManager {
                               withRange range: Int,
                               withBlock block: @escaping HealthUnitResponseBlock) {
         
-//        let parameters = ["latitude": location.latitude,"longitude": location.longitude,"raio": range] as [String : Any]
+        let parameters = ["latitude": location.latitude,"longitude": location.longitude,"raio": range] as [String : Any]
         
         let url = apiUrl.appending(getHealthUnits)
         
-        Alamofire.request(url, method: .get, parameters: nil).responseJSON { response in
+        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
             switch response.result {
             case .success(let value):
                 let jsons = JSON(value)
