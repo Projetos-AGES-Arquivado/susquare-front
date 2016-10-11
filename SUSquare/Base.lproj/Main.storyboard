@@ -1,21 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pnM-Ak-rt9">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1104" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="pnM-Ak-rt9">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--MapView-->
-        <scene sceneID="eq6-fn-L3m">
-            <objects>
-                <viewControllerPlaceholder storyboardName="MapView" id="96V-99-EME" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Mapa" id="YgN-eM-2uK"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NY1-uT-rg1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="593" y="541"/>
-        </scene>
         <!--HealthUnit-->
         <scene sceneID="LXT-LZ-t6U">
             <objects>
@@ -39,7 +29,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="vsS-y3-ezR" kind="relationship" relationship="viewControllers" id="tBb-tR-nN5"/>
-                        <segue destination="96V-99-EME" kind="relationship" relationship="viewControllers" id="H92-bT-wOr"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vTe-dL-Jb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
