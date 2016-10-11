@@ -187,7 +187,7 @@
 				TargetAttributes = {
 					7A0CF1B61D9FFA7B006EEBAF = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 5CB58H6L4R;
+						DevelopmentTeam = BJXVASWXX8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -429,7 +429,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5CB58H6L4R;
+				DEVELOPMENT_TEAM = BJXVASWXX8;
 				INFOPLIST_FILE = SUSquare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ages.SUSquare;
@@ -444,7 +444,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5CB58H6L4R;
+				DEVELOPMENT_TEAM = BJXVASWXX8;
 				INFOPLIST_FILE = SUSquare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ages.SUSquare;
