@@ -24,6 +24,7 @@
 		7A6CD58D1DA9153700B4954A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6CD58C1DA9153700B4954A /* LoginViewController.swift */; };
 		7A7A4E041DA9216B002CBAAB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7A4E031DA9216B002CBAAB /* User.swift */; };
 		7AA644C41DAC358600635DEB /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA644C31DAC358600635DEB /* Utils.swift */; };
+		7AB7A1FF1DB27DB200D5D14F /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB7A1FE1DB27DB200D5D14F /* CustomSearchBar.swift */; };
 		7AF9B8E01DA0357F0095F9A6 /* HealthUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */; };
 		7AF9B8E31DA037090095F9A6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9B8E21DA037090095F9A6 /* Address.swift */; };
 /* End PBXBuildFile section */
@@ -48,6 +49,7 @@
 		7A6CD58C1DA9153700B4954A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		7A7A4E031DA9216B002CBAAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
 		7AA644C31DAC358600635DEB /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = Model/Utils.swift; sourceTree = "<group>"; };
+		7AB7A1FE1DB27DB200D5D14F /* CustomSearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomSearchBar.swift; path = Model/CustomSearchBar.swift; sourceTree = "<group>"; };
 		7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnit.swift; path = Model/HealthUnit.swift; sourceTree = "<group>"; };
 		7AF9B8E21DA037090095F9A6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Address.swift; path = Model/Address.swift; sourceTree = "<group>"; };
 		7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SUSquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -96,9 +98,10 @@
 			isa = PBXGroup;
 			children = (
 				7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */,
+				35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */,
+				7AB7A1FE1DB27DB200D5D14F /* CustomSearchBar.swift */,
 				7A0D0E3B1DA01FE200B25B02 /* RestManager.swift */,
 				7AA644C31DAC358600635DEB /* Utils.swift */,
-				35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */,
 				7AF9B8E11DA035880095F9A6 /* Model */,
 				7A0D0E351DA0060200B25B02 /* View */,
 				7A0D0E361DA0060700B25B02 /* Controller */,
@@ -187,7 +190,7 @@
 				TargetAttributes = {
 					7A0CF1B61D9FFA7B006EEBAF = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = BJXVASWXX8;
+						DevelopmentTeam = 5CB58H6L4R;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -292,6 +295,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AB7A1FF1DB27DB200D5D14F /* CustomSearchBar.swift in Sources */,
 				7A0CF1BD1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift in Sources */,
 				7AF9B8E01DA0357F0095F9A6 /* HealthUnit.swift in Sources */,
 				353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */,
@@ -429,10 +433,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BJXVASWXX8;
+				DEVELOPMENT_TEAM = 5CB58H6L4R;
 				INFOPLIST_FILE = SUSquare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.pucrs.ages.SUSquare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ages.susquare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -444,10 +448,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BJXVASWXX8;
+				DEVELOPMENT_TEAM = 5CB58H6L4R;
 				INFOPLIST_FILE = SUSquare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = br.pucrs.ages.SUSquare;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ages.susquare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
