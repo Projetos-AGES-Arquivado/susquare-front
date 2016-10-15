@@ -121,6 +121,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         self.filterHealthUnitsForSearchText("")
+        shouldShowSearchResults = false
         self.view.endEditing(true)
     }
     
@@ -143,6 +144,8 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         if self.filteredHealthUnits.isEmpty {
             shouldShowSearchResults = false
         }
+        
+        print(filteredHealthUnits)
         
         self.tableView.reloadData()
     }
@@ -212,7 +215,7 @@ extension HealthUnitViewController : UITableViewDataSource {
         let healthUnit : HealthUnit
         
         if shouldShowSearchResults{
-            healthUnit = healthUnits[indexPath.row]
+            healthUnit = filteredHealthUnits[indexPath.row]
         }else {
             healthUnit = healthUnits[indexPath.row]
         }
