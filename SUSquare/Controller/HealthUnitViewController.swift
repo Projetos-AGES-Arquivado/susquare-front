@@ -16,7 +16,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     
-    var searchBar : CustomSearchBar?
+    var searchBar : UISearchBar?
     
     var shouldShowSearchResults : Bool = false
     var healthUnits = [HealthUnit]()
@@ -33,36 +33,39 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         loadUnits()
-        if let location = locationManager.location{
-            SVProgressHUD.show(withStatus: "Loading HealthUnits")
-            let coordinate : CLLocationCoordinate2D = location.coordinate
-            User.sharedInstance.location = coordinate
-            RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
-                if error == nil {
-                    for unit in units! {
-                        if let _ = unit.unitName {
-                            self.healthUnits.append(unit)
-                            self.tableView.reloadData()
-                        }
-                    }
-                    SVProgressHUD.dismiss()
-                } else {
-                    print(error)
-                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
-                }
-            })
-        }
-        locationManager.stopUpdatingLocation()
         
+//        if let location = locationManager.location{
+//            SVProgressHUD.show(withStatus: "Loading HealthUnits")
+//            let coordinate : CLLocationCoordinate2D = location.coordinate
+//            User.sharedInstance.location = coordinate
+//
+//            RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate,
+//                                                          withRange: 100,
+//                                                          withParameters: ["texto" : ""],
+//                                                          withBlock: { (units: [HealthUnit]?, error: Error?) in
+//                if error == nil {
+//                    for unit in units! {
+//                        if let _ = unit.unitName {
+//                            self.healthUnits.append(unit)
+//                            self.tableView.reloadData()
+//                        }
+//                    }
+//                    SVProgressHUD.dismiss()
+//                    self.tableView.reloadData()
+//                } else {
+//                    print(error)
+//                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+//                }
+//            })
+//        }
         
-        self.configureSearchBar(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50), font: UIFont(name: "Verdana", size: 16.0)!, textColor: UIColor.white, bgColor: UIColor(red: 71, green: 186, blue: 251))
+        self.configureSearchBar(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50),
+                                font: UIFont(name: "Verdana", size: 16.0)!,
+                                textColor: UIColor.white,
+                                bgColor: UIColor(red: 71, green: 186, blue: 251))
         
-        tableView.tableHeaderView = self.searchBar
-        self.searchBar?.delegate = self
-        // Do any additional setup after loading the view.
+        tableView.contentInset = UIEdgeInsets(top: -65, left: 0, bottom: 0, right: 0)
     }
-    
-    
     
     override func viewWillAppear(_ animated: Bool) {
         checkLocationAuthorizationStatus()
@@ -74,48 +77,70 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     }
     
     func loadUnits() {
-        SVProgressHUD.show(withStatus: "Loading HealthUnits")
-        let coordinate: CLLocationCoordinate2D = (locationManager.location?.coordinate)!
-        RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
-            if error == nil {
-                for unit in units! {
-                    let a = HealthUnitMapAnnotation(healthUnit: unit)
-                    self.mapView.addAnnotation(a)
-                    self.healthUnits.append(unit)
-                    //self.tableView.reloadData()
+        
+        if let location = locationManager.location {
+            
+            SVProgressHUD.show(withStatus: "Loading HealthUnits")
+            let coordinate: CLLocationCoordinate2D = location.coordinate
+            RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate,
+                                                          withRange: 100,
+                                                          withParameters: ["texto" : ""],
+                                                          withBlock: { (units: [HealthUnit]?, error: Error?) in
+                if error == nil {
+                    for unit in units! {
+                        let a = HealthUnitMapAnnotation(healthUnit: unit)
+                        self.mapView.addAnnotation(a)
+                        self.healthUnits.append(unit)
+                    }
+                    
+                    SVProgressHUD.dismiss()
+                    self.tableView.reloadData()
+                } else {
+                    print(error)
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 }
-                SVProgressHUD.dismiss()
-            } else {
-                print(error)
-                SVProgressHUD.showError(withStatus: error?.localizedDescription)
-            }
-        })
-        centerMap()
+            })
+            centerMap()
+        }
     }
     
     func centerMap() {
         if let location = locationManager.location {
+            User.sharedInstance.location = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
             centerMapOnLocation(location: location)
         }
     }
     
     //MARK: SearchBar
     func configureSearchBar(frame: CGRect, font: UIFont, textColor: UIColor, bgColor: UIColor) {
-        searchBar = CustomSearchBar(frame: frame, font: font , textColor: textColor)
         
+        searchBar = UISearchBar(frame: frame)
+        searchBar?.delegate = self
         searchBar?.barTintColor = bgColor
         searchBar?.tintColor = textColor
         searchBar?.showsBookmarkButton = false
-        searchBar?.showsCancelButton = true
-//        searchBar?.setImage(UIImage(named: "StarFlat"), for: .search, state: .normal)
-        
+        searchBar?.showsCancelButton = false
         searchBar?.placeholder = "Buscar Posto de Saúde"
-        searchBar?.setScopeBarButtonBackgroundImage(UIImage(named: "StarFlat"), for: .normal)
+        searchBar?.setImage(UIImage(named: "search"), for: .search, state: .normal)
         
+        let lightWhiteColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+        let attributedString = NSAttributedString(string: "Buscar Posto de Saúde", attributes: [NSForegroundColorAttributeName: lightWhiteColor])
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .clear
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = .white
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = attributedString
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filterHealthUnitsForSearchText(searchText)
+    }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = true
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.showsCancelButton = false
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -179,17 +204,21 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     }
     
     func calcDistanceToHealthUnit(healthUnitLocation : CLLocationCoordinate2D) -> String {
-        let userLocation = CLLocation(latitude: (User.sharedInstance.location?.latitude)!, longitude: (User.sharedInstance.location?.longitude)!)
-        let unitLocation = CLLocation(latitude: healthUnitLocation.latitude, longitude: healthUnitLocation.longitude)
-        
-        let distanceInMeters = Int((userLocation.distance(from: unitLocation)))
-        
-        let distanceInKilometers = distanceInMeters/1000
-        
-        print("IN M: \(distanceInMeters) ----- IN KM:\(distanceInKilometers)")
-        
-        
-        return "\(distanceInKilometers)km"
+        if let location = User.sharedInstance.location {
+            let userLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            let unitLocation = CLLocation(latitude: healthUnitLocation.latitude, longitude: healthUnitLocation.longitude)
+            
+            let distanceInMeters = Int((userLocation.distance(from: unitLocation)))
+            
+            let distanceInKilometers = distanceInMeters/1000
+            
+            print("IN M: \(distanceInMeters) ----- IN KM:\(distanceInKilometers)")
+            
+            
+            return "\(distanceInKilometers)km"
+        } else {
+            return "--"
+        }
     }
 }
 
@@ -197,6 +226,14 @@ extension HealthUnitViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: "healthUnitDetails", sender: healthUnits[indexPath.row])
         tableView.deselectRow(at: indexPath, animated: false)
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return self.searchBar
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
     }
 }
 
@@ -207,6 +244,10 @@ extension HealthUnitViewController : UITableViewDataSource {
         } else {
             return healthUnits.count
         }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

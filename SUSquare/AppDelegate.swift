@@ -5,7 +5,12 @@
 //  Created by Luis Filipe Campani on 01/10/16.
 //  Copyright © 2016 AGES. All rights reserved.
 //
-
+/*
+ - Arrumar celula inicial
+ - Arrumar autolayout para colapsar mapa no scroll da view
+ - Setar placeholder image na tela de HealthUnitDetail
+ - Trocar o pin do mapa
+ */
 import UIKit
 import SVProgressHUD
 import Fabric
