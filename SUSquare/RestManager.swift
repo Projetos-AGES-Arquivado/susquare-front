@@ -17,24 +17,10 @@ class RestManager {
     
     static let sharedInstance = RestManager()
     
-    //LOCAL
-//    let apiUrl = "localhost:8888"
-    
-    //DEV
-//    let apiUrl = "http://10.32.223.6/susquare/api"
-    
-    
-    //HOMO
-    let apiUrl = "http://www.homo.ages.pucrs.br/susquare"
-    
-    
     //PROD
-//    let apiUrl = "http://www.ages.pucrs.br:3000/susquare"
-    
-//    let apiUrl = "http://susquare-api.herokuapp.com"
+    let apiUrl = "http://www.ages.pucrs.br/susquare"
     
     let getHealthUnits = "/estabelecimentos"
-    
     
     func requestHealthUnits(byLocation location: CLLocationCoordinate2D,
                               withRange range: Int,
