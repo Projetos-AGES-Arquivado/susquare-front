@@ -38,11 +38,20 @@ class RestManager {
     
     func requestHealthUnits(byLocation location: CLLocationCoordinate2D,
                               withRange range: Int,
+                              withParameters params: [String: String]? = nil,
                               withBlock block: @escaping HealthUnitResponseBlock) {
         
-        let parameters = ["latitude": location.latitude,"longitude": location.longitude,"raio": range] as [String : Any]
+        let a = "/estabelecimentos/latitude/\(location.latitude)/longitude/\(location.longitude)/raio/\(range)"
         
-        let url = apiUrl.appending(getHealthUnits)
+        var parameters = [String: Any]()
+        
+        if let params = params {
+            for param in params {
+                parameters[param.key] = param.value
+            }
+        }
+        
+        let url = apiUrl.appending(a)
         
         Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
             switch response.result {
