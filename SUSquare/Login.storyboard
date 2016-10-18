@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2333a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GXA-Eb-Ixf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2548a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="GXA-Eb-Ixf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -20,34 +20,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbD-On-few">
+                                <color key="backgroundColor" red="0.27972632650000001" green="0.72905308010000003" blue="0.98291677239999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="QG9-GC-usV"/>
+                                    <constraint firstAttribute="height" constant="70" id="22F-bB-ogb"/>
                                 </constraints>
-                                <state key="normal" title="Entrar"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                <state key="normal" title="Entrar">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <action selector="didTapButton:" destination="GXA-Eb-Ixf" eventType="touchUpInside" id="hev-9Y-y2D"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olá!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04y-2k-bhj">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-vamosaude-completo-transparente" translatesAutoresizingMaskIntoConstraints="NO" id="IHg-6s-Brx"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Olá!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="04y-2k-bhj">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="86" id="Amq-ik-BEH"/>
+                                    <constraint firstAttribute="height" constant="40" id="EnI-cT-HRF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unable-phone.png" translatesAutoresizingMaskIntoConstraints="NO" id="IHg-6s-Brx">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="UdI-5A-oqC"/>
-                                </constraints>
-                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="K7z-uD-j6b">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Como essa é a primeira vez que você executa o app, precisamos ter certeza de que você não é um robô. Para isso, precisaremos apenas do seu número de telefone.</string>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="IHg-6s-Brx" firstAttribute="centerX" secondItem="04y-2k-bhj" secondAttribute="centerX" id="2Pf-G2-kLk"/>
-                            <constraint firstItem="IHg-6s-Brx" firstAttribute="leading" secondItem="Ibt-YI-1ce" secondAttribute="leadingMargin" constant="51" id="Y2e-Zb-X0O"/>
-                            <constraint firstItem="IHg-6s-Brx" firstAttribute="top" secondItem="EUi-4i-TUz" secondAttribute="bottom" constant="8" symbolic="YES" id="bLj-kN-b8t"/>
-                            <constraint firstItem="04y-2k-bhj" firstAttribute="top" secondItem="Ibt-YI-1ce" secondAttribute="top" constant="265" id="duK-hF-B2O"/>
-                            <constraint firstItem="IPv-LR-oky" firstAttribute="top" secondItem="lbD-On-few" secondAttribute="bottom" constant="215" id="llv-gq-qHr"/>
-                            <constraint firstItem="04y-2k-bhj" firstAttribute="centerX" secondItem="lbD-On-few" secondAttribute="centerX" id="qNu-J1-klq"/>
-                            <constraint firstItem="IHg-6s-Brx" firstAttribute="centerX" secondItem="Ibt-YI-1ce" secondAttribute="centerX" id="wXT-Sh-ARK"/>
+                            <constraint firstItem="lbD-On-few" firstAttribute="leading" secondItem="Ibt-YI-1ce" secondAttribute="leading" id="4cj-Gf-uIg"/>
+                            <constraint firstItem="K7z-uD-j6b" firstAttribute="trailing" secondItem="Ibt-YI-1ce" secondAttribute="trailingMargin" id="5Sr-ct-BIP"/>
+                            <constraint firstItem="K7z-uD-j6b" firstAttribute="centerY" secondItem="Ibt-YI-1ce" secondAttribute="centerY" id="7WQ-Ma-WbN"/>
+                            <constraint firstItem="04y-2k-bhj" firstAttribute="top" secondItem="IHg-6s-Brx" secondAttribute="bottom" constant="8" symbolic="YES" id="DdC-G5-M9c"/>
+                            <constraint firstItem="K7z-uD-j6b" firstAttribute="top" secondItem="04y-2k-bhj" secondAttribute="bottom" constant="33" id="Evg-Qp-mMa"/>
+                            <constraint firstItem="IHg-6s-Brx" firstAttribute="leading" secondItem="Ibt-YI-1ce" secondAttribute="leadingMargin" constant="78" id="Fgy-bD-7pA"/>
+                            <constraint firstItem="IPv-LR-oky" firstAttribute="top" secondItem="lbD-On-few" secondAttribute="bottom" constant="132" id="bEg-CZ-evz"/>
+                            <constraint firstItem="04y-2k-bhj" firstAttribute="centerX" secondItem="K7z-uD-j6b" secondAttribute="centerX" id="bMR-IK-n0R"/>
+                            <constraint firstItem="K7z-uD-j6b" firstAttribute="leading" secondItem="Ibt-YI-1ce" secondAttribute="leadingMargin" id="ca9-Aq-iq7"/>
+                            <constraint firstItem="IHg-6s-Brx" firstAttribute="centerX" secondItem="K7z-uD-j6b" secondAttribute="centerX" id="dtX-1l-o1i"/>
+                            <constraint firstItem="K7z-uD-j6b" firstAttribute="centerX" secondItem="lbD-On-few" secondAttribute="centerX" id="hbp-ia-ZrX"/>
+                            <constraint firstItem="lbD-On-few" firstAttribute="top" secondItem="K7z-uD-j6b" secondAttribute="bottom" constant="68" id="n8M-dR-DAT"/>
+                            <constraint firstItem="IHg-6s-Brx" firstAttribute="top" secondItem="EUi-4i-TUz" secondAttribute="bottom" constant="8" symbolic="YES" id="wku-IK-KFj"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -57,6 +74,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="unable-phone.png" width="111" height="177"/>
+        <image name="logo-vamosaude-completo-transparente" width="279" height="234"/>
     </resources>
 </document>

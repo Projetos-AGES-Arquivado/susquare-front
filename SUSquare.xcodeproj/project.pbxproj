@@ -45,6 +45,7 @@
 		7A0D0E371DA00F5600B25B02 /* HealthUnitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitViewController.swift; path = Controller/HealthUnitViewController.swift; sourceTree = "<group>"; };
 		7A0D0E391DA010D500B25B02 /* HealthUnitTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitTableViewCell.swift; path = Controller/HealthUnitTableViewCell.swift; sourceTree = "<group>"; };
 		7A0D0E3B1DA01FE200B25B02 /* RestManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestManager.swift; sourceTree = "<group>"; };
+		7A2D06871DB67F1B003FCBEF /* SUSquare-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SUSquare-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		7A6CD58A1DA9152400B4954A /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		7A6CD58C1DA9153700B4954A /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Controller/LoginViewController.swift; sourceTree = "<group>"; };
 		7A7A4E031DA9216B002CBAAB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Model/User.swift; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 				7A0D0E351DA0060200B25B02 /* View */,
 				7A0D0E361DA0060700B25B02 /* Controller */,
 				7A0CF1C11D9FFA7B006EEBAF /* Assets.xcassets */,
+				7A2D06871DB67F1B003FCBEF /* SUSquare-Bridging-Header.h */,
 				7A0CF1C31D9FFA7B006EEBAF /* LaunchScreen.storyboard */,
 				7A0CF1C61D9FFA7B006EEBAF /* Info.plist */,
 			);
@@ -438,7 +440,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ages.susquare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SUSquare-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};
 			name = Debug;
 		};
@@ -453,7 +457,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ages.susquare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SUSquare-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "Pods/**";
 			};
 			name = Release;
 		};

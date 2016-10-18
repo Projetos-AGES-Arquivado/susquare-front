@@ -15,6 +15,12 @@ class AuthenticationManager {
     static let authTokenSecretKey = "authTokenSecret"
     static let userIDKey = "userID"
     static let phoneNumberKey = "phoneNumber"
+    static let codAutor = "codAutor"
+    
+    func saveCodAutor(codAutor: String){
+        let defaults = UserDefaults.standard
+        defaults.set(codAutor, forKey: AuthenticationManager.codAutor)
+    }
     
     func saveUserSession(session: DGTSession){
         let defaults = UserDefaults.standard
@@ -24,6 +30,15 @@ class AuthenticationManager {
         defaults.set(session.phoneNumber, forKey: AuthenticationManager.phoneNumberKey)
     }
     
+    
+    func getCodAutor() -> String{
+        let defaults = UserDefaults.standard
+        if let codAutor = defaults.string(forKey: AuthenticationManager.codAutor){
+            return codAutor
+        } else {
+            return ""
+        }
+    }
     
     //If if fails to get the sessin aprameters fromo UserDefaults, it will return nil
     func getUserSession() -> DGTSession? {

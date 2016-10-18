@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        Digits.sharedInstance().logOut()
     }
 
     override func didReceiveMemoryWarning() {
@@ -24,7 +25,7 @@ class LoginViewController: UIViewController {
         let theme = DGTAppearance()
         theme.accentColor = UIColor(red: 40, green: 216, blue: 255, alpha: 1.0)
         theme.backgroundColor = UIColor(red: 10, green: 120, blue: 255, alpha: 1.0)
-        //theme.logoImage = ??
+        theme.logoImage = UIImage(named: "logo-vamosaude-completo-transparente")
         return theme
     }
 
@@ -40,8 +41,17 @@ class LoginViewController: UIViewController {
                 let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: .none))
                 self.present(alertController, animated: true, completion: .none)
+                
+                if let numberWithSha = session?.phoneNumber.sha1() {
+                    let password = "batataBatatuda"
+                    let email = "\(numberWithSha)@vamossaude.com.br"
+                    RestManager.sharedInstance.signUp(numberWithSha, email, password) {
+                        RestManager.sharedInstance.authenticateUser(email, password)
+                    }
+                }
+                
                 if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                    delegate.gotoStoryboard(initialStoryboard: "Main")
+                    delegate.gotoStoryboard(initialStoryboard: "HealthUnit")
                 }
             } else {
                 let message = error!.localizedDescription

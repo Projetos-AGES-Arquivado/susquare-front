@@ -92,6 +92,7 @@ extension MapViewController: MKMapViewDelegate {
                 as? MKPinAnnotationView { // 2
                 dequeuedView.annotation = annotation
                 view = dequeuedView
+                view.image = UIImage(named: "pin-estabelecimento.jpg")
             } else {
                 // 3
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)

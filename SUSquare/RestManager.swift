@@ -19,8 +19,15 @@ class RestManager {
     
     //PROD
     let apiUrl = "http://www.ages.pucrs.br/susquare"
+    let metamodeloUrl = "http://mobile-aceite.tcu.gov.br/appCivicoRS/rest"
+    
+    
+    let signUpUser = "/pessoas"
+    let authenticateUser = "/pessoas/autenticar"
     
     let getHealthUnits = "/estabelecimentos"
+    
+    let appIdentifier = "348"
     
     func requestHealthUnits(byLocation location: CLLocationCoordinate2D,
                               withRange range: Int,
@@ -53,6 +60,24 @@ class RestManager {
                 block(nil, error)
                 print(error)
             }
+        }
+    }
+    
+    func signUp(_ username : String, _ email : String, _ password : String,block: @escaping ()->()){
+        let parameters = ["nomeUsuario":username,"email":email,"senha":password]
+        
+        Alamofire.request("\(metamodeloUrl)\(signUpUser)", method: .post, parameters: parameters,encoding: JSONEncoding.default).responseString { (response) in
+            print(response)
+            block()
+        }
+    }
+    
+    func authenticateUser(_ email : String, _ password : String){
+        let parameters = ["email":email,"senha":password]
+        Alamofire.request("\(metamodeloUrl)\(authenticateUser)", method: .get, headers: parameters).responseJSON { (response) in
+            
+            let json = JSON(response.result.value)
+            User.sharedInstance.codAutor = "\(json["cod"].int))"
         }
     }
 }

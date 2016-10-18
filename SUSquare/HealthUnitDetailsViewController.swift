@@ -44,22 +44,22 @@ class HealthUnitDetailsViewController: UIViewController {
         self.resetBackgroundColorsForServices()
         
         if healthUnit?.services["temDialise"] == "Sim" {
-            self.lblServiceDialise.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
+            self.lblServiceDialise.textColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temNeoNatal"] == "Sim" {
-            self.lblServiceNeoNatal.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
+            self.lblServiceNeoNatal.textColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temObstetra"] == "Sim" {
-            self.lblServiceObstetra.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
+            self.lblServiceObstetra.textColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temCentroCirurgico"] == "Sim" {
-            self.lblServiceCentroCirurgico.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
+            self.lblServiceCentroCirurgico.textColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temAtendimentoUrgencia"] == "Sim" {
-            self.lblServiceAtendimentoUrgencia.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
+            self.lblServiceAtendimentoUrgencia.textColor = UIColor(red: 45, green: 215, blue: 45)
         }
         if healthUnit?.services["temAtendimentoAmbulatorial"] == "Sim" {
-            self.lblServiceAtendimentoAmbulatorial.backgroundColor = UIColor(red: 45, green: 215, blue: 45)
+            self.lblServiceAtendimentoAmbulatorial.textColor = UIColor(red: 45, green: 215, blue: 45)
         }
         
         self.lblSchedule.text = healthUnit?.schedule
@@ -69,12 +69,12 @@ class HealthUnitDetailsViewController: UIViewController {
     }
 
     private func resetBackgroundColorsForServices(){
-        self.lblServiceDialise.backgroundColor = UIColor.red
-        self.lblServiceNeoNatal.backgroundColor = UIColor.red
-        self.lblServiceObstetra.backgroundColor = UIColor.red
-        self.lblServiceCentroCirurgico.backgroundColor = UIColor.red
-        self.lblServiceAtendimentoUrgencia.backgroundColor = UIColor.red
-        self.lblServiceAtendimentoAmbulatorial.backgroundColor = UIColor.red
+        self.lblServiceDialise.textColor = UIColor.red
+        self.lblServiceNeoNatal.textColor = UIColor.red
+        self.lblServiceObstetra.textColor = UIColor.red
+        self.lblServiceCentroCirurgico.textColor = UIColor.red
+        self.lblServiceAtendimentoUrgencia.textColor = UIColor.red
+        self.lblServiceAtendimentoAmbulatorial.textColor = UIColor.red
     }
     
     override func didReceiveMemoryWarning() {

@@ -34,41 +34,21 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         locationManager.startUpdatingLocation()
         loadUnits()
         
-//        if let location = locationManager.location{
-//            SVProgressHUD.show(withStatus: "Loading HealthUnits")
-//            let coordinate : CLLocationCoordinate2D = location.coordinate
-//            User.sharedInstance.location = coordinate
-//
-//            RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate,
-//                                                          withRange: 100,
-//                                                          withParameters: ["texto" : ""],
-//                                                          withBlock: { (units: [HealthUnit]?, error: Error?) in
-//                if error == nil {
-//                    for unit in units! {
-//                        if let _ = unit.unitName {
-//                            self.healthUnits.append(unit)
-//                            self.tableView.reloadData()
-//                        }
-//                    }
-//                    SVProgressHUD.dismiss()
-//                    self.tableView.reloadData()
-//                } else {
-//                    print(error)
-//                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
-//                }
-//            })
-//        }
-        
         self.configureSearchBar(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50),
                                 font: UIFont(name: "Verdana", size: 16.0)!,
                                 textColor: UIColor.white,
                                 bgColor: UIColor(red: 71, green: 186, blue: 251))
         
-        tableView.contentInset = UIEdgeInsets(top: -65, left: 0, bottom: 0, right: 0)
+//        tableView.contentInset = UIEdgeInsets(top: -65, left: 0, bottom: 0, right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         checkLocationAuthorizationStatus()
+        self.navigationController?.title = "Postos de Saúde"
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.title = ""
     }
     
     override func didReceiveMemoryWarning() {
@@ -88,8 +68,8 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
                                                           withBlock: { (units: [HealthUnit]?, error: Error?) in
                 if error == nil {
                     for unit in units! {
-                        let a = HealthUnitMapAnnotation(healthUnit: unit)
-                        self.mapView.addAnnotation(a)
+                        let annotation = HealthUnitMapAnnotation(healthUnit: unit)
+                        self.mapView.addAnnotation(annotation)
                         self.healthUnits.append(unit)
                     }
                     
@@ -122,6 +102,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         searchBar?.showsBookmarkButton = false
         searchBar?.showsCancelButton = false
         searchBar?.placeholder = "Buscar Posto de Saúde"
+        searchBar?.isTranslucent = false
         searchBar?.setImage(UIImage(named: "search"), for: .search, state: .normal)
         
         let lightWhiteColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
@@ -168,8 +149,18 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         
         if self.filteredHealthUnits.isEmpty {
             shouldShowSearchResults = false
+            for unit in self.healthUnits{
+                let annotation = HealthUnitMapAnnotation(healthUnit: unit)
+                self.mapView.addAnnotation(annotation)
+            }
+        } else {
+            self.mapView.removeAnnotations(self.mapView.annotations)
+            for unit in self.filteredHealthUnits{
+                let annotation = HealthUnitMapAnnotation(healthUnit: unit)
+                self.mapView.addAnnotation(annotation)
+            }
         }
-        
+
         print(filteredHealthUnits)
         
         self.tableView.reloadData()
@@ -272,18 +263,13 @@ extension HealthUnitViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if let annotation = annotation as? HealthUnitMapAnnotation {
             let identifier = "pin"
-            var view: MKPinAnnotationView
-            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-                as? MKPinAnnotationView { // 2
-                dequeuedView.annotation = annotation
-                view = dequeuedView
-            } else {
-                // 3
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-                view.canShowCallout = true
-                view.calloutOffset = CGPoint(x: -5, y: 5)
-                view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
-            }
+            var view: MKAnnotationView
+            view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            view.image = UIImage(named: "pin-estabelecimento")
+            view.frame = CGRect(x: 0, y: 0, width: 25, height: 25)
             return view
         }
         return nil
