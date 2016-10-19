@@ -77,6 +77,10 @@ class HealthUnitDetailsViewController: UIViewController {
         self.lblServiceAtendimentoAmbulatorial.textColor = UIColor.red
     }
     
+    @IBAction func didPressFeedback(_ sender: AnyObject) {
+        performSegue(withIdentifier: "feedbackSegue", sender: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

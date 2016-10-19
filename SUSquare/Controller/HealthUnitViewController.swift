@@ -13,6 +13,7 @@ import SVProgressHUD
 
 class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     
@@ -102,7 +103,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         searchBar?.showsBookmarkButton = false
         searchBar?.showsCancelButton = false
         searchBar?.placeholder = "Buscar Posto de Saúde"
-        searchBar?.isTranslucent = false
+//        searchBar?.isTranslucent = false
         searchBar?.setImage(UIImage(named: "search"), for: .search, state: .normal)
         
         let lightWhiteColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
