@@ -1,23 +1,19 @@
 //
-//  HealthUnitTableViewCell.swift
+//  AboutMeTableViewCell.swift
 //  SUSquare
 //
-//  Created by Luis Filipe Campani on 01/10/16.
+//  Created by AGES1 on 20/10/16.
 //  Copyright © 2016 AGES. All rights reserved.
 //
 
 import UIKit
 
-class HealthUnitTableViewCell: UITableViewCell {
+class AboutMeTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var lblDistance: UILabel!
-    @IBOutlet weak var lblHealthUnit: UILabel!
-    @IBOutlet weak var lblWaitTime: UILabel!
-    @IBOutlet weak var btnFavorite: UIButton!
-    
+    @IBOutlet weak var titleLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        lblHealthUnit.numberOfLines = 2
         // Initialization code
     }
 
@@ -26,5 +22,5 @@ class HealthUnitTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }

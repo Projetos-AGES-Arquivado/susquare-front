@@ -11,6 +11,8 @@
 		358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ABEB91DA033F8008B28E7 /* MapViewController.swift */; };
 		35AA115F1DA94BFF00BCA999 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */; };
 		65912CCF1033F42DD731EE7C /* Pods_SUSquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */; };
+		681A52081DB8F4F20022C16D /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681A52071DB8F4F20022C16D /* AboutMeViewController.swift */; };
+		681A520A1DB8F5DC0022C16D /* AboutMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681A52091DB8F5DC0022C16D /* AboutMeTableViewCell.swift */; };
 		7A0CF1BB1D9FFA7B006EEBAF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */; };
 		7A0CF1BD1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */; };
 		7A0CF1C01D9FFA7B006EEBAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A0CF1BE1D9FFA7B006EEBAF /* Main.storyboard */; };
@@ -35,6 +37,8 @@
 		353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitMapAnnotation.swift; path = Model/HealthUnitMapAnnotation.swift; sourceTree = "<group>"; };
 		358ABEB91DA033F8008B28E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
 		35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		681A52071DB8F4F20022C16D /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMeViewController.swift; path = Controller/AboutMeViewController.swift; sourceTree = "<group>"; };
+		681A52091DB8F5DC0022C16D /* AboutMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMeTableViewCell.swift; path = Model/AboutMeTableViewCell.swift; sourceTree = "<group>"; };
 		7A0CF1B71D9FFA7B006EEBAF /* SUSquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SUSquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthUnitDetailsViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 				358ABEB91DA033F8008B28E7 /* MapViewController.swift */,
 				7A6CD58C1DA9153700B4954A /* LoginViewController.swift */,
 				7A57A1481DB806550041D62D /* FeedbackViewController.swift */,
+				681A52071DB8F4F20022C16D /* AboutMeViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 				7AF9B8E21DA037090095F9A6 /* Address.swift */,
 				7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */,
 				7A7A4E031DA9216B002CBAAB /* User.swift */,
+				681A52091DB8F5DC0022C16D /* AboutMeTableViewCell.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -290,7 +296,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -302,6 +308,7 @@
 			files = (
 				7AB7A1FF1DB27DB200D5D14F /* CustomSearchBar.swift in Sources */,
 				7A0CF1BD1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift in Sources */,
+				681A52081DB8F4F20022C16D /* AboutMeViewController.swift in Sources */,
 				7AF9B8E01DA0357F0095F9A6 /* HealthUnit.swift in Sources */,
 				353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */,
 				358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */,
@@ -313,6 +320,7 @@
 				7A6CD58D1DA9153700B4954A /* LoginViewController.swift in Sources */,
 				7AF9B8E31DA037090095F9A6 /* Address.swift in Sources */,
 				7A7A4E041DA9216B002CBAAB /* User.swift in Sources */,
+				681A520A1DB8F5DC0022C16D /* AboutMeTableViewCell.swift in Sources */,
 				7A57A1491DB806550041D62D /* FeedbackViewController.swift in Sources */,
 				7AA644C41DAC358600635DEB /* Utils.swift in Sources */,
 			);

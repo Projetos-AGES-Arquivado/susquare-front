@@ -93,6 +93,11 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         }
     }
     
+    
+    @IBAction func aboutMeButtonPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: "aboutMeSegue", sender: nil)
+    }
+    
     //MARK: SearchBar
     func configureSearchBar(frame: CGRect, font: UIFont, textColor: UIColor, bgColor: UIColor) {
         
