@@ -40,7 +40,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
                                 textColor: UIColor.white,
                                 bgColor: UIColor(red: 71, green: 186, blue: 251))
         
-//        tableView.contentInset = UIEdgeInsets(top: -65, left: 0, bottom: 0, right: 0)
+        //        tableView.contentInset = UIEdgeInsets(top: -65, left: 0, bottom: 0, right: 0)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,30 +59,26 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     func loadUnits() {
         
-        if let location = locationManager.location {
-            
-            SVProgressHUD.show(withStatus: "Loading HealthUnits")
-            let coordinate: CLLocationCoordinate2D = location.coordinate
-            RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate,
-                                                          withRange: 100,
-                                                          withParameters: ["texto" : ""],
-                                                          withBlock: { (units: [HealthUnit]?, error: Error?) in
-                if error == nil {
-                    for unit in units! {
-                        let annotation = HealthUnitMapAnnotation(healthUnit: unit)
-                        self.mapView.addAnnotation(annotation)
-                        self.healthUnits.append(unit)
-                    }
-                    
-                    SVProgressHUD.dismiss()
-                    self.tableView.reloadData()
-                } else {
-                    print(error)
-                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+        SVProgressHUD.show(withStatus: "Loading HealthUnits")
+        let location = locationManager.location
+        let coordinate: CLLocationCoordinate2D? = location?.coordinate
+        
+        RestManager.requestHealthUnits(byLocation: coordinate, withRange: 100, withParameters: ["quantidade" : 900.0], withBlock: { (units: [HealthUnit]?, error: Error?) in
+            if error == nil {
+                for unit in units! {
+                    let annotation = HealthUnitMapAnnotation(healthUnit: unit)
+                    self.mapView.addAnnotation(annotation)
+                    self.healthUnits.append(unit)
                 }
-            })
-            centerMap()
-        }
+                
+                SVProgressHUD.dismiss()
+                self.tableView.reloadData()
+            } else {
+                print(error)
+                SVProgressHUD.showError(withStatus: error?.localizedDescription)
+            }
+        })
+        centerMap()
     }
     
     func centerMap() {
@@ -108,7 +104,6 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         searchBar?.showsBookmarkButton = false
         searchBar?.showsCancelButton = false
         searchBar?.placeholder = "Buscar Posto de Saúde"
-//        searchBar?.isTranslucent = false
         searchBar?.setImage(UIImage(named: "search"), for: .search, state: .normal)
         
         let lightWhiteColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
@@ -166,7 +161,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
                 self.mapView.addAnnotation(annotation)
             }
         }
-
+        
         print(filteredHealthUnits)
         
         self.tableView.reloadData()
@@ -180,6 +175,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         } else {
             locationManager.requestWhenInUseAuthorization()
         }
+        locationManager.requestWhenInUseAuthorization()
     }
     
     func centerMapOnLocation(location: CLLocation) {
@@ -257,7 +253,11 @@ extension HealthUnitViewController : UITableViewDataSource {
         }else {
             healthUnit = healthUnits[indexPath.row]
         }
-        cell.lblDistance.text = self.calcDistanceToHealthUnit(healthUnitLocation: healthUnit.location!)
+        if let healtUnitLocation = healthUnit.location {
+            cell.lblDistance.text = self.calcDistanceToHealthUnit(healthUnitLocation: healtUnitLocation)
+        } else {
+            cell.lblDistance.text = "--"
+        }
         cell.lblHealthUnit.text = healthUnit.unitName
         
         return cell

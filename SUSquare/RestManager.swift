@@ -15,26 +15,49 @@ import SwiftyJSON
 typealias HealthUnitResponseBlock = (_ response: [HealthUnit]?, _ error: Error?) -> ()
 class RestManager {
     
-    static let sharedInstance = RestManager()
+    //LOCAL
+//    let apiUrl = "localhost:8888"
+    
+    //DEV
+//    let apiUrl = "http://10.32.223.6/susquare/api"
+    
+    
+    //HOMO
+    static let baseURL = "http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest"
+    
     
     //PROD
-    let apiUrl = "http://www.ages.pucrs.br/susquare"
-    let metamodeloUrl = "http://mobile-aceite.tcu.gov.br/appCivicoRS/rest"
+//    let apiUrl = "http://www.ages.pucrs.br:3000/susquare"
+    
+//    let apiUrl = "http://susquare-api.herokuapp.com"
+    
+    static let getHealthUnits = "/estabelecimentos"
+    
+    static let signUpUser = "/pessoas"
+    static let authenticateUser = "/pessoas/autenticar"
     
     
-    let signUpUser = "/pessoas"
-    let authenticateUser = "/pessoas/autenticar"
+    static let appIdentifier = "348"
     
-    let getHealthUnits = "/estabelecimentos"
+    static let manager: Alamofire.SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 90 // seconds
+        configuration.timeoutIntervalForResource = 90
+        return Alamofire.SessionManager(configuration: configuration)
+    }()
     
-    let appIdentifier = "348"
-    
-    func requestHealthUnits(byLocation location: CLLocationCoordinate2D,
+    static func requestHealthUnits(byLocation location: CLLocationCoordinate2D?,
                               withRange range: Int,
-                              withParameters params: [String: String]? = nil,
+                              withParameters params: [String: Any]? = nil,
                               withBlock block: @escaping HealthUnitResponseBlock) {
-        
-        let a = "/estabelecimentos/latitude/\(location.latitude)/longitude/\(location.longitude)/raio/\(range)"
+        if let location = location {
+            //Aqui deve ser feito o request baseado na localizacão
+            let a = "/estabelecimentos/latitude/\(location.latitude)/longitude/\(location.longitude)/raio/\(range)"
+            print(a)
+        } else {
+            //Aqui deve ser feito o request sem location
+        }
+
         
         var parameters = [String: Any]()
         
@@ -44,9 +67,9 @@ class RestManager {
             }
         }
         
-        let url = apiUrl.appending(a)
+        let url = baseURL.appending(getHealthUnits)
         
-        Alamofire.request(url, method: .get, parameters: parameters).responseJSON { response in
+        manager.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             switch response.result {
             case .success(let value):
                 let jsons = JSON(value)
@@ -63,18 +86,20 @@ class RestManager {
         }
     }
     
-    func signUp(_ username : String, _ email : String, _ password : String,block: @escaping ()->()){
-        let parameters = ["nomeUsuario":username,"email":email,"senha":password]
-        
-        Alamofire.request("\(metamodeloUrl)\(signUpUser)", method: .post, parameters: parameters,encoding: JSONEncoding.default).responseString { (response) in
+    static func signUp(_ username : String, _ email : String, _ password : String,block: @escaping ()->()){
+        let parameters = ["nomeUsuario": username,"email": email,"senha": password]
+        let url = baseURL.appending(signUpUser)
+        manager.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default).responseString { (response) in
             print(response)
             block()
         }
     }
     
-    func authenticateUser(_ email : String, _ password : String){
-        let parameters = ["email":email,"senha":password]
-        Alamofire.request("\(metamodeloUrl)\(authenticateUser)", method: .get, headers: parameters).responseJSON { (response) in
+    static func authenticateUser(_ email : String, _ password : String){
+        let parameters = ["email": email,"senha": password]
+        let url = baseURL.appending(authenticateUser)
+        
+        manager.request(url, method: .get, headers: parameters).responseJSON { (response) in
             
             let json = JSON(response.result.value)
             User.sharedInstance.codAutor = "\(json["cod"].int))"

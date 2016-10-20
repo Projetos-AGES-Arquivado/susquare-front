@@ -27,7 +27,7 @@ class MapViewController: UIViewController {
     func loadUnits() {
         SVProgressHUD.show(withStatus: "Loading HealthUnits")
         let coordinate: CLLocationCoordinate2D = (locationManager.location?.coordinate)!
-        RestManager.sharedInstance.requestHealthUnits(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
+        RestManager.requestHealthUnits(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
             if error == nil {
                 for unit in units! {
                     let a = HealthUnitMapAnnotation(healthUnit: unit)

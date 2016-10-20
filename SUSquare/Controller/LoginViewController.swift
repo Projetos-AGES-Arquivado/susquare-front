@@ -45,8 +45,8 @@ class LoginViewController: UIViewController {
                 if let numberWithSha = session?.phoneNumber.sha1() {
                     let password = "batataBatatuda"
                     let email = "\(numberWithSha)@vamossaude.com.br"
-                    RestManager.sharedInstance.signUp(numberWithSha, email, password) {
-                        RestManager.sharedInstance.authenticateUser(email, password)
+                    RestManager.signUp(numberWithSha, email, password) {
+                        RestManager.authenticateUser(email, password)
                     }
                 }
                 

@@ -22,7 +22,10 @@ class HealthUnitMapAnnotation:NSObject, MKAnnotation {
     }
     
     convenience init(healthUnit: HealthUnit) {
-        let coordinate = CLLocationCoordinate2D(latitude: healthUnit.lat!, longitude: healthUnit.lng!)
+        var coordinate = kCLLocationCoordinate2DInvalid
+        if let lat = healthUnit.lat, let long = healthUnit.lng {
+            coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+        }
         self.init(name: healthUnit.unitName!, description: healthUnit.address.city, coordinate: coordinate, healthUnit: healthUnit)
     }
     
