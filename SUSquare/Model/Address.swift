@@ -10,8 +10,9 @@ import Foundation
 import SwiftyJSON
 
 class Address{
+    
     let street : String?
-    let number : Int?
+    let number : String?
     let neighbourhood : String?
     let city : String?
     let state : String?
@@ -19,11 +20,10 @@ class Address{
     
     init(json: JSON){
         self.street = json["logradouro"].string
-        self.number = json["numero"].int
+        self.number = json["numero"].string
         self.neighbourhood = json["bairro"].string
         self.city = json["cidade"].string
         self.state = json["uf"].string
         self.zip = json["cep"].int
     }
-    
 }

@@ -45,7 +45,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         checkLocationAuthorizationStatus()
-        self.navigationController?.title = "Postos de Saúde"
+        self.navigationController?.title = "Estabelecimentos de Saúde"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,7 +59,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     func loadUnits() {
         
-        SVProgressHUD.show(withStatus: "Loading HealthUnits")
+        SVProgressHUD.show(withStatus: "Buscando estabelecimentos de saúde...")
         let location = locationManager.location
         let coordinate: CLLocationCoordinate2D? = location?.coordinate
         
@@ -103,11 +103,11 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         searchBar?.tintColor = textColor
         searchBar?.showsBookmarkButton = false
         searchBar?.showsCancelButton = false
-        searchBar?.placeholder = "Buscar Posto de Saúde"
+        searchBar?.placeholder = "Localizar estabelecimento de saúde"
         searchBar?.setImage(UIImage(named: "search"), for: .search, state: .normal)
         
         let lightWhiteColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
-        let attributedString = NSAttributedString(string: "Buscar Posto de Saúde", attributes: [NSForegroundColorAttributeName: lightWhiteColor])
+        let attributedString = NSAttributedString(string: "Localizar estabelecimento de saúde", attributes: [NSForegroundColorAttributeName: lightWhiteColor])
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .clear
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = .white
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = attributedString
