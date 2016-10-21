@@ -16,10 +16,16 @@ class AuthenticationManager {
     static let userIDKey = "userID"
     static let phoneNumberKey = "phoneNumber"
     static let codAutor = "codAutor"
+    static let appToken = "appToken"
     
     func saveCodAutor(codAutor: String){
         let defaults = UserDefaults.standard
         defaults.set(codAutor, forKey: AuthenticationManager.codAutor)
+    }
+    
+    func saveAppToken(appToken: String){
+        let defaults = UserDefaults.standard
+        defaults.set(appToken, forKey: AuthenticationManager.appToken)
     }
     
     func saveUserSession(session: DGTSession){
@@ -35,6 +41,15 @@ class AuthenticationManager {
         let defaults = UserDefaults.standard
         if let codAutor = defaults.string(forKey: AuthenticationManager.codAutor){
             return codAutor
+        } else {
+            return ""
+        }
+    }
+    
+    func getAppToken() -> String{
+        let defaults = UserDefaults.standard
+        if let appToken = defaults.string(forKey: AuthenticationManager.appToken){
+            return appToken
         } else {
             return ""
         }

@@ -15,34 +15,31 @@ import SwiftyJSON
 typealias HealthUnitResponseBlock = (_ response: [HealthUnit]?, _ error: Error?) -> ()
 class RestManager {
     
-    //LOCAL
-//    let apiUrl = "localhost:8888"
-    
-    //DEV
-//    let apiUrl = "http://10.32.223.6/susquare/api"
-    
-    
     //HOMO
-    static let baseURL = "http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest"
-    
-    
-    //PROD
-//    let apiUrl = "http://www.ages.pucrs.br:3000/susquare"
-    
-//    let apiUrl = "http://susquare-api.herokuapp.com"
+    static let baseURLMapadasaude = "http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest"
+    static let baseURLMetamodelo = "http://mobile-aceite.tcu.gov.br/appCivicoRS/rest"
     
     static let getHealthUnits = "/estabelecimentos"
     
     static let signUpUser = "/pessoas"
     static let authenticateUser = "/pessoas/autenticar"
-    
+    static let createAttendance = "/postagens/conteudos"
     
     static let appIdentifier = "348"
+    static let tipoPostagemAtendimento = "221"
     
     static let manager: Alamofire.SessionManager = {
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 90 // seconds
         configuration.timeoutIntervalForResource = 90
+        return Alamofire.SessionManager(configuration: configuration)
+    }()
+    
+    static let managerWithValidation: Alamofire.SessionManager = {
+        let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 90 // seconds
+        configuration.timeoutIntervalForResource = 90
+        configuration.httpAdditionalHeaders = ["appToken":User.sharedInstance.appToken,"appIdentifier":appIdentifier]
         return Alamofire.SessionManager(configuration: configuration)
     }()
     
@@ -67,7 +64,7 @@ class RestManager {
             }
         }
         
-        let url = baseURL.appending(getHealthUnits)
+        let url = baseURLMapadasaude.appending(getHealthUnits)
         
         manager.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             switch response.result {
@@ -88,7 +85,7 @@ class RestManager {
     
     static func signUp(_ username : String, _ email : String, _ password : String,block: @escaping ()->()){
         let parameters = ["nomeUsuario": username,"email": email,"senha": password]
-        let url = baseURL.appending(signUpUser)
+        let url = baseURLMetamodelo.appending(signUpUser)
         manager.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default).responseString { (response) in
             print(response)
             block()
@@ -97,12 +94,53 @@ class RestManager {
     
     static func authenticateUser(_ email : String, _ password : String){
         let parameters = ["email": email,"senha": password]
-        let url = baseURL.appending(authenticateUser)
+        let url = baseURLMetamodelo.appending(authenticateUser)
         
         manager.request(url, method: .get, headers: parameters).responseJSON { (response) in
-            
+            User.sharedInstance.appToken = response.response?.allHeaderFields["appToken"]! as? String
             let json = JSON(response.result.value)
-            User.sharedInstance.codAutor = "\(json["cod"].int))"
+            if let cod = json["cod"].int{
+                User.sharedInstance.codAutor = String(cod)
+            }
         }
+    }
+
+    static func createAttendance(_ healthUnitCode : String, _ deviceModel : String, deviceOsVersion : String){
+        
+        let conteudo = ["codUnidade":healthUnitCode,
+                        "dispositivoModelo":deviceModel,
+                        "dispositivoMarca":"Apple",
+                        "dispositivoSisOp":"iOS",
+                        "dispositivoSisOpVersao":deviceOsVersion]
+    
+        let jsonConteudoData = try! JSONSerialization.data(withJSONObject: conteudo, options: .prettyPrinted)
+        
+//        print(JSONSerialization.isValidJSONObject(conteudo))
+        
+        let jsonString = NSString(data: jsonConteudoData, encoding: String.Encoding.utf8.rawValue) as! String
+//        print(jsonString)
+        
+        if let codAutor = User.sharedInstance.codAutor, let latitude = User.sharedInstance.location?.latitude, let longitude = User.sharedInstance.location?.longitude {
+            
+            let jsonBody : [String:Any] = ["conteudo":["JSON":jsonString],
+                                           "postagem":["autor":["codPessoa":1886],
+                                                       "latitude":latitude,
+                                                       "longitude":longitude,
+                                                       "tipo":["codTipoPostagem":tipoPostagemAtendimento]
+                                                      ]
+                                          ]
+            
+            let url = baseURLMetamodelo.appending(createAttendance)
+            
+            let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
+            
+            managerWithValidation.request(url,
+                                      method: HTTPMethod.post,
+                                      parameters: jsonBody,
+                                      encoding: JSONEncoding.default,
+                                      headers: h).responseJSON(completionHandler: { (request) in
+                                        print(request)
+                                      })
+    }
     }
 }

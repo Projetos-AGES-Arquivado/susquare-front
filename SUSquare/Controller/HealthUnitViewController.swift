@@ -34,7 +34,6 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
         loadUnits()
-        
         self.configureSearchBar(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50),
                                 font: UIFont(name: "Verdana", size: 16.0)!,
                                 textColor: UIColor.white,
@@ -91,6 +90,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     
     @IBAction func aboutMeButtonPressed(_ sender: AnyObject) {
+        RestManager.createAttendance("12312", "iPhone 7 Plus", deviceOsVersion: "10.0.1")
         performSegue(withIdentifier: "aboutMeSegue", sender: nil)
     }
     

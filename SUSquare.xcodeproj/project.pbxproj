@@ -32,7 +32,7 @@
 		7AB7A1FF1DB27DB200D5D14F /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB7A1FE1DB27DB200D5D14F /* CustomSearchBar.swift */; };
 		7AF9B8E01DA0357F0095F9A6 /* HealthUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */; };
 		7AF9B8E31DA037090095F9A6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9B8E21DA037090095F9A6 /* Address.swift */; };
-		D9F8294F1DBA8DC600C730DF /* CheckIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9F8294E1DBA8DC600C730DF /* CheckIn.storyboard */; };
+		D9F829511DBAA82E00C730DF /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F829501DBAA82E00C730DF /* Attendance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +66,7 @@
 		7AF9B8E21DA037090095F9A6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Address.swift; path = Model/Address.swift; sourceTree = "<group>"; };
 		7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SUSquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFB4C56351FA767C45E44576 /* Pods-SUSquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare.release.xcconfig"; sourceTree = "<group>"; };
-		D9F8294E1DBA8DC600C730DF /* CheckIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = CheckIn.storyboard; path = View/CheckIn.storyboard; sourceTree = "<group>"; };
+		D9F829501DBAA82E00C730DF /* Attendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Attendance.swift; path = Model/Attendance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +133,6 @@
 				7A0D0E331DA005F300B25B02 /* HealthUnit.storyboard */,
 				68C3D8911DBA506700860BFC /* About.storyboard */,
 				7A6CD58A1DA9152400B4954A /* Login.storyboard */,
-				D9F8294E1DBA8DC600C730DF /* CheckIn.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -161,6 +160,7 @@
 				7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */,
 				7A7A4E031DA9216B002CBAAB /* User.swift */,
 				681A52091DB8F5DC0022C16D /* AboutMeTableViewCell.swift */,
+				D9F829501DBAA82E00C730DF /* Attendance.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -243,7 +243,6 @@
 				68C3D8921DBA506700860BFC /* About.storyboard in Resources */,
 				7A6CD58B1DA9152400B4954A /* Login.storyboard in Resources */,
 				7A0D0E341DA005F300B25B02 /* HealthUnit.storyboard in Resources */,
-				D9F8294F1DBA8DC600C730DF /* CheckIn.storyboard in Resources */,
 				7A0CF1C01D9FFA7B006EEBAF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9F829511DBAA82E00C730DF /* Attendance.swift in Sources */,
 				7AB7A1FF1DB27DB200D5D14F /* CustomSearchBar.swift in Sources */,
 				7A0CF1BD1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift in Sources */,
 				681A52081DB8F4F20022C16D /* AboutMeViewController.swift in Sources */,

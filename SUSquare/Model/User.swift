@@ -26,6 +26,18 @@ class User {
         }
     }
     
+    var appToken : String? {
+        set {
+            if (newValue != "") {
+                AuthenticationManager.sharedInstance.saveAppToken(appToken: newValue!)
+            } else {
+                NSLog("session set value shouldnt be nil, otherwise the session will not be ssaved on the UserDefaults")
+            }
+        } get {
+            return AuthenticationManager.sharedInstance.getAppToken()
+        }
+    }
+    
     var session : DGTSession? {
         set {
             if (newValue != nil) {
