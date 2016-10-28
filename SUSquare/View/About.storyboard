@@ -180,16 +180,69 @@ A motivação para o desenvolvimento do projeto foi a de usar a tecnologia para 
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Desenvolvedores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR3-ew-EKo">
-                                <frame key="frameInset" minX="16" minY="20" width="116" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desenvolvedores" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hR3-ew-EKo">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="116" id="BhE-bp-odY"/>
+                                    <constraint firstAttribute="height" constant="21" id="CCl-Sb-8Yj"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT7-S2-GIl">
-                                <frame key="frameInset" minX="16" minY="42" width="205" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Coordenador do Projeto" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uMM-xi-cQG">
+                                <frame key="frameInset" minX="16" minY="280" width="358" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="IsK-n1-FYz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Prof. MSc. Eduardo Arruda" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jU5-20-MXR">
+                                <frame key="frameInset" minX="28" minY="301" width="204" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Arquiteto de Software" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s32-uw-G7L">
+                                <frame key="frameInset" minX="18" minY="330" width="358" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Gwk-wX-J5t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Cássio André Wailer Trindade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rJ-p6-swD">
+                                <frame key="frameInset" minX="28" minY="351" width="225" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Apoio" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cx-uj-hZe">
+                                <frame key="frameInset" minX="18" minY="387" width="358" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EyB-tC-TZg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="highlightedColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="André Farias Botelho" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hh-fa-7xA">
+                                <frame key="frameInset" minX="28" minY="408" width="159" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Alexandre Zetterman" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jTO-hB-gM8">
+                                <frame key="frameInset" minX="28" minY="437" width="161" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="HSO-Rg-vV7">
+                                <frame key="frameInset" minX="28" minY="40" width="317" height="232"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Carlos Henrique Arype Ilha
 Eduardo Lima de Oliveira
 Fabrício Rodrigues Pujol
@@ -200,17 +253,41 @@ Luis Filipe Novo Campani da Silva
 Marcus Vinícius Kuquert
 Matheus Mello Vaccaro
 Maximilian Nicholas Schmidt Zorzetti</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="7rJ-p6-swD" firstAttribute="top" secondItem="s32-uw-G7L" secondAttribute="bottom" id="57X-TX-Use"/>
+                            <constraint firstItem="7cx-uj-hZe" firstAttribute="top" secondItem="7rJ-p6-swD" secondAttribute="bottom" constant="15" id="5ph-nq-IZk"/>
+                            <constraint firstItem="s32-uw-G7L" firstAttribute="top" secondItem="jU5-20-MXR" secondAttribute="bottom" constant="8" symbolic="YES" id="6K4-gv-i7e"/>
+                            <constraint firstItem="PAh-g3-H0z" firstAttribute="top" secondItem="jTO-hB-gM8" secondAttribute="bottom" constant="145" id="70C-tK-N3p"/>
+                            <constraint firstItem="HSO-Rg-vV7" firstAttribute="leading" secondItem="uMM-xi-cQG" secondAttribute="leading" id="7Hf-l3-jlN"/>
+                            <constraint firstItem="uMM-xi-cQG" firstAttribute="top" secondItem="HSO-Rg-vV7" secondAttribute="bottom" constant="8" symbolic="YES" id="7zd-a9-VCD"/>
+                            <constraint firstItem="s32-uw-G7L" firstAttribute="leading" secondItem="KsB-HN-qbW" secondAttribute="leadingMargin" constant="-4" id="AUb-sP-FdN"/>
+                            <constraint firstItem="HSO-Rg-vV7" firstAttribute="top" secondItem="wI4-GB-e67" secondAttribute="bottom" constant="40" id="EOP-gR-ggj"/>
+                            <constraint firstItem="uMM-xi-cQG" firstAttribute="leading" secondItem="jU5-20-MXR" secondAttribute="leading" id="EUU-G2-T29"/>
+                            <constraint firstItem="7cx-uj-hZe" firstAttribute="leading" secondItem="7hh-fa-7xA" secondAttribute="leading" id="FFw-Cd-Wsp"/>
+                            <constraint firstItem="jU5-20-MXR" firstAttribute="top" secondItem="uMM-xi-cQG" secondAttribute="bottom" id="GLK-WK-SXY"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HSO-Rg-vV7" secondAttribute="trailing" constant="32" id="K2e-nJ-gKW"/>
+                            <constraint firstItem="hR3-ew-EKo" firstAttribute="top" secondItem="KsB-HN-qbW" secondAttribute="top" constant="20" symbolic="YES" id="aj8-VZ-i7R"/>
+                            <constraint firstItem="7hh-fa-7xA" firstAttribute="top" secondItem="7cx-uj-hZe" secondAttribute="bottom" id="dSa-1G-eUj"/>
+                            <constraint firstItem="7hh-fa-7xA" firstAttribute="leading" secondItem="jTO-hB-gM8" secondAttribute="leading" id="dZz-o5-3sc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="s32-uw-G7L" secondAttribute="trailing" constant="-11" id="etz-QH-QXW"/>
+                            <constraint firstItem="7rJ-p6-swD" firstAttribute="leading" secondItem="7cx-uj-hZe" secondAttribute="leading" id="hSb-OI-Wf9"/>
+                            <constraint firstItem="jTO-hB-gM8" firstAttribute="top" secondItem="7hh-fa-7xA" secondAttribute="bottom" constant="8" symbolic="YES" id="hhn-WS-tw7"/>
+                            <constraint firstItem="s32-uw-G7L" firstAttribute="leading" secondItem="7rJ-p6-swD" secondAttribute="leading" id="hyg-gB-8ID"/>
+                            <constraint firstItem="s32-uw-G7L" firstAttribute="trailing" secondItem="7cx-uj-hZe" secondAttribute="trailing" id="ifI-zj-qPD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uMM-xi-cQG" secondAttribute="trailing" constant="-9" id="mCY-Wn-JCP"/>
+                            <constraint firstItem="HSO-Rg-vV7" firstAttribute="leading" secondItem="KsB-HN-qbW" secondAttribute="leadingMargin" constant="-6" id="mzB-Ai-76Y"/>
+                            <constraint firstItem="hR3-ew-EKo" firstAttribute="leading" secondItem="KsB-HN-qbW" secondAttribute="leadingMargin" id="pdP-Qd-obx"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="txE-08-MOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2494" y="1856"/>
+            <point key="canvasLocation" x="2493.5" y="1855.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="945-UR-TMj">
