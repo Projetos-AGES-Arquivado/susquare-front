@@ -56,28 +56,41 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func loadUnits() {
-        
+    func loadUnits(){
         SVProgressHUD.show(withStatus: "Buscando estabelecimentos de saúde...")
+        
         let location = locationManager.location
         let coordinate: CLLocationCoordinate2D? = location?.coordinate
         
-        RestManager.requestHealthUnits(byLocation: coordinate, withRange: 100, withParameters: ["quantidade" : 900.0], withBlock: { (units: [HealthUnit]?, error: Error?) in
+        loadUnitsByCategory(categoria: "HOSPITAL", coordinate: coordinate!) {
+            self.loadUnitsByCategory(categoria: "POSTO DE SAÚDE", coordinate: coordinate!, block: { 
+                self.loadUnitsByCategory(categoria: "URGÊNCIA", coordinate: coordinate!, block: {
+                    self.healthUnits.sort(by: {$0.distance! < $1.distance!})
+                    SVProgressHUD.dismiss()
+                    self.tableView.reloadData()
+                })
+            })
+        }
+        centerMap()
+    }
+    
+    func loadUnitsByCategory(categoria: String, coordinate : CLLocationCoordinate2D, block: @escaping ()->()) {
+        
+        RestManager.requestHealthUnits(byLocation: coordinate, withRange: 100, withParameters: ["quantidade" : 30.0,"categoria":categoria], withBlock: { (units: [HealthUnit]?, error: Error?) in
             if error == nil {
                 for unit in units! {
                     let annotation = HealthUnitMapAnnotation(healthUnit: unit)
+                    unit.calcDistanceToUser()
                     self.mapView.addAnnotation(annotation)
                     self.healthUnits.append(unit)
                 }
-                
-                SVProgressHUD.dismiss()
                 self.tableView.reloadData()
+                block()
             } else {
                 print(error)
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
             }
         })
-        centerMap()
     }
     
     func findUnitsWithText(_ text: String, range: Int) {
@@ -226,24 +239,6 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
             }
         }
     }
-    
-    func calcDistanceToHealthUnit(healthUnitLocation : CLLocationCoordinate2D) -> String {
-        if let location = User.sharedInstance.location {
-            let userLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
-            let unitLocation = CLLocation(latitude: healthUnitLocation.latitude, longitude: healthUnitLocation.longitude)
-            
-            let distanceInMeters = Int((userLocation.distance(from: unitLocation)))
-            
-            let distanceInKilometers = distanceInMeters/1000
-            
-            print("IN M: \(distanceInMeters) ----- IN KM:\(distanceInKilometers)")
-            
-            
-            return "\(distanceInKilometers)km"
-        } else {
-            return "--"
-        }
-    }
 }
 
 extension HealthUnitViewController : UITableViewDelegate {
@@ -284,8 +279,8 @@ extension HealthUnitViewController : UITableViewDataSource {
         }else {
             healthUnit = healthUnits[indexPath.row]
         }
-        if let healtUnitLocation = healthUnit.location {
-            cell.lblDistance.text = self.calcDistanceToHealthUnit(healthUnitLocation: healtUnitLocation)
+        if let distance = healthUnit.distance {
+            cell.lblDistance.text = "\(distance) km"
         } else {
             cell.lblDistance.text = "--"
         }

@@ -20,6 +20,7 @@ class HealthUnit{
     var services = [String:String]()
     let schedule : String?
     let address : Address
+    var distance : Int?
     
     init(json: JSON) {
         self.unitName = json["nomeFantasia"].string
@@ -39,5 +40,20 @@ class HealthUnit{
         self.category = json["tipoUnidade"].string
         self.schedule = json["turnoAtendimento"].string
         self.address = Address(json: json)
+    }
+    
+    func calcDistanceToUser(){
+        if let location = User.sharedInstance.location {
+            let unitLocation = CLLocation(latitude: (self.location?.latitude)!, longitude: (self.location?.longitude)!)
+            let userLocation = CLLocation(latitude: location.latitude, longitude: location.longitude)
+            
+            let distanceInMeters = Int((unitLocation.distance(from: userLocation)))
+            
+            let distanceInKilometers = distanceInMeters/1000
+            
+            print("IN M: \(distanceInMeters) ----- IN KM:\(distanceInKilometers)")
+            
+            self.distance = distanceInKilometers
+        }
     }
 }
