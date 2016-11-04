@@ -31,6 +31,6 @@ class PartnersViewController: UIViewController {
 
 extension PartnersViewController : UIScrollViewDelegate{
     override func viewDidLayoutSubviews() {
-        self.scrollViewPartners.contentSize = CGSize(width: self.scrollViewPartners.frame.width, height: 2000)
+        self.scrollViewPartners.contentSize = CGSize(width: self.scrollViewPartners.frame.width, height: 2100)
     }
 }

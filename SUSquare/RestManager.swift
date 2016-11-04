@@ -47,14 +47,16 @@ class RestManager {
                               withRange range: Int,
                               withParameters params: [String: Any]? = nil,
                               withBlock block: @escaping HealthUnitResponseBlock) {
+        
+        var url = ""
+        
         if let location = location {
             //Aqui deve ser feito o request baseado na localizacão
-            let a = "/estabelecimentos/latitude/\(location.latitude)/longitude/\(location.longitude)/raio/\(range)"
-            print(a)
+            url = baseURLMapadasaude.appending("/estabelecimentos/latitude/\(location.latitude)/longitude/\(location.longitude)/raio/\(range)")
         } else {
             //Aqui deve ser feito o request sem location
+            url = baseURLMapadasaude.appending(getHealthUnits)
         }
-
         
         var parameters = [String: Any]()
         
@@ -63,8 +65,6 @@ class RestManager {
                 parameters[param.key] = param.value
             }
         }
-        
-        let url = baseURLMapadasaude.appending(getHealthUnits)
         
         manager.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             switch response.result {
@@ -82,6 +82,46 @@ class RestManager {
             }
         }
     }
+//    
+//    static func requestHospitals(byLocation location: CLLocationCoordinate2D?,
+//                                 withRange range: Int,
+//                                 withParameters params: [String: Any]? = nil,
+//                                 withBlock block: @escaping HealthUnitResponseBlock){
+//        
+//        var url = ""
+//        
+//        if let location = location {
+//            //Aqui deve ser feito o request baseado na localizacão
+//            url = baseURLMapadasaude.appending("/estabelecimentos/latitude/\(location.latitude)/longitude/\(location.longitude)/raio/\(range)")
+//        } else {
+//            //Aqui deve ser feito o request sem location
+//            url = baseURLMapadasaude.appending(getHealthUnits)
+//        }
+//        
+//        var parameters = [String: Any]()
+//        
+//        if let params = params {
+//            for param in params {
+//                parameters[param.key] = param.value
+//            }
+//        }
+//        
+//        manager.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
+//            switch response.result {
+//            case .success(let value):
+//                let jsons = JSON(value)
+//                var allUnits: [HealthUnit] = [HealthUnit]()
+//                for json in jsons {
+//                    allUnits += [HealthUnit(json: json.1)]
+//                }
+//                
+//                block(allUnits, nil)
+//            case .failure(let error):
+//                block(nil, error)
+//                print(error)
+//            }
+//        }
+//    }
     
     static func signUp(_ username : String, _ email : String, _ password : String,block: @escaping ()->()){
         let parameters = ["nomeUsuario": username,"email": email,"senha": password]
@@ -120,7 +160,7 @@ class RestManager {
         let jsonString = NSString(data: jsonConteudoData, encoding: String.Encoding.utf8.rawValue) as! String
 //        print(jsonString)
         
-        if let codAutor = User.sharedInstance.codAutor, let latitude = User.sharedInstance.location?.latitude, let longitude = User.sharedInstance.location?.longitude {
+        if let _ = User.sharedInstance.codAutor, let latitude = User.sharedInstance.location?.latitude, let longitude = User.sharedInstance.location?.longitude {
             
             let jsonBody : [String:Any] = ["conteudo":["JSON":jsonString],
                                            "postagem":["autor":["codPessoa":1886],

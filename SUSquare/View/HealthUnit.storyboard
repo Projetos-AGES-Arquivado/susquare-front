@@ -19,111 +19,40 @@
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="healthUnit" translatesAutoresizingMaskIntoConstraints="NO" id="BUW-m2-y90"/>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Endereço" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7d-sX-OE5">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="QNt-6D-ACt"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Endereço" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7d-sX-OE5">
+                                <frame key="frameInset" minX="67" minY="348.5" width="241" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dialise" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="516-38-gAw">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="e6L-6Z-fcO"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NeoNatal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sbn-ZL-Fdb">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="SrP-ms-kE2"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atendimento" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-Np-lVc">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="B8C-T2-U3B"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Atendimento" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-Np-lVc">
+                                <frame key="frameInset" minX="67" minY="406.5" width="241" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Centro Cirurgico" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOe-KB-g7F">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="DkB-X5-i8b"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Categoria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5U-mQ-YIh">
+                                <frame key="frameInset" minX="67" minY="320" width="241" height="20.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atendimento Urgência" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqH-ni-oN9">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="0uP-Ct-DCZ"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mGd-QT-Dy5">
+                                <frame key="frameInset" minX="166" minY="20" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obstetra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4W5-mh-cdD">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="MjX-Fv-akC"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Atendimento Ambulatorial" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaS-89-tUN">
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="RQd-dK-Yj1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Categoria" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5U-mQ-YIh">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" fixedFrame="YES" image="healthUnit" translatesAutoresizingMaskIntoConstraints="NO" id="BUW-m2-y90">
+                                <frame key="frameInset" minX="67" minY="101" width="241" height="212"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BUW-m2-y90" firstAttribute="top" secondItem="TRj-7C-DII" secondAttribute="bottom" constant="8" symbolic="YES" id="0ED-YK-nQ1"/>
-                            <constraint firstItem="Sbn-ZL-Fdb" firstAttribute="trailing" secondItem="4W5-mh-cdD" secondAttribute="trailing" id="1Qs-yW-qdj"/>
-                            <constraint firstItem="a7d-sX-OE5" firstAttribute="trailing" secondItem="Mqh-Np-lVc" secondAttribute="trailing" id="1aG-FB-Exq"/>
-                            <constraint firstItem="BUW-m2-y90" firstAttribute="trailing" secondItem="D5U-mQ-YIh" secondAttribute="trailing" id="4yf-tu-edg"/>
-                            <constraint firstItem="4W5-mh-cdD" firstAttribute="top" secondItem="Sbn-ZL-Fdb" secondAttribute="bottom" constant="8" symbolic="YES" id="98w-ZY-qKS"/>
-                            <constraint firstItem="BUW-m2-y90" firstAttribute="leading" secondItem="D5U-mQ-YIh" secondAttribute="leading" id="AIb-wG-5v1"/>
-                            <constraint firstItem="BUW-m2-y90" firstAttribute="leading" secondItem="d1H-8p-ABk" secondAttribute="leadingMargin" constant="51" id="AVa-1V-y9d"/>
-                            <constraint firstItem="nOe-KB-g7F" firstAttribute="top" secondItem="4W5-mh-cdD" secondAttribute="bottom" constant="8" symbolic="YES" id="BtV-rx-F5h"/>
-                            <constraint firstItem="nOe-KB-g7F" firstAttribute="leading" secondItem="fqH-ni-oN9" secondAttribute="leading" id="CgI-Uk-mDf"/>
-                            <constraint firstItem="fqH-ni-oN9" firstAttribute="top" secondItem="nOe-KB-g7F" secondAttribute="bottom" constant="8" symbolic="YES" id="F5g-It-HX1"/>
-                            <constraint firstItem="516-38-gAw" firstAttribute="leading" secondItem="Sbn-ZL-Fdb" secondAttribute="leading" id="FgY-Pe-99Q"/>
-                            <constraint firstItem="BUW-m2-y90" firstAttribute="centerX" secondItem="d1H-8p-ABk" secondAttribute="centerX" id="HhO-3K-cWd"/>
-                            <constraint firstItem="Sbn-ZL-Fdb" firstAttribute="leading" secondItem="4W5-mh-cdD" secondAttribute="leading" id="KP4-7Z-vua"/>
-                            <constraint firstItem="516-38-gAw" firstAttribute="top" secondItem="Mqh-Np-lVc" secondAttribute="bottom" constant="7" id="M12-aN-rZ8"/>
-                            <constraint firstItem="fqH-ni-oN9" firstAttribute="leading" secondItem="xaS-89-tUN" secondAttribute="leading" id="TrT-dK-taU"/>
-                            <constraint firstItem="xaS-89-tUN" firstAttribute="top" secondItem="fqH-ni-oN9" secondAttribute="bottom" constant="8" symbolic="YES" id="Yx5-Oi-LZF"/>
-                            <constraint firstItem="nOe-KB-g7F" firstAttribute="trailing" secondItem="fqH-ni-oN9" secondAttribute="trailing" id="aFV-Ba-GlY"/>
-                            <constraint firstItem="Mqh-Np-lVc" firstAttribute="trailing" secondItem="516-38-gAw" secondAttribute="trailing" id="bY6-la-TfX"/>
-                            <constraint firstItem="516-38-gAw" firstAttribute="trailing" secondItem="Sbn-ZL-Fdb" secondAttribute="trailing" id="fdn-kM-dXa"/>
-                            <constraint firstItem="Sbn-ZL-Fdb" firstAttribute="top" secondItem="516-38-gAw" secondAttribute="bottom" constant="8" symbolic="YES" id="fyS-G7-h6D"/>
-                            <constraint firstItem="D5U-mQ-YIh" firstAttribute="top" secondItem="BUW-m2-y90" secondAttribute="bottom" constant="7" id="hJV-gD-dft"/>
-                            <constraint firstItem="Mqh-Np-lVc" firstAttribute="top" secondItem="a7d-sX-OE5" secondAttribute="bottom" constant="8" symbolic="YES" id="hOu-TQ-Stl"/>
-                            <constraint firstItem="4W5-mh-cdD" firstAttribute="leading" secondItem="nOe-KB-g7F" secondAttribute="leading" id="hrI-k5-Xpy"/>
-                            <constraint firstItem="4W5-mh-cdD" firstAttribute="trailing" secondItem="nOe-KB-g7F" secondAttribute="trailing" id="iaM-lM-zhP"/>
-                            <constraint firstItem="a7d-sX-OE5" firstAttribute="top" secondItem="D5U-mQ-YIh" secondAttribute="bottom" constant="8" symbolic="YES" id="igC-s8-7Kg"/>
-                            <constraint firstItem="3uM-0J-VwL" firstAttribute="top" secondItem="xaS-89-tUN" secondAttribute="bottom" constant="17" id="jM2-Ta-TU7"/>
-                            <constraint firstItem="D5U-mQ-YIh" firstAttribute="leading" secondItem="a7d-sX-OE5" secondAttribute="leading" id="ju4-dC-ieK"/>
-                            <constraint firstItem="Mqh-Np-lVc" firstAttribute="leading" secondItem="516-38-gAw" secondAttribute="leading" id="qCG-OU-ScT"/>
-                            <constraint firstItem="fqH-ni-oN9" firstAttribute="trailing" secondItem="xaS-89-tUN" secondAttribute="trailing" id="tfZ-5x-1Z3"/>
-                            <constraint firstItem="a7d-sX-OE5" firstAttribute="leading" secondItem="Mqh-Np-lVc" secondAttribute="leading" id="uEy-Il-lFE"/>
-                            <constraint firstItem="D5U-mQ-YIh" firstAttribute="trailing" secondItem="a7d-sX-OE5" secondAttribute="trailing" id="yZS-nu-PdT"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="KWa-m2-s8F">
                         <barButtonItem key="backBarButtonItem" title="  " id="BE7-36-CFg"/>
@@ -138,12 +67,7 @@
                         <outlet property="lblAddress" destination="a7d-sX-OE5" id="K8F-Gq-Wkl"/>
                         <outlet property="lblCategory" destination="D5U-mQ-YIh" id="ulK-14-Jip"/>
                         <outlet property="lblSchedule" destination="Mqh-Np-lVc" id="79J-2R-Ab3"/>
-                        <outlet property="lblServiceAtendimentoAmbulatorial" destination="xaS-89-tUN" id="9m3-gS-NxJ"/>
-                        <outlet property="lblServiceAtendimentoUrgencia" destination="fqH-ni-oN9" id="v5K-tH-gtQ"/>
-                        <outlet property="lblServiceCentroCirurgico" destination="nOe-KB-g7F" id="4NY-Wg-yWv"/>
-                        <outlet property="lblServiceDialise" destination="516-38-gAw" id="ltf-ht-XeD"/>
-                        <outlet property="lblServiceNeoNatal" destination="Sbn-ZL-Fdb" id="Rhp-a3-dER"/>
-                        <outlet property="lblServiceObstetra" destination="4W5-mh-cdD" id="YcG-6S-cTf"/>
+                        <outlet property="lblTitle" destination="mGd-QT-Dy5" id="5KT-0S-lgh"/>
                         <segue destination="CqP-wn-Jg7" kind="show" identifier="feedbackSegue" id="WEw-jT-PzV"/>
                     </connections>
                 </viewController>
