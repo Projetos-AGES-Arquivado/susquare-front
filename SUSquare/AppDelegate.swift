@@ -10,6 +10,8 @@
  - Arrumar autolayout para colapsar mapa no scroll da view
  - Setar placeholder image na tela de HealthUnitDetail
  - Trocar o pin do mapa
+ - Salvar no userDefaults: nome, senha, email
+ - Remover o app token do userDefaults.
  */
 import UIKit
 import SVProgressHUD
@@ -29,12 +31,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fabric.with([Digits.self])
         
         Digits.sharedInstance().logOut()
-        
-        if User.sharedInstance.codAutor != "" {
-            gotoStoryboard(initialStoryboard: "HealthUnit")
-        } else {
-            gotoStoryboard(initialStoryboard: "Login")
-        }
+        gotoStoryboard(initialStoryboard: "Login")
+//        if User.sharedInstance.codAutor != "" {
+//            gotoStoryboard(initialStoryboard: "HealthUnit")
+//        } else {
+//            gotoStoryboard(initialStoryboard: "Login")
+//        }
         // Override point for customization after application launch.
         return true
     }

@@ -14,9 +14,9 @@ class User {
     
     static let sharedInstance = User()
     var location : CLLocationCoordinate2D?
-    var codAutor : String? {
+    var codAutor : Int? {
         set {
-            if (newValue != "") {
+            if (newValue != nil) {
                 AuthenticationManager.sharedInstance.saveCodAutor(codAutor: newValue!)
             } else {
                 NSLog("session set value shouldnt be nil, otherwise the session will not be ssaved on the UserDefaults")

@@ -80,6 +80,33 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         centerMap()
     }
     
+    func findUnitsWithText(_ text: String, range: Int) {
+        
+        SVProgressHUD.show(withStatus: "Loading HealthUnits")
+        if let location = locationManager.location {
+            let coordinate: CLLocationCoordinate2D? = location.coordinate
+            
+            RestManager.requestHealthUnits(byLocation: coordinate, withRange: range, withParameters: ["text" : text], withBlock: { (units: [HealthUnit]?, error: Error?) in
+                if error == nil {
+                    for unit in units! {
+                        let annotation = HealthUnitMapAnnotation(healthUnit: unit)
+                        self.mapView.addAnnotation(annotation)
+                        self.healthUnits.append(unit)
+                    }
+                    
+                    SVProgressHUD.dismiss()
+                    self.tableView.reloadData()
+                } else {
+                    print(error)
+                    SVProgressHUD.showError(withStatus: error?.localizedDescription)
+                }
+            })
+            centerMap()
+        } else {
+            SVProgressHUD.showError(withStatus: "Cannot get curren location")
+        }
+    }
+    
     func centerMap() {
         if let location = locationManager.location {
             User.sharedInstance.location = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
@@ -114,7 +141,11 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterHealthUnitsForSearchText(searchText)
+        
+//        filterHealthUnitsForSearchText(searchText)
+        findUnitsWithText(searchText, range: 30)
+        shouldShowSearchResults = false
+        
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

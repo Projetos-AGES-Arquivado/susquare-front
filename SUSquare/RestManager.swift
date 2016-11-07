@@ -14,13 +14,17 @@ import SwiftyJSON
 
 typealias HealthUnitResponseBlock = (_ response: [HealthUnit]?, _ error: Error?) -> ()
 class RestManager {
+
     
     //HOMO
     static let baseURLMapadasaude = "http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest"
     static let baseURLMetamodelo = "http://mobile-aceite.tcu.gov.br/appCivicoRS/rest"
+
+
+    //HOMO
+    static let baseURL = "http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest"
     
     static let getHealthUnits = "/estabelecimentos"
-    
     static let signUpUser = "/pessoas"
     static let authenticateUser = "/pessoas/autenticar"
     static let createAttendance = "/postagens/conteudos"
@@ -44,17 +48,9 @@ class RestManager {
     }()
     
     static func requestHealthUnits(byLocation location: CLLocationCoordinate2D?,
-                              withRange range: Int,
+                              withRange range: Int?,
                               withParameters params: [String: Any]? = nil,
                               withBlock block: @escaping HealthUnitResponseBlock) {
-        if let location = location {
-            //Aqui deve ser feito o request baseado na localizacão
-            let a = "/estabelecimentos/latitude/\(location.latitude)/longitude/\(location.longitude)/raio/\(range)"
-            print(a)
-        } else {
-            //Aqui deve ser feito o request sem location
-        }
-
         
         var parameters = [String: Any]()
         
@@ -64,7 +60,15 @@ class RestManager {
             }
         }
         
-        let url = baseURLMapadasaude.appending(getHealthUnits)
+
+        var url = baseURLMapadasaude.appending(getHealthUnits)
+        
+        if let location = location, let range = range {
+            let getHealthUnitsWithText = "/estabelecimentos/latitude/\(location.latitude)/longitude/\(location.longitude)/raio/\(range)"
+            url = baseURL.appending(getHealthUnitsWithText)
+        } else {
+            url = baseURL.appending(getHealthUnits)
+        }
         
         manager.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: nil).responseJSON { (response) in
             switch response.result {
@@ -86,8 +90,8 @@ class RestManager {
     static func signUp(_ username : String, _ email : String, _ password : String,block: @escaping ()->()){
         let parameters = ["nomeUsuario": username,"email": email,"senha": password]
         let url = baseURLMetamodelo.appending(signUpUser)
+//        let url = baseURL.appending(signUpUser)
         manager.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default).responseString { (response) in
-            print(response)
             block()
         }
     }
@@ -100,7 +104,7 @@ class RestManager {
             User.sharedInstance.appToken = response.response?.allHeaderFields["appToken"]! as? String
             let json = JSON(response.result.value)
             if let cod = json["cod"].int{
-                User.sharedInstance.codAutor = String(cod)
+                User.sharedInstance.codAutor = cod
             }
         }
     }
@@ -120,10 +124,12 @@ class RestManager {
         let jsonString = NSString(data: jsonConteudoData, encoding: String.Encoding.utf8.rawValue) as! String
 //        print(jsonString)
         
-        if let codAutor = User.sharedInstance.codAutor, let latitude = User.sharedInstance.location?.latitude, let longitude = User.sharedInstance.location?.longitude {
+        if let codAutor = User.sharedInstance.codAutor,
+            let latitude = User.sharedInstance.location?.latitude,
+            let longitude = User.sharedInstance.location?.longitude {
             
             let jsonBody : [String:Any] = ["conteudo":["JSON":jsonString],
-                                           "postagem":["autor":["codPessoa":1886],
+                                           "postagem":["autor":["codPessoa":codAutor],
                                                        "latitude":latitude,
                                                        "longitude":longitude,
                                                        "tipo":["codTipoPostagem":tipoPostagemAtendimento]

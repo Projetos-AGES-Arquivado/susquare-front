@@ -18,7 +18,7 @@ class AuthenticationManager {
     static let codAutor = "codAutor"
     static let appToken = "appToken"
     
-    func saveCodAutor(codAutor: String){
+    func saveCodAutor(codAutor: Int){
         let defaults = UserDefaults.standard
         defaults.set(codAutor, forKey: AuthenticationManager.codAutor)
     }
@@ -37,13 +37,9 @@ class AuthenticationManager {
     }
     
     
-    func getCodAutor() -> String{
+    func getCodAutor() -> Int?{
         let defaults = UserDefaults.standard
-        if let codAutor = defaults.string(forKey: AuthenticationManager.codAutor){
-            return codAutor
-        } else {
-            return ""
-        }
+        return defaults.integer(forKey: AuthenticationManager.codAutor)
     }
     
     func getAppToken() -> String{

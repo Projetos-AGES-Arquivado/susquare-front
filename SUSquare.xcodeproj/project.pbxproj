@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */; };
 		358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ABEB91DA033F8008B28E7 /* MapViewController.swift */; };
+		358B2A3D1DBA99240044F418 /* AttendanceStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358B2A3C1DBA99240044F418 /* AttendanceStepsViewController.swift */; };
+		358B2A3F1DBA99670044F418 /* AttendanceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358B2A3E1DBA99670044F418 /* AttendanceTableViewCell.swift */; };
+		358B2A411DBAB74D0044F418 /* AttendancePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358B2A401DBAB74D0044F418 /* AttendancePickerTableViewCell.swift */; };
 		35AA115F1DA94BFF00BCA999 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */; };
 		65912CCF1033F42DD731EE7C /* Pods_SUSquare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */; };
 		681A52081DB8F4F20022C16D /* AboutMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 681A52071DB8F4F20022C16D /* AboutMeViewController.swift */; };
@@ -39,6 +42,10 @@
 		2BD2E70567D13A74F0D346FB /* Pods-SUSquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare.debug.xcconfig"; sourceTree = "<group>"; };
 		353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitMapAnnotation.swift; path = Model/HealthUnitMapAnnotation.swift; sourceTree = "<group>"; };
 		358ABEB91DA033F8008B28E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
+		358B2A3C1DBA99240044F418 /* AttendanceStepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendanceStepsViewController.swift; path = Controller/AttendanceStepsViewController.swift; sourceTree = "<group>"; };
+		358B2A3E1DBA99670044F418 /* AttendanceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendanceTableViewCell.swift; path = Controller/AttendanceTableViewCell.swift; sourceTree = "<group>"; };
+		358B2A401DBAB74D0044F418 /* AttendancePickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendancePickerTableViewCell.swift; path = Controller/AttendancePickerTableViewCell.swift; sourceTree = "<group>"; };
+		359F30161DC3F4D900A54901 /* SUSquare.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SUSquare.entitlements; sourceTree = "<group>"; };
 		35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		681A52071DB8F4F20022C16D /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMeViewController.swift; path = Controller/AboutMeViewController.swift; sourceTree = "<group>"; };
 		681A52091DB8F5DC0022C16D /* AboutMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMeTableViewCell.swift; path = Model/AboutMeTableViewCell.swift; sourceTree = "<group>"; };
@@ -110,6 +117,7 @@
 		7A0CF1B91D9FFA7B006EEBAF /* SUSquare */ = {
 			isa = PBXGroup;
 			children = (
+				359F30161DC3F4D900A54901 /* SUSquare.entitlements */,
 				7A0CF1BA1D9FFA7B006EEBAF /* AppDelegate.swift */,
 				35AA115E1DA94BFF00BCA999 /* AuthenticationManager.swift */,
 				7AB7A1FE1DB27DB200D5D14F /* CustomSearchBar.swift */,
@@ -148,6 +156,9 @@
 				7A57A1481DB806550041D62D /* FeedbackViewController.swift */,
 				681A52071DB8F4F20022C16D /* AboutMeViewController.swift */,
 				681A520B1DB9153C0022C16D /* PartnersViewController.swift */,
+				358B2A3C1DBA99240044F418 /* AttendanceStepsViewController.swift */,
+				358B2A3E1DBA99670044F418 /* AttendanceTableViewCell.swift */,
+				358B2A401DBAB74D0044F418 /* AttendancePickerTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -212,6 +223,11 @@
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 5CB58H6L4R;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -324,8 +340,10 @@
 				353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */,
 				358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */,
 				7A0D0E3C1DA01FE200B25B02 /* RestManager.swift in Sources */,
+				358B2A411DBAB74D0044F418 /* AttendancePickerTableViewCell.swift in Sources */,
 				7A0D0E3A1DA010D500B25B02 /* HealthUnitTableViewCell.swift in Sources */,
 				35AA115F1DA94BFF00BCA999 /* AuthenticationManager.swift in Sources */,
+				358B2A3D1DBA99240044F418 /* AttendanceStepsViewController.swift in Sources */,
 				7A0CF1BB1D9FFA7B006EEBAF /* AppDelegate.swift in Sources */,
 				7A0D0E381DA00F5600B25B02 /* HealthUnitViewController.swift in Sources */,
 				7A6CD58D1DA9153700B4954A /* LoginViewController.swift in Sources */,
@@ -334,6 +352,7 @@
 				681A520A1DB8F5DC0022C16D /* AboutMeTableViewCell.swift in Sources */,
 				681A520C1DB9153C0022C16D /* PartnersViewController.swift in Sources */,
 				7A57A1491DB806550041D62D /* FeedbackViewController.swift in Sources */,
+				358B2A3F1DBA99670044F418 /* AttendanceTableViewCell.swift in Sources */,
 				7AA644C41DAC358600635DEB /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +478,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SUSquare/SUSquare.entitlements;
 				DEVELOPMENT_TEAM = 5CB58H6L4R;
 				INFOPLIST_FILE = SUSquare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -476,6 +496,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SUSquare/SUSquare.entitlements;
 				DEVELOPMENT_TEAM = 5CB58H6L4R;
 				INFOPLIST_FILE = SUSquare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
