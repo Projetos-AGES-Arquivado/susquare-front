@@ -65,7 +65,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         loadUnitsByCategory(categoria: "HOSPITAL", coordinate: coordinate!) {
             self.loadUnitsByCategory(categoria: "POSTO DE SAÚDE", coordinate: coordinate!, block: { 
                 self.loadUnitsByCategory(categoria: "URGÊNCIA", coordinate: coordinate!, block: {
-                    self.healthUnits.sort(by: {$0.distance! < $1.distance!})
+                    self.healthUnits.sort(by: {$0.sortHelper! < $1.sortHelper!})
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
                 })
@@ -280,7 +280,11 @@ extension HealthUnitViewController : UITableViewDataSource {
             healthUnit = healthUnits[indexPath.row]
         }
         if let distance = healthUnit.distance {
-            cell.lblDistance.text = "\(distance) km"
+            if distance > 100 {
+                cell.lblDistance.text = "\(distance) m"
+            } else {
+                cell.lblDistance.text = "\(distance) km"
+            }
         } else {
             cell.lblDistance.text = "--"
         }

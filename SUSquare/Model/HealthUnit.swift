@@ -21,6 +21,7 @@ class HealthUnit{
     let schedule : String?
     let address : Address
     var distance : Int?
+    var sortHelper : Int?
     
     init(json: JSON) {
         self.unitName = json["nomeFantasia"].string
@@ -52,8 +53,12 @@ class HealthUnit{
             let distanceInKilometers = distanceInMeters/1000
             
             print("IN M: \(distanceInMeters) ----- IN KM:\(distanceInKilometers)")
-            
-            self.distance = distanceInKilometers
+            sortHelper = distanceInKilometers
+            if (distanceInMeters < 1000) {
+                self.distance = distanceInMeters
+            } else {
+                self.distance = distanceInKilometers
+            }
         }
     }
 }
