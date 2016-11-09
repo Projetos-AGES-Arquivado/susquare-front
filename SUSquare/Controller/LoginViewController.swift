@@ -13,7 +13,6 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        Digits.sharedInstance().logOut()
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,8 +36,8 @@ class LoginViewController: UIViewController {
         digits.authenticate(with: nil, configuration: configuration!) { session, error in
             if (session != nil) {
                 User.sharedInstance.session = session
-                let message = "Phone number: \(session!.phoneNumber)"
-                let alertController = UIAlertController(title: "You are logged in!", message: message, preferredStyle: .alert)
+                let message = "Número Cadastrado: \(session!.phoneNumber!)"
+                let alertController = UIAlertController(title: "Você está logado!", message: message, preferredStyle: .alert)
                 alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: .none))
                 self.present(alertController, animated: true, completion: .none)
                 
@@ -55,7 +54,7 @@ class LoginViewController: UIViewController {
                 }
             } else {
                 let message = error!.localizedDescription
-                let alertController = UIAlertController(title: "Authentication Error: ", message: message, preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Problema de Autenticação: ", message: message, preferredStyle: .alert)
                 self.present(alertController, animated: true, completion: .none)
             }
         }

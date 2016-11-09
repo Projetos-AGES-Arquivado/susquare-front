@@ -25,7 +25,7 @@ class MapViewController: UIViewController {
     }
     
     func loadUnits() {
-        SVProgressHUD.show(withStatus: "Loading HealthUnits")
+        SVProgressHUD.show(withStatus: "Buscando estabelecimentos de saúde...")
         let coordinate: CLLocationCoordinate2D = (locationManager.location?.coordinate)!
         RestManager.requestHealthUnits(byLocation: coordinate, withRange: 10, withBlock: { (units: [HealthUnit]?, error: Error?) in
             if error == nil {

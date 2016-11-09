@@ -16,13 +16,13 @@ class HealthUnitDetailsViewController: UIViewController {
     @IBOutlet weak var imgHealthUnit: UIImageView!
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblSchedule: UILabel!
-//    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblTitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(healthUnit)
+//        print(healthUnit)
         
-//        self.lblTitle.text = self.healthUnit?.unitName
+        self.lblTitle.text = self.healthUnit?.unitName
         
         
         self.lblCategory.text = healthUnit?.category

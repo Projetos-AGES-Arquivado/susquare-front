@@ -95,7 +95,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     func findUnitsWithText(_ text: String, range: Int) {
         
-        SVProgressHUD.show(withStatus: "Loading HealthUnits")
+        SVProgressHUD.show(withStatus: "Buscando estabelecimentos de saúde...")
         if let location = locationManager.location {
             let coordinate: CLLocationCoordinate2D? = location.coordinate
             
@@ -116,7 +116,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
             })
             centerMap()
         } else {
-            SVProgressHUD.showError(withStatus: "Cannot get curren location")
+            SVProgressHUD.showError(withStatus: "Não foi possível encontrar sua localização")
         }
     }
     
