@@ -87,7 +87,6 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
                 self.tableView.reloadData()
                 block()
             } else {
-                print(error)
                 SVProgressHUD.showError(withStatus: error?.localizedDescription)
             }
         })
@@ -110,7 +109,6 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
                     SVProgressHUD.dismiss()
                     self.tableView.reloadData()
                 } else {
-                    print(error)
                     SVProgressHUD.showError(withStatus: error?.localizedDescription)
                 }
             })
@@ -155,8 +153,8 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-//        filterHealthUnitsForSearchText(searchText)
-        findUnitsWithText(searchText, range: 30)
+        filterHealthUnitsForSearchText(searchText)
+//        findUnitsWithText(searchText, range: 30)
         shouldShowSearchResults = false
         
     }
@@ -187,7 +185,6 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     func filterHealthUnitsForSearchText(_ searchText: String, scope: String = "All") {
         self.filteredHealthUnits = healthUnits.filter { healthUnits in
-            print(healthUnits.unitName?.lowercased())
             print(searchText.lowercased())
             return (healthUnits.unitName?.lowercased().contains(searchText.lowercased()))!
         }
@@ -199,14 +196,13 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
                 self.mapView.addAnnotation(annotation)
             }
         } else {
+            shouldShowSearchResults = true
             self.mapView.removeAnnotations(self.mapView.annotations)
             for unit in self.filteredHealthUnits{
                 let annotation = HealthUnitMapAnnotation(healthUnit: unit)
                 self.mapView.addAnnotation(annotation)
             }
         }
-        
-        print(filteredHealthUnits)
         
         self.tableView.reloadData()
     }

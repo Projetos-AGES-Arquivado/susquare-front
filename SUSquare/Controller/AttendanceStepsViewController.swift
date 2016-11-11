@@ -15,7 +15,7 @@ final class AttendanceStepsViewController: UIViewController {
     
     
     var tableViewComponents: [CellComponent] = [("Check in", nil)]
-    var pickerComponents = ["triagem", "consulta","exame", "procedimento", "checkout", "checkout"]
+    var pickerComponents = ["triagem", "consulta","exame", "procedimento", "checkout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
