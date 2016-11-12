@@ -115,7 +115,7 @@ class RestManager {
     }
     
     static func createFavoriteId(){
-        let parameters = ["autor": ["codPessoa":User.sharedInstance.codAutor],"tipo": ["codPostagem":220]]
+        let parameters = ["autor": ["codPessoa":User.sharedInstance.codAutor],"tipo": ["codTipoPostagem":220]]
         let url = baseURLMetamodelo.appending(posts)
         
         let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
