@@ -98,7 +98,7 @@ extension AttendanceStepsViewController: UIPickerViewDelegate {
         let pickerLabel = UILabel()
         pickerLabel.text = pickerComponents[row]
         pickerLabel.textAlignment = .left
-        pickerLabel.textColor = .blue
+        pickerLabel.textColor = UIColor(red: 71, green: 186, blue: 251)
         return pickerLabel
     }
 }
