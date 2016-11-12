@@ -128,7 +128,6 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     
     @IBAction func aboutMeButtonPressed(_ sender: AnyObject) {
-        RestManager.createAttendance("12312", "iPhone 7 Plus", deviceOsVersion: "10.0.1")
         performSegue(withIdentifier: "aboutMeSegue", sender: nil)
     }
     
@@ -144,8 +143,8 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         searchBar?.placeholder = "Localizar estabelecimento de saúde"
         searchBar?.setImage(UIImage(named: "search"), for: .search, state: .normal)
         
-        let lightWhiteColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
-        let attributedString = NSAttributedString(string: "Localizar estabelecimento de saúde", attributes: [NSForegroundColorAttributeName: lightWhiteColor])
+//        let lightWhiteColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.8)
+        let attributedString = NSAttributedString(string: "Localizar estabelecimento de saúde", attributes: [NSForegroundColorAttributeName: textColor])
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .clear
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).textColor = .white
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = attributedString

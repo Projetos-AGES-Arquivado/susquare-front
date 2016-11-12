@@ -22,11 +22,13 @@ class HealthUnit{
     let address : Address
     var distance : Int?
     var sortHelper : Int?
+    let healthUnitCode : String?
     
     init(json: JSON) {
         self.unitName = json["nomeFantasia"].string
         self.lat = json["lat"].double
         self.lng = json["long"].double
+        self.healthUnitCode = json["codUnidade"].string
         if let lat = lat, let lng = lng {
             self.location = CLLocationCoordinate2D(latitude: lat, longitude: lng)
         } else {

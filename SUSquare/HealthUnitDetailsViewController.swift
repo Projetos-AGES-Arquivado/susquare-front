@@ -46,6 +46,14 @@ class HealthUnitDetailsViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    @IBAction func createAttendance(_ sender: Any) {
+        let deviceName = UIDevice.current.modelName
+        let deviceOsVersion = UIDevice.current.systemVersion
+        
+        RestManager.createAttendance((healthUnit?.healthUnitCode)!, deviceName, deviceOsVersion: deviceOsVersion)
+    }
+    
+    
     @IBAction func didPressFeedback(_ sender: AnyObject) {
         performSegue(withIdentifier: "feedbackSegue", sender: nil)
     }

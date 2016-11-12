@@ -49,4 +49,16 @@ class User {
             return AuthenticationManager.sharedInstance.getUserSession()
         }
     }
+    
+    var favoriteId : String? {
+        set {
+            if (newValue != "") {
+                AuthenticationManager.sharedInstance.saveFavoriteId(favoriteId: newValue!)
+            } else {
+                NSLog("session set value shouldnt be nil, otherwise the session will not be ssaved on the UserDefaults")
+            }
+        } get {
+            return AuthenticationManager.sharedInstance.getFavoriteId()
+        }
+    }
 }

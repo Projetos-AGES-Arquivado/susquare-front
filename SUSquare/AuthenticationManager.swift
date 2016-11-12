@@ -17,6 +17,7 @@ class AuthenticationManager {
     static let phoneNumberKey = "phoneNumber"
     static let codAutor = "codAutor"
     static let appToken = "appToken"
+    static let favoriteId = "favoriteId"
     
     func saveCodAutor(codAutor: Int){
         let defaults = UserDefaults.standard
@@ -36,6 +37,15 @@ class AuthenticationManager {
         defaults.set(session.phoneNumber, forKey: AuthenticationManager.phoneNumberKey)
     }
     
+    func saveFavoriteId(favoriteId: String){
+        let defaults = UserDefaults.standard
+        defaults.set(favoriteId, forKey: AuthenticationManager.favoriteId)
+    }
+    
+    func getFavoriteId() -> String?{
+        let defaults = UserDefaults.standard
+        return defaults.string(forKey: AuthenticationManager.favoriteId)
+    }
     
     func getCodAutor() -> Int?{
         let defaults = UserDefaults.standard

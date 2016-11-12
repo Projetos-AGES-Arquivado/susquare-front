@@ -79,7 +79,10 @@ extension AttendanceStepsViewController: UITableViewDataSource {
                 cell.delegate = self
                 cell.mainLabel.text = tableViewComponents[row].0
                 if let date = tableViewComponents[row].1 {
-                    cell.bottomLabel.text = date.description
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "hh:mm"
+                    let convertedDateString = dateFormatter.string(from:date as Date)
+                    cell.bottomLabel.text = convertedDateString
                 }
                 currentCell = cell
             }
@@ -124,8 +127,14 @@ extension AttendanceStepsViewController: AttendanceTableViewCellDelegate {
 
 extension AttendanceStepsViewController: AttendancePickerTableViewCellDelegate {
     func didTapDoneButton(cell: AttendancePickerTableViewCell, pickerView: UIPickerView, selectedRow: Int) {
-        let a: CellComponent = (pickerComponents[selectedRow], Date())
-        tableViewComponents.append(a)
-        tableView.reloadData()
+        let a : CellComponent = (pickerComponents[selectedRow], Date())
+        if pickerComponents[selectedRow] == "checkout"{
+            RestManager.attendanceCheckout()
+            self.dismiss(animated: true, completion: nil)
+        } else {
+            RestManager.attendanceProcess(info: a.title)
+            tableViewComponents.append(a)
+            tableView.reloadData()
+        }
     }
 }
