@@ -47,13 +47,13 @@ class LoginViewController: UIViewController {
                     RestManager.signUp(numberWithSha, email, password) {
                         RestManager.authenticateUser(email, password)
                         RestManager.createFavoriteId()
-                        
+                        self.dismiss(animated: false, completion: nil)
                     }
                 }
                 
-                if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                    delegate.gotoStoryboard(initialStoryboard: "HealthUnit")
-                }
+//                if let delegate = UIApplication.shared.delegate as? AppDelegate {
+//                    delegate.gotoStoryboard(initialStoryboard: "HealthUnit")
+//                }
             } else {
                 let message = error!.localizedDescription
                 let alertController = UIAlertController(title: "Problema de Autenticação: ", message: message, preferredStyle: .alert)

@@ -46,7 +46,14 @@ class HealthUnitDetailsViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    @IBAction func createAttendance(_ sender: Any) {
+    @IBAction func openAttendanceTimeline(_ sender: Any) {
+        if User.sharedInstance.codAutor == nil {
+            performSegue(withIdentifier: "timelineSegue", sender: nil)
+        } else {
+            performSegue(withIdentifier: "timelineSegue", sender: nil)
+            performSegue(withIdentifier: "loginSegue", sender: nil)
+        }
+        
         let deviceName = UIDevice.current.modelName
         let deviceOsVersion = UIDevice.current.systemVersion
         

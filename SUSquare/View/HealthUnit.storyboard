@@ -58,7 +58,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hq6-Wu-P2b" kind="show" id="HVl-Dd-czV"/>
+                                    <action selector="openAttendanceTimeline:" destination="aSn-aq-YfD" eventType="touchUpInside" id="Eks-39-5Lw"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Atendimento" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqh-Np-lVc">
@@ -105,11 +105,21 @@
                         <outlet property="lblCategory" destination="D5U-mQ-YIh" id="ulK-14-Jip"/>
                         <outlet property="lblSchedule" destination="Mqh-Np-lVc" id="79J-2R-Ab3"/>
                         <outlet property="lblTitle" destination="mGd-QT-Dy5" id="5KT-0S-lgh"/>
+                        <segue destination="s9I-oj-EdN" kind="presentation" identifier="loginSegue" id="kXn-IM-nz2"/>
+                        <segue destination="hq6-Wu-P2b" kind="show" identifier="timelineSegue" id="uNc-mA-tpz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSi-yz-hqH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2549.5999999999999" y="337.78110944527737"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="qvP-Aw-iiJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="s9I-oj-EdN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wdg-8r-nav" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2550" y="817"/>
         </scene>
         <!--Feedback-->
         <scene sceneID="Qwh-nN-KRK">
@@ -194,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ys-gG-aJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4161" y="338"/>
+            <point key="canvasLocation" x="5031" y="338"/>
         </scene>
         <!--about-->
         <scene sceneID="SI0-ay-fPs">
@@ -332,7 +342,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6g-Q5-gGS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3414" y="338"/>
+            <point key="canvasLocation" x="3404" y="338"/>
         </scene>
         <!--Health Unit View Controller-->
         <scene sceneID="8Bi-hC-4M8">

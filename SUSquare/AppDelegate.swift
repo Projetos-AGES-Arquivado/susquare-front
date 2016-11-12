@@ -30,7 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SVProgressHUD.setDefaultMaskType(.black)
         Fabric.with([Digits.self])
         
-        gotoStoryboard(initialStoryboard: "Login")
+        Digits.sharedInstance().logOut()
+        
+        gotoStoryboard(initialStoryboard: "HealthUnit")
 //        if User.sharedInstance.codAutor != "" {
 //            gotoStoryboard(initialStoryboard: "HealthUnit")
 //        } else {
