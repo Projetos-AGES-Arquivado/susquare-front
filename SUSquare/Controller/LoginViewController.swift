@@ -46,12 +46,12 @@ class LoginViewController: UIViewController {
                     let email = "\(numberWithSha)@vamossaude.com.br"
                     RestManager.signUp(numberWithSha, email, password) {
                         RestManager.authenticateUser(email, password)
+                        RestManager.createFavoriteId()
                         
                     }
                 }
                 
                 if let delegate = UIApplication.shared.delegate as? AppDelegate {
-                    RestManager.createFavoriteId()
                     delegate.gotoStoryboard(initialStoryboard: "HealthUnit")
                 }
             } else {
