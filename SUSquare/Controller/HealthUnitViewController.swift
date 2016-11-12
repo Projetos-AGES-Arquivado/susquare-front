@@ -269,7 +269,7 @@ extension HealthUnitViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "healthUnitIdentifier", for: indexPath) as! HealthUnitTableViewCell
         
         let healthUnit : HealthUnit
-        
+        cell.delegate = self
         if shouldShowSearchResults{
             healthUnit = filteredHealthUnits[indexPath.row]
         }else {
@@ -331,5 +331,12 @@ extension HealthUnitViewController: CLLocationManagerDelegate {
 extension HealthUnitViewController : UISearchResultsUpdating{
     func updateSearchResults(for searchController: UISearchController){
         filterHealthUnitsForSearchText(searchController.searchBar.text!)
+    }
+}
+
+extension HealthUnitViewController : HealthUnitTableViewCellDelegate{
+    func didTapFavoriteButton(_ button: UIButton, cell: HealthUnitTableViewCell) {
+        print(cell)
+        print(button)
     }
 }
