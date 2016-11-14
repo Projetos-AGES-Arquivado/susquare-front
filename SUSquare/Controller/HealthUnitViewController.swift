@@ -28,6 +28,8 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        RestManager.createFavoriteId()
+        RestManager.getAllFavoriteUnits()
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -284,7 +286,11 @@ extension HealthUnitViewController : UITableViewDataSource {
             cell.lblDistance.text = "--"
         }
         cell.lblHealthUnit.text = healthUnit.unitName
-        
+        if healthUnit.isFavorite {
+            cell.btnFavorite.setImage(UIImage(named: "star-filled"), for: .normal)
+        } else {
+            cell.btnFavorite.setImage(UIImage(named: "star"), for: .normal)
+        }
         return cell
     }
 }
@@ -335,6 +341,16 @@ extension HealthUnitViewController : UISearchResultsUpdating{
 
 extension HealthUnitViewController : HealthUnitTableViewCellDelegate{
     func didTapFavoriteButton(_ button: UIButton, cell: HealthUnitTableViewCell) {
+        if let index = tableView.indexPath(for: cell) {
+            let hu = healthUnits[index.row]
+            if let code = hu.healthUnitCode {
+                RestManager.addToFavorite(healthUnitCode: code)
+                hu.isFavorite = true
+                tableView.reloadData()
+
+            }
+        }
+
         print(cell)
         print(button)
     }

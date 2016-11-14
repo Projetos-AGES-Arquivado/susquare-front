@@ -28,17 +28,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         SVProgressHUD.setDefaultStyle(.light)
         SVProgressHUD.setDefaultMaskType(.black)
-        Fabric.with([Digits.self])
-        
-        Digits.sharedInstance().logOut()
-        
-        gotoStoryboard(initialStoryboard: "HealthUnit")
-//        if User.sharedInstance.codAutor != "" {
-//            gotoStoryboard(initialStoryboard: "HealthUnit")
-//        } else {
-//            gotoStoryboard(initialStoryboard: "Login")
-//        }
-        // Override point for customization after application launch.
+//        Fabric.with([Digits.self])
+//        Digits.sharedInstance().logOut()
+//        gotoStoryboard(initialStoryboard: "Login")
+        if User.sharedInstance.codAutor != nil {
+            gotoStoryboard(initialStoryboard: "HealthUnit")
+        } else {
+            gotoStoryboard(initialStoryboard: "Login")
+        }
+
         return true
     }
     

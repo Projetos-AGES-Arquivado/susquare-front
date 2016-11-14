@@ -34,6 +34,7 @@ class RestManager {
     
     static let appIdentifier = "348"
     static let tipoPostagemAtendimento = "221"
+    static let tipoPostagemFavorito = "220"
     
     static var idAtendimento = ""
     
@@ -114,8 +115,8 @@ class RestManager {
         }
     }
     
-    static func createFavoriteId(){
-        let parameters = ["autor": ["codPessoa":User.sharedInstance.codAutor],"tipo": ["codTipoPostagem":220]]
+    static func createFavoriteId() {
+        let parameters = ["autor": ["codPessoa":(User.sharedInstance.codAutor)!],"tipo": ["codTipoPostagem":220]]
         let url = baseURLMetamodelo.appending(posts)
         
         let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
@@ -131,9 +132,54 @@ class RestManager {
                             }
         }
     }
+
+    static func addToFavorite(healthUnitCode: String) {
+        let conteudo = ["codUnidade":healthUnitCode]
+        let jsonConteudoData = try! JSONSerialization.data(withJSONObject: conteudo, options: .prettyPrinted)
+        let jsonString : String = (String(data: jsonConteudoData , encoding: String.Encoding.utf8)!)
+        let parameters = ["JSON": jsonString]
+        var url = baseURLMetamodelo.appending(posts)
+        
+        url = url.appending("/")
+        
+        url = url.appending(User.sharedInstance.favoriteId!)
+        
+        url = url.appending(postsSteps)
+        
+        let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
+        
+        managerWithValidation.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: h).responseString { (response) in
+            print(response)
+        }
+    }
     
-    
-    
+    static func getAllFavoriteUnits() {
+        // Endpoint: GET {{urlMetamodelo}}/postagens?codAplicativo={{codAplicativo}}&codAutor={{idPessoa}}&codTiposPostagem=220
+        
+        let params = ["codAutor": User.sharedInstance.codAutor!,
+                        "codAplicativo": appIdentifier,
+                        "codTiposPostagem": 220] as [String : Any]
+        
+        var url = baseURLMetamodelo.appending("/postagens")
+        
+        let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
+        
+        manager.request(url, method: .get, parameters: params, encoding: URLEncoding.default, headers: h).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let jsons = JSON(value)
+                print(jsons)
+//                var allUnits: [HealthUnit] = [HealthUnit]()
+//                for json in jsons {
+//                    allUnits += [HealthUnit(json: json.1)]
+//                }
+//                
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
+    }
     static func createAttendance(_ healthUnitCode : String, _ deviceModel : String, deviceOsVersion : String){
         
         let conteudo = ["codUnidade":healthUnitCode,
@@ -144,10 +190,7 @@ class RestManager {
         
         let jsonConteudoData = try! JSONSerialization.data(withJSONObject: conteudo, options: .prettyPrinted)
         
-        //        print(JSONSerialization.isValidJSONObject(conteudo))
-        
-        let jsonString = NSString(data: jsonConteudoData, encoding: String.Encoding.utf8.rawValue) as! String
-        //        print(jsonString)
+        let jsonString : String = (String(data: jsonConteudoData , encoding: String.Encoding.utf8)!)
         
         if let codAutor = User.sharedInstance.codAutor,
             let latitude = User.sharedInstance.location?.latitude,
@@ -157,9 +200,7 @@ class RestManager {
                                            "postagem":["autor":["codPessoa":codAutor],
                                                        "latitude":latitude,
                                                        "longitude":longitude,
-                                                       "tipo":["codTipoPostagem":tipoPostagemAtendimento]
-                ]
-            ]
+                                                       "tipo":["codTipoPostagem":tipoPostagemAtendimento]]]
             
             let url = baseURLMetamodelo.appending(createAttendance)
             
@@ -183,57 +224,33 @@ class RestManager {
     }
     
     static func attendanceProcess(info : String){
-        let conteudo : [String:Any]  = ["descricao":info,
+        let conteudo : [String: String]  = ["descricao":info,
                                         "cliente_timestamp":Date().description,
-                                        "latitude":User.sharedInstance.location?.latitude,
-                                        "longitude":User.sharedInstance.location?.longitude]  as [String : Any]
-        
-        let jsonConteudoData = try! JSONSerialization.data(withJSONObject: conteudo, options: .prettyPrinted)
-        
-        let jsonString = NSString(data: jsonConteudoData, encoding: String.Encoding.utf8.rawValue) as! String
-        
-        let parameters = ["JSON": jsonString]
-        
-        var url = baseURLMetamodelo.appending(posts)
-        
-        url = url.appending("/")
-        
-        url = url.appending(RestManager.idAtendimento)
-        
-        url = url.appending(postsSteps)
-        
-        let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
-        
-        managerWithValidation.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: h).responseString { (response) in
-            print(response)
-        }
-    }
-    
-    static func attendanceCheckout(){
-        let conteudo : [String:Any] = ["descricao":"checkout",
-                                       "cliente_timestamp":Date().description,
-                                       "checkOutMetodo":"gps",
-                                       "latitude":User.sharedInstance.location?.latitude,
-                                       "longitude":User.sharedInstance.location?.longitude]  as [String : Any]
-        
-        let jsonConteudoData = try! JSONSerialization.data(withJSONObject: conteudo, options: .prettyPrinted)
-        
-        let jsonString = NSString(data: jsonConteudoData, encoding: String.Encoding.utf8.rawValue) as! String
-        
-        let parameters = ["JSON": jsonString]
-        
-        var url = baseURLMetamodelo.appending(posts)
-        
-        url = url.appending("/")
-        
-        url = url.appending(RestManager.idAtendimento)
-        
-        url = url.appending(postsSteps)
-        
-        let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
-        
-        managerWithValidation.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: h).responseString { (response) in
-            print(response)
+                                        "latitude":(User.sharedInstance.location?.latitude.description)!,
+                                        "longitude":(User.sharedInstance.location?.longitude.description)!]
+        do {
+            print(JSONSerialization.isValidJSONObject(conteudo))
+            let jsonConteudoData = try JSONSerialization.data(withJSONObject: conteudo, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+            
+            let jsonString : String = (String(data: jsonConteudoData , encoding: String.Encoding.utf8)!)
+            
+            let parameters = ["JSON": jsonString]
+            
+            var url = baseURLMetamodelo.appending(posts)
+            
+            url = url.appending("/")
+            
+            url = url.appending(RestManager.idAtendimento)
+            
+            url = url.appending(postsSteps)
+            
+            let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
+            
+            managerWithValidation.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: h).responseString { (response) in
+                print(response)
+            }
+        } catch let e {
+            print(e)
         }
     }
 }

@@ -22,6 +22,7 @@ class HealthUnit{
     let address : Address
     var distance : Int?
     let healthUnitCode : String?
+    var isFavorite = false
     
     init(json: JSON) {
         self.unitName = json["nomeFantasia"].string

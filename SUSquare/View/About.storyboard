@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1104" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -68,33 +68,33 @@
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-desafioappscivicos" translatesAutoresizingMaskIntoConstraints="NO" id="68u-GD-lRw">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="220" id="FJZ-v2-qaF"/>
-                                    <constraint firstAttribute="height" constant="128" id="jPJ-8i-VAm"/>
+                                    <constraint firstAttribute="width" constant="301" id="FJZ-v2-qaF"/>
+                                    <constraint firstAttribute="height" constant="57" id="jPJ-8i-VAm"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-tcu" translatesAutoresizingMaskIntoConstraints="NO" id="Wkp-uO-nYD">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="161" id="7lC-th-dQI"/>
+                                    <constraint firstAttribute="width" constant="304" id="7lC-th-dQI"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mLg-4s-Wxm" firstAttribute="top" secondItem="NhW-Zz-srE" secondAttribute="bottom" constant="33" id="1JA-KQ-dCK"/>
-                            <constraint firstItem="ZT2-IN-rBR" firstAttribute="top" secondItem="68u-GD-lRw" secondAttribute="bottom" constant="59" id="2YI-Dg-jme"/>
-                            <constraint firstItem="ZT2-IN-rBR" firstAttribute="top" secondItem="Wkp-uO-nYD" secondAttribute="bottom" constant="71" id="4X1-8x-aYU"/>
+                            <constraint firstItem="ZT2-IN-rBR" firstAttribute="top" secondItem="68u-GD-lRw" secondAttribute="bottom" constant="169" id="2YI-Dg-jme"/>
+                            <constraint firstItem="ZT2-IN-rBR" firstAttribute="top" secondItem="Wkp-uO-nYD" secondAttribute="bottom" constant="68" id="4X1-8x-aYU"/>
                             <constraint firstItem="NhW-Zz-srE" firstAttribute="leading" secondItem="HI3-Tu-EPQ" secondAttribute="leadingMargin" constant="76" id="7Uv-16-8PU"/>
-                            <constraint firstItem="68u-GD-lRw" firstAttribute="leading" secondItem="HI3-Tu-EPQ" secondAttribute="leadingMargin" id="CyX-D8-lEy"/>
+                            <constraint firstItem="68u-GD-lRw" firstAttribute="leading" secondItem="HI3-Tu-EPQ" secondAttribute="leadingMargin" constant="21" id="CyX-D8-lEy"/>
                             <constraint firstItem="mLg-4s-Wxm" firstAttribute="leading" secondItem="HI3-Tu-EPQ" secondAttribute="leadingMargin" constant="21" id="E7Q-Ze-yhG"/>
                             <constraint firstItem="0ov-RR-lo0" firstAttribute="bottom" secondItem="ZT2-IN-rBR" secondAttribute="top" id="Pnb-fW-iQy"/>
                             <constraint firstItem="NhW-Zz-srE" firstAttribute="top" secondItem="2Tm-Rm-rTl" secondAttribute="bottom" constant="28" id="ctA-fr-9Wd"/>
-                            <constraint firstItem="68u-GD-lRw" firstAttribute="leading" secondItem="0ov-RR-lo0" secondAttribute="leading" id="dic-Nq-FF9"/>
+                            <constraint firstItem="68u-GD-lRw" firstAttribute="leading" secondItem="0ov-RR-lo0" secondAttribute="leading" constant="21" id="dic-Nq-FF9"/>
                             <constraint firstItem="NhW-Zz-srE" firstAttribute="centerX" secondItem="mLg-4s-Wxm" secondAttribute="centerX" id="huS-3I-JnD"/>
                             <constraint firstItem="mLg-4s-Wxm" firstAttribute="centerX" secondItem="0ov-RR-lo0" secondAttribute="centerX" id="k8U-fk-FJM"/>
-                            <constraint firstItem="Wkp-uO-nYD" firstAttribute="trailing" secondItem="HI3-Tu-EPQ" secondAttribute="trailingMargin" id="lDj-bI-zBC"/>
-                            <constraint firstItem="Wkp-uO-nYD" firstAttribute="top" secondItem="mLg-4s-Wxm" secondAttribute="bottom" constant="35" id="sFy-Zd-kTP"/>
-                            <constraint firstItem="Wkp-uO-nYD" firstAttribute="trailing" secondItem="0ov-RR-lo0" secondAttribute="trailing" id="xqk-sv-Aqz"/>
-                            <constraint firstItem="68u-GD-lRw" firstAttribute="top" secondItem="mLg-4s-Wxm" secondAttribute="bottom" constant="47" id="yoh-cF-bRm"/>
+                            <constraint firstItem="Wkp-uO-nYD" firstAttribute="trailing" secondItem="HI3-Tu-EPQ" secondAttribute="trailingMargin" constant="-21" id="lDj-bI-zBC"/>
+                            <constraint firstItem="Wkp-uO-nYD" firstAttribute="top" secondItem="mLg-4s-Wxm" secondAttribute="bottom" constant="60" id="sFy-Zd-kTP"/>
+                            <constraint firstItem="Wkp-uO-nYD" firstAttribute="trailing" secondItem="0ov-RR-lo0" secondAttribute="trailing" constant="-21" id="xqk-sv-Aqz"/>
+                            <constraint firstItem="68u-GD-lRw" firstAttribute="top" secondItem="mLg-4s-Wxm" secondAttribute="bottom" constant="8" id="yoh-cF-bRm"/>
                         </constraints>
                     </view>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO">

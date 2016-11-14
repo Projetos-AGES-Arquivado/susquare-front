@@ -58,6 +58,8 @@ class FeedbackViewController: UIViewController {
     @IBAction func sendFeedback(_ sender: AnyObject) {
         //TODO
     }
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 }
 
 extension FeedbackViewController : UIImagePickerControllerDelegate{

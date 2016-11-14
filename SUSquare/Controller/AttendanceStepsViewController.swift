@@ -14,8 +14,8 @@ final class AttendanceStepsViewController: UIViewController {
     typealias CellComponent = (title: String, timestamp: Date?)
     
     
-    var tableViewComponents: [CellComponent] = [("Check in", nil)]
-    var pickerComponents = ["triagem", "consulta","exame", "procedimento", "checkout"]
+    var tableViewComponents: [CellComponent] = [("Check in", Date())]
+    var pickerComponents = ["Passei pela triagem", "consulta","exame", "procedimento", "checkout"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +29,8 @@ final class AttendanceStepsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
     
 }
 
@@ -66,7 +68,7 @@ extension AttendanceStepsViewController: UITableViewDataSource {
             }
         } else {
             if let cell =  tableView.dequeueReusableCell(withIdentifier: "AttendanceTableViewCell") as? AttendanceTableViewCell {
-                if row == tableViewComponents.count - 1 {
+                if row == tableViewComponents.count - 1  && row != 0 {
                     cell.clearButton.isHidden = false
                 } else {
                     cell.clearButton.isHidden = true
@@ -128,11 +130,10 @@ extension AttendanceStepsViewController: AttendanceTableViewCellDelegate {
 extension AttendanceStepsViewController: AttendancePickerTableViewCellDelegate {
     func didTapDoneButton(cell: AttendancePickerTableViewCell, pickerView: UIPickerView, selectedRow: Int) {
         let a : CellComponent = (pickerComponents[selectedRow], Date())
+        RestManager.attendanceProcess(info: a.title)
         if pickerComponents[selectedRow] == "checkout"{
-            RestManager.attendanceCheckout()
-            self.dismiss(animated: true, completion: nil)
+            _ = navigationController?.popViewController(animated: true)
         } else {
-            RestManager.attendanceProcess(info: a.title)
             tableViewComponents.append(a)
             tableView.reloadData()
         }

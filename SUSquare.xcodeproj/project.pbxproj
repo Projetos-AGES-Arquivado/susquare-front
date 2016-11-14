@@ -88,6 +88,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3524B6931DD3C79D005C0409 /* Attendence */ = {
+			isa = PBXGroup;
+			children = (
+				358B2A3C1DBA99240044F418 /* AttendanceStepsViewController.swift */,
+				358B2A3E1DBA99670044F418 /* AttendanceTableViewCell.swift */,
+				358B2A401DBAB74D0044F418 /* AttendancePickerTableViewCell.swift */,
+			);
+			name = Attendence;
+			sourceTree = "<group>";
+		};
+		3524B6941DD3C7C3005C0409 /* MainArea */ = {
+			isa = PBXGroup;
+			children = (
+				7A0D0E371DA00F5600B25B02 /* HealthUnitViewController.swift */,
+				7A0D0E391DA010D500B25B02 /* HealthUnitTableViewCell.swift */,
+				358ABEB91DA033F8008B28E7 /* MapViewController.swift */,
+			);
+			name = MainArea;
+			sourceTree = "<group>";
+		};
+		3524B6951DD3C7D4005C0409 /* HealthUnit */ = {
+			isa = PBXGroup;
+			children = (
+				7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */,
+				7A57A1481DB806550041D62D /* FeedbackViewController.swift */,
+			);
+			name = HealthUnit;
+			sourceTree = "<group>";
+		};
+		3524B6961DD3C7EF005C0409 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				681A52071DB8F4F20022C16D /* AboutMeViewController.swift */,
+				681A520B1DB9153C0022C16D /* PartnersViewController.swift */,
+			);
+			name = About;
+			sourceTree = "<group>";
+		};
+		3524B6971DD3C7F6005C0409 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				7A6CD58C1DA9153700B4954A /* LoginViewController.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
 		3AE13D7130AA87DB3DACE25D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,17 +194,11 @@
 		7A0D0E361DA0060700B25B02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7A0CF1BC1D9FFA7B006EEBAF /* HealthUnitDetailsViewController.swift */,
-				7A0D0E371DA00F5600B25B02 /* HealthUnitViewController.swift */,
-				7A0D0E391DA010D500B25B02 /* HealthUnitTableViewCell.swift */,
-				358ABEB91DA033F8008B28E7 /* MapViewController.swift */,
-				7A6CD58C1DA9153700B4954A /* LoginViewController.swift */,
-				7A57A1481DB806550041D62D /* FeedbackViewController.swift */,
-				681A52071DB8F4F20022C16D /* AboutMeViewController.swift */,
-				681A520B1DB9153C0022C16D /* PartnersViewController.swift */,
-				358B2A3C1DBA99240044F418 /* AttendanceStepsViewController.swift */,
-				358B2A3E1DBA99670044F418 /* AttendanceTableViewCell.swift */,
-				358B2A401DBAB74D0044F418 /* AttendancePickerTableViewCell.swift */,
+				3524B6951DD3C7D4005C0409 /* HealthUnit */,
+				3524B6941DD3C7C3005C0409 /* MainArea */,
+				3524B6971DD3C7F6005C0409 /* Login */,
+				3524B6961DD3C7EF005C0409 /* About */,
+				3524B6931DD3C79D005C0409 /* Attendence */,
 			);
 			name = Controller;
 			sourceTree = "<group>";

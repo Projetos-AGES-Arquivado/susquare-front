@@ -47,11 +47,11 @@ class HealthUnitDetailsViewController: UIViewController {
     }
     
     @IBAction func openAttendanceTimeline(_ sender: Any) {
-        if User.sharedInstance.codAutor == nil {
+        if User.sharedInstance.codAutor != nil {
             performSegue(withIdentifier: "timelineSegue", sender: nil)
         } else {
-            performSegue(withIdentifier: "timelineSegue", sender: nil)
             performSegue(withIdentifier: "loginSegue", sender: nil)
+            performSegue(withIdentifier: "timelineSegue", sender: nil)
         }
         
         let deviceName = UIDevice.current.modelName
