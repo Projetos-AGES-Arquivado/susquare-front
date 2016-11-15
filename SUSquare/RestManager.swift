@@ -160,7 +160,7 @@ class RestManager {
                         "codAplicativo": appIdentifier,
                         "codTiposPostagem": 220] as [String : Any]
         
-        var url = baseURLMetamodelo.appending("/postagens")
+        let url = baseURLMetamodelo.appending("/postagens")
         
         let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
         
@@ -168,18 +168,42 @@ class RestManager {
             switch response.result {
             case .success(let value):
                 let jsons = JSON(value)
-                print(jsons)
-//                var allUnits: [HealthUnit] = [HealthUnit]()
-//                for json in jsons {
-//                    allUnits += [HealthUnit(json: json.1)]
-//                }
-//                
+                let a = jsons.arrayValue.first
+//                print(a)
+                let b = a?["conteudos"].arrayValue
+                for json in b! {
+                    print("#######################")
+                    let u = json["links"].array?.first?["href"].string
+                    print(u)
+                    getHelthUnitCodeFormURL(u!, block: { code in
+                        print(code)
+                    })
+                }
             case .failure(let error):
                 print(error)
             }
         }
-        
     }
+    
+    static func getHelthUnitCodeFormURL(_ url: String, block: @escaping (String?) -> ()) {
+        let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
+        
+        
+        manager.request(url, method: .get, parameters: nil, encoding: URLEncoding.default, headers: h).responseJSON { (response) in
+            switch response.result {
+            case .success(let value):
+                let json = JSON(value)
+                print("******************************")
+                let codUnid = json["JSON"].stringValue
+                print(codUnid)
+                block(codUnid)
+            case .failure(let error):
+                print(error)
+                block(nil)
+            }
+        }
+    }
+    
     static func createAttendance(_ healthUnitCode : String, _ deviceModel : String, deviceOsVersion : String){
         
         let conteudo = ["codUnidade":healthUnitCode,
