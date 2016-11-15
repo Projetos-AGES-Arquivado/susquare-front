@@ -115,7 +115,7 @@ class RestManager {
         }
     }
     
-    static func createFavoriteId() {
+    static func createFavoriteIdWithBlock(block: @escaping (()->())) {
         let parameters = ["autor": ["codPessoa":(User.sharedInstance.codAutor)!],"tipo": ["codTipoPostagem":220]]
         let url = baseURLMetamodelo.appending(posts)
         
@@ -126,14 +126,24 @@ class RestManager {
                                 let start = stringLocation.index(stringLocation.startIndex, offsetBy: 59)
                                 let end = stringLocation.endIndex
                                 let range = start..<end
-                                
                                 let subStringLocation = stringLocation.substring(with: range)
                                 User.sharedInstance.favoriteId = subStringLocation
+                                block()
                             }
         }
     }
 
     static func addToFavorite(healthUnitCode: String) {
+        if User.sharedInstance.favoriteId == nil {
+            RestManager.createFavoriteIdWithBlock {
+                RestManager.postFavoriteWithCode(healthUnitCode)
+            }
+        } else {
+            RestManager.postFavoriteWithCode(healthUnitCode)
+        }
+    }
+    
+    static func postFavoriteWithCode(_ healthUnitCode: String) {
         let conteudo = ["codUnidade":healthUnitCode]
         let jsonConteudoData = try! JSONSerialization.data(withJSONObject: conteudo, options: .prettyPrinted)
         let jsonString : String = (String(data: jsonConteudoData , encoding: String.Encoding.utf8)!)
@@ -170,14 +180,16 @@ class RestManager {
                 let jsons = JSON(value)
                 let a = jsons.arrayValue.first
 //                print(a)
-                let b = a?["conteudos"].arrayValue
-                for json in b! {
-                    print("#######################")
-                    let u = json["links"].array?.first?["href"].string
-                    print(u)
-                    getHelthUnitCodeFormURL(u!, block: { code in
-                        print(code)
-                    })
+                
+                if let b = a?["conteudos"].arrayValue {
+                    for json in b {
+                        print("#######################")
+                        let u = json["links"].array?.first?["href"].string
+                        print(u)
+                        getHelthUnitCodeFormURL(u!, block: { code in
+                            print(code)
+                        })
+                    }
                 }
             case .failure(let error):
                 print(error)

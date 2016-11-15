@@ -62,18 +62,18 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
         SVProgressHUD.show(withStatus: "Buscando estabelecimentos de saúde...")
         
         let location = locationManager.location
-        let coordinate: CLLocationCoordinate2D? = location?.coordinate
-        
-        loadUnitsByCategory(categoria: "HOSPITAL", coordinate: coordinate!) {
-            self.loadUnitsByCategory(categoria: "POSTO DE SAÚDE", coordinate: coordinate!, block: { 
-                self.loadUnitsByCategory(categoria: "URGÊNCIA", coordinate: coordinate!, block: {
-                    self.healthUnits.sort(by: {$0.distance! < $1.distance!})
-                    SVProgressHUD.dismiss()
-                    self.tableView.reloadData()
+        if let coordinate: CLLocationCoordinate2D = location?.coordinate {
+            loadUnitsByCategory(categoria: "HOSPITAL", coordinate: coordinate) {
+                self.loadUnitsByCategory(categoria: "POSTO DE SAÚDE", coordinate: coordinate, block: {
+                    self.loadUnitsByCategory(categoria: "URGÊNCIA", coordinate: coordinate, block: {
+                        self.healthUnits.sort(by: {$0.distance! < $1.distance!})
+                        SVProgressHUD.dismiss()
+                        self.tableView.reloadData()
+                    })
                 })
-            })
+            }
+            centerMap()
         }
-        centerMap()
     }
     
     func loadUnitsByCategory(categoria: String, coordinate : CLLocationCoordinate2D, block: @escaping ()->()) {
@@ -341,17 +341,20 @@ extension HealthUnitViewController : UISearchResultsUpdating{
 
 extension HealthUnitViewController : HealthUnitTableViewCellDelegate{
     func didTapFavoriteButton(_ button: UIButton, cell: HealthUnitTableViewCell) {
-        if let index = tableView.indexPath(for: cell) {
-            let hu = healthUnits[index.row]
-            if let code = hu.healthUnitCode {
-                RestManager.addToFavorite(healthUnitCode: code)
-                hu.isFavorite = true
-                tableView.reloadData()
-
+        if User.sharedInstance.codAutor != 0 {
+            print("###############")
+            print(User.sharedInstance.codAutor)
+            if let index = tableView.indexPath(for: cell) {
+                let hu = healthUnits[index.row]
+                if let code = hu.healthUnitCode {
+                    RestManager.addToFavorite(healthUnitCode: code)
+                    hu.isFavorite = true
+                    tableView.reloadData()
+                    
+                }
             }
+        } else {
+            performSegue(withIdentifier: "loginSegue", sender: nil)
         }
-
-        print(cell)
-        print(button)
     }
 }

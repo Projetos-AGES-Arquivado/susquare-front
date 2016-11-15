@@ -38,7 +38,10 @@ class LoginViewController: UIViewController {
                 User.sharedInstance.session = session
                 let message = "Número Cadastrado: \(session!.phoneNumber!)"
                 let alertController = UIAlertController(title: "Você está logado!", message: message, preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: .none))
+                
+                alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { [weak self] action in
+                    self?.dismiss(animated: true, completion: nil)
+                }))
                 self.present(alertController, animated: true, completion: .none)
                 
                 if let numberWithSha = session?.phoneNumber.sha1() {
@@ -46,14 +49,17 @@ class LoginViewController: UIViewController {
                     let email = "\(numberWithSha)@vamossaude.com.br"
                     RestManager.signUp(numberWithSha, email, password) {
                         RestManager.authenticateUser(email, password)
-                        RestManager.createFavoriteId()
-                        self.dismiss(animated: false, completion: nil)
+                        RestManager.createFavoriteIdWithBlock { [weak self] in
+                            print("FavoriteIdCreated")
+                            if let delegate = UIApplication.shared.delegate as? AppDelegate {
+                                delegate.gotoStoryboard(initialStoryboard: "HealthUnit")
+                            }
+                            self?.dismiss(animated: true, completion: { [weak self] in
+                                self?.dismiss(animated: true, completion: nil)
+                            })
+                        }
                     }
                 }
-                
-//                if let delegate = UIApplication.shared.delegate as? AppDelegate {
-//                    delegate.gotoStoryboard(initialStoryboard: "HealthUnit")
-//                }
             } else {
                 let message = error!.localizedDescription
                 let alertController = UIAlertController(title: "Problema de Autenticação: ", message: message, preferredStyle: .alert)

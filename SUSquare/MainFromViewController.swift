@@ -16,6 +16,13 @@ class MainFromViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let gr = UITapGestureRecognizer(target: self, action: #selector(end))
+        gr.numberOfTapsRequired = 1
+        view.addGestureRecognizer(gr)
+    }
+    
+    func end() {
+        self.setEditing(false, animated: true)
     }
     
     func formSheetControllerWithNavigationController() -> UINavigationController {
@@ -44,7 +51,7 @@ class MainFromViewController: UIViewController {
         formSheetController.presentationController?.contentViewSize = CGSize(width: view.frame.size.width-20.0, height: view.frame.size.height-60)
         
         formSheetController.contentViewControllerTransitionStyle = .bounce
-        
+        formSheetController.presentationController?.movementActionWhenKeyboardAppears = .aboveKeyboard
         
         self.present(formSheetController, animated: true, completion: nil)
     }

@@ -18,6 +18,10 @@ class QuestionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let gr = UITapGestureRecognizer(target: self, action: #selector(end))
+        gr.numberOfTapsRequired = 1
+        view.addGestureRecognizer(gr)
+        
         if (view.tag == 2) {
             self.nextButton.isHidden = true
             self.leaveButton.backgroundColor = .green
@@ -25,6 +29,10 @@ class QuestionViewController: UIViewController {
         }
     }
     
+    func end() {
+        self.view.endEditing(true)
+    }
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }

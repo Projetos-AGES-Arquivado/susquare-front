@@ -20,8 +20,6 @@ class HealthUnitDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(healthUnit)
-        
         self.lblTitle.text = self.healthUnit?.unitName
         
         
@@ -47,7 +45,7 @@ class HealthUnitDetailsViewController: UIViewController {
     }
     
     @IBAction func openAttendanceTimeline(_ sender: Any) {
-        if User.sharedInstance.codAutor != nil {
+        if User.sharedInstance.codAutor != 0 {
             performSegue(withIdentifier: "timelineSegue", sender: nil)
         } else {
             performSegue(withIdentifier: "loginSegue", sender: nil)
