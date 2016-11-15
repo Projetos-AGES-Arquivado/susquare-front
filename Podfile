@@ -12,6 +12,8 @@ target 'SUSquare' do
   pod 'Fabric'
   pod 'Digits'
   pod 'TwitterCore'
+  pod 'MZFormSheetPresentationController'
+  pod 'Cosmos', '~> 7.0'
 end
 
 post_install do |installer|

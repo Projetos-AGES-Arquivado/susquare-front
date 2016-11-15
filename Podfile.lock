@@ -1,8 +1,12 @@
 PODS:
   - Alamofire (4.0.1)
+  - Cosmos (7.0.0)
   - Digits (2.5.0):
     - TwitterCore (= 2.5.0)
   - Fabric (1.6.9)
+  - MZAppearance (1.1.6)
+  - MZFormSheetPresentationController (2.4.2):
+    - MZAppearance
   - SVProgressHUD (2.0.3)
   - SwiftyJSON (3.1.0)
   - TwitterCore (2.5.0):
@@ -10,20 +14,25 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
+  - Cosmos (~> 7.0)
   - Digits
   - Fabric
+  - MZFormSheetPresentationController
   - SVProgressHUD
   - SwiftyJSON
   - TwitterCore
 
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
   Digits: c69ee2d1a6acf728c5d159f1bd335e4882bd3225
   Fabric: bc5bec42cef4bcf1ee3ce0e218fc518e4b44dfbb
+  MZAppearance: 0c06d3fa9cc55142f1da14bc8631fbe8fd6e19d5
+  MZFormSheetPresentationController: c1dc3bce639d2393b3cc416fcb6e050eb5bca062
   SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   SwiftyJSON: 29b9f2a64f118c07e691667c2ba1efe536acfe0b
   TwitterCore: 95c46af93112768a7983bd370d66023553601d01
 
-PODFILE CHECKSUM: 88a450a837caa336c301edbcc74a8b7b3239ac21
+PODFILE CHECKSUM: d581c92b5e714e861f41e901ad2685ae5e72cd9a
 
 COCOAPODS: 1.1.1

@@ -132,10 +132,51 @@ extension AttendanceStepsViewController: AttendancePickerTableViewCellDelegate {
         let a : CellComponent = (pickerComponents[selectedRow], Date())
         RestManager.attendanceProcess(info: a.title)
         if pickerComponents[selectedRow] == "checkout"{
-            _ = navigationController?.popViewController(animated: true)
+            customContentViewSizeAction()
+//            _ = navigationController?.popViewController(animated: true)
         } else {
             tableViewComponents.append(a)
             tableView.reloadData()
         }
+    }
+}
+
+extension AttendanceStepsViewController: QuestionViewControllerDelegate {
+    func formSheetControllerWithNavigationController() -> UINavigationController {
+        return self.storyboard!.instantiateViewController(withIdentifier: "formSheetController") as! UINavigationController
+    }
+    
+    func centerVerticallyAction() {
+        let navigationController = self.formSheetControllerWithNavigationController()
+        let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
+        formSheetController.presentationController?.shouldCenterVertically = true
+        
+        formSheetController.presentationController?.frameConfigurationHandler = { [weak formSheetController] view, currentFrame, isKeyboardVisible in
+            if UIInterfaceOrientationIsLandscape(UIApplication.shared.statusBarOrientation) {
+                return CGRect(x: formSheetController!.presentationController!.containerView!.bounds.midX - 210, y: currentFrame.origin.y, width: 420, height: currentFrame.size.height)
+                
+            }
+            return currentFrame
+        };
+        
+        self.present(formSheetController, animated: true, completion: nil)
+    }
+    
+    func customContentViewSizeAction() {
+        let navigationController = self.formSheetControllerWithNavigationController()
+        let formSheetController = MZFormSheetPresentationViewController(contentViewController: navigationController)
+        formSheetController.presentationController?.contentViewSize = CGSize(width: view.frame.size.width-20.0, height: view.frame.size.height-60)
+        
+        formSheetController.contentViewControllerTransitionStyle = .bounce
+        
+        if let a = navigationController.viewControllers.first  as? QuestionViewController {
+            a.delegate = self
+        }
+        
+        self.present(formSheetController, animated: true, completion: nil)
+    }
+    
+    func didFinishReview(viewController: QuestionViewController) {
+        _ = navigationController?.popViewController(animated: true)
     }
 }
