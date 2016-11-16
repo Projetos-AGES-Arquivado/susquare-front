@@ -18,17 +18,16 @@ import SVProgressHUD
 import Fabric
 import DigitsKit
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         SVProgressHUD.setDefaultStyle(.light)
         SVProgressHUD.setDefaultMaskType(.black)
         Fabric.with([Digits.self])
+    
 //        Digits.sharedInstance().logOut()
 //        gotoStoryboard(initialStoryboard: "Login")
         if User.sharedInstance.codAutor != nil {

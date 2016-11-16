@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSCameraUsageDescription</key>
-	<string>Dar feedback ao Posto de Saúde</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Dar feedback ao Posto de Saúde</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -21,7 +17,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>101</string>
+	<string>161</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -48,8 +44,12 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Dar feedback ao Posto de Saúde</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Usaremos sua localização para buscar os Estabelecimentos de Saúde ao seu redor.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Dar feedback ao Posto de Saúde</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

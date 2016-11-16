@@ -29,7 +29,7 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        RestManager.createFavoriteId()
-        RestManager.getAllFavoriteUnits()
+//        RestManager.getAllFavoriteUnits()
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -73,6 +73,20 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
                 })
             }
             centerMap()
+        } else {
+            SVProgressHUD.dismiss()
+            let alert = UIAlertController(title: "Não foi possível buscar estabelecimentos", message: "", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Tentar Novamente", style: .default, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+                self.loadUnits()
+            }))
+            alert.addAction(UIAlertAction(title: "Cancelar", style: .cancel, handler: { (action) in
+                alert.dismiss(animated: true, completion: nil)
+                self.navigationController!.popViewController(animated: true)
+            }))
+            
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
@@ -330,6 +344,29 @@ extension HealthUnitViewController: CLLocationManagerDelegate {
         let region = MKCoordinateRegion(center: User.sharedInstance.location!, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
         
         mapView.setRegion(region, animated: true)
+    }
+    
+    private func locationManager(manager: CLLocationManager!, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        switch status {
+        case .notDetermined:
+            // If status has not yet been determied, ask for authorization
+            manager.requestWhenInUseAuthorization()
+            break
+        case .authorizedWhenInUse:
+            // If authorized when in use
+            manager.startUpdatingLocation()
+            break
+        case .authorizedAlways:
+            // If always authorized
+            manager.startUpdatingLocation()
+            break
+        case .restricted:
+            // If restricted by e.g. parental controls. User can't enable Location Services
+            break
+        case .denied:
+            // If user denied your app access to Location Services, but can grant access from Settings.app
+            break
+        }
     }
 }
 
