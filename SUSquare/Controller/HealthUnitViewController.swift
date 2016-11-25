@@ -254,7 +254,14 @@ class HealthUnitViewController: UIViewController, UISearchBarDelegate {
 
 extension HealthUnitViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "healthUnitDetails", sender: healthUnits[indexPath.row])
+        var healthUnit : HealthUnit?
+        
+        if shouldShowSearchResults{
+            healthUnit = filteredHealthUnits[indexPath.row]
+        } else {
+            healthUnit = healthUnits[indexPath.row]
+        }
+        performSegue(withIdentifier: "healthUnitDetails", sender: healthUnit)
         tableView.deselectRow(at: indexPath, animated: false)
     }
     

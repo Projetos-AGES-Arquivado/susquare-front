@@ -122,17 +122,17 @@ class RestManager {
         let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
         
         manager.request(url, method: HTTPMethod.post, parameters: parameters, encoding: JSONEncoding.default, headers: h).responseJSON { (response) in
-                            if let stringLocation = response.response?.allHeaderFields["Location"] as? String {
-                                let start = stringLocation.index(stringLocation.startIndex, offsetBy: 59)
-                                let end = stringLocation.endIndex
-                                let range = start..<end
-                                let subStringLocation = stringLocation.substring(with: range)
-                                User.sharedInstance.favoriteId = subStringLocation
-                                block()
-                            }
+            if let stringLocation = response.response?.allHeaderFields["Location"] as? String {
+                let start = stringLocation.index(stringLocation.startIndex, offsetBy: 59)
+                let end = stringLocation.endIndex
+                let range = start..<end
+                let subStringLocation = stringLocation.substring(with: range)
+                User.sharedInstance.favoriteId = subStringLocation
+                block()
+            }
         }
     }
-
+    
     static func addToFavorite(healthUnitCode: String) {
         if User.sharedInstance.favoriteId == nil {
             RestManager.createFavoriteIdWithBlock {
@@ -167,8 +167,8 @@ class RestManager {
         // Endpoint: GET {{urlMetamodelo}}/postagens?codAplicativo={{codAplicativo}}&codAutor={{idPessoa}}&codTiposPostagem=220
         
         let params = ["codAutor": User.sharedInstance.codAutor!,
-                        "codAplicativo": appIdentifier,
-                        "codTiposPostagem": 220] as [String : Any]
+                      "codAplicativo": appIdentifier,
+                      "codTiposPostagem": 220] as [String : Any]
         
         let url = baseURLMetamodelo.appending("/postagens")
         
@@ -179,14 +179,14 @@ class RestManager {
             case .success(let value):
                 let jsons = JSON(value)
                 let a = jsons.arrayValue.first
-//                print(a)
+                //                print(a)
                 
                 if let b = a?["conteudos"].arrayValue {
                     for json in b {
                         print("#######################")
                         let u = json["links"].array?.first?["href"].string
                         print(u)
-                        getHelthUnitCodeFormURL(u!, block: { code in
+                        getHealthUnitCodeFromURL(u!, block: { code in
                             print(code)
                         })
                     }
@@ -197,7 +197,43 @@ class RestManager {
         }
     }
     
-    static func getHelthUnitCodeFormURL(_ url: String, block: @escaping (String?) -> ()) {
+    static func saveFeedback(_ image : UIImage, _ comment : String, _ idPost : Int){
+        let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
+        
+        let conteudo : [String: String]  = ["comentario":comment,
+                                            "timestampComentario":Date().description,]
+        do {
+            let jsonConteudoData = try JSONSerialization.data(withJSONObject: conteudo, options: JSONSerialization.WritingOptions.init(rawValue: 0))
+            
+            let jsonString : String = (String(data: jsonConteudoData , encoding: String.Encoding.utf8)!)
+            
+            let parameters = ["conteudo":["JSON": jsonString],
+                              "postagem":["autor":User.sharedInstance.codAutor!,"postagemRelacionada":idAtendimento,"tipo":idPost]
+                ] as [String : Any]
+            
+            var url = baseURLMetamodelo.appending(posts)
+            
+            url = url.appending(postsSteps)
+            
+            manager.request(url, method: .post, parameters: parameters, encoding: JSONEncoding.default, headers: h).responseJSON { (response) in
+                if let stringLocation = response.response?.allHeaderFields["Location"] as? String{
+                    saveFeedbackImage(image, stringLocation)
+                }
+            }
+        } catch let e {
+            print(e)
+        }
+    }
+    
+    static func saveFeedbackImage(_ image : UIImage, _ url : String){
+        let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
+        
+        let imageData : Data = UIImagePNGRepresentation(image)!
+        
+        manager.upload(imageData, to: url, method: .post, headers: h)
+    }
+    
+    static func getHealthUnitCodeFromURL(_ url: String, block: @escaping (String?) -> ()) {
         let h = ["appToken": User.sharedInstance.appToken!, "appIdentifier": appIdentifier]
         
         
@@ -261,9 +297,9 @@ class RestManager {
     
     static func attendanceProcess(info : String){
         let conteudo : [String: String]  = ["descricao":info,
-                                        "cliente_timestamp":Date().description,
-                                        "latitude":(User.sharedInstance.location?.latitude.description)!,
-                                        "longitude":(User.sharedInstance.location?.longitude.description)!]
+                                            "cliente_timestamp":Date().description,
+                                            "latitude":(User.sharedInstance.location?.latitude.description)!,
+                                            "longitude":(User.sharedInstance.location?.longitude.description)!]
         do {
             print(JSONSerialization.isValidJSONObject(conteudo))
             let jsonConteudoData = try JSONSerialization.data(withJSONObject: conteudo, options: JSONSerialization.WritingOptions.init(rawValue: 0))

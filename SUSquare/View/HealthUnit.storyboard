@@ -183,6 +183,14 @@
                                     <segue destination="Ax7-eE-fWF" kind="unwind" unwindAction="unwindToMenuWithSegue:" id="Kmy-xZ-xLA"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M3q-AG-qDl">
+                                <rect key="frame" x="320" y="28" width="39" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="photo-camera"/>
+                                <connections>
+                                    <action selector="openCameraButton:" destination="CqP-wn-Jg7" eventType="touchUpInside" id="hfq-UN-I1v"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -223,7 +231,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Ys-gG-aJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Ax7-eE-fWF" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3404" y="1039"/>
+            <point key="canvasLocation" x="3404" y="1038.5307346326838"/>
         </scene>
         <!--about-->
         <scene sceneID="SI0-ay-fPs">
@@ -250,10 +258,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendanceTableViewCell" rowHeight="80" id="709-8l-3cu" customClass="AttendanceTableViewCell" customModule="SUSquare" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="1000" height="80"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="709-8l-3cu" id="Zie-cT-ulj">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top" translatesAutoresizingMaskIntoConstraints="NO" id="l48-8o-QcR">
@@ -306,10 +314,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AttendancePickerTableViewCell" rowHeight="80" id="0wi-wH-oAU" customClass="AttendancePickerTableViewCell" customModule="SUSquare" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="1000" height="80"/>
+                                        <rect key="frame" x="0.0" y="108" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0wi-wH-oAU" id="BKL-wO-Xwa">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Ds7-FE-Hm5">
@@ -516,7 +524,7 @@
                                         <rect key="frame" x="0.0" y="40" width="1000" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Obw-BO-zhz" id="8Bf-9C-xJB">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="63.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="63"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Espera Estimada: Não Informado" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sfu-ye-Zyh">
@@ -850,6 +858,7 @@
         <image name="delete" width="50" height="50"/>
         <image name="done" width="50" height="50"/>
         <image name="healthUnit" width="452" height="305"/>
+        <image name="photo-camera" width="334" height="264"/>
         <image name="placeholder-image" width="800" height="600"/>
         <image name="star" width="50" height="50"/>
         <image name="top" width="40" height="40"/>

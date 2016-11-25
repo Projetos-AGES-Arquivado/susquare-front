@@ -49,14 +49,15 @@ class FeedbackViewController: UIViewController {
     }
     
     func noCamera(){
-        let alertVC = UIAlertController( title: "Sem camera", message: "Esse device não possui uma camera", preferredStyle: .alert)
+        let alertVC = UIAlertController( title: "Câmera Desabilitada", message: "Não foi possível encontrar uma câmera ou ela foi desabilitada.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style:.default, handler: nil)
         alertVC.addAction(okAction)
         present( alertVC, animated: true, completion: nil)
     }
     
     @IBAction func sendFeedback(_ sender: AnyObject) {
-        //TODO
+        RestManager.saveFeedback(imagePicked.image!, "teste", 222)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
