@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16D47D8C2086B9D40075F4CF /* SusquareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D47D8B2086B9D40075F4CF /* SusquareUITests.swift */; };
+		16D47D9A2086B9E10075F4CF /* SusquareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16D47D992086B9E10075F4CF /* SusquareTests.swift */; };
 		353357CA1DA049A9003DCC86 /* HealthUnitMapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */; };
 		358ABEBA1DA033F8008B28E7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358ABEB91DA033F8008B28E7 /* MapViewController.swift */; };
 		358B2A3D1DBA99240044F418 /* AttendanceStepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 358B2A3C1DBA99240044F418 /* AttendanceStepsViewController.swift */; };
@@ -41,7 +43,30 @@
 		D9F829511DBAA82E00C730DF /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F829501DBAA82E00C730DF /* Attendance.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		16D47D8E2086B9D40075F4CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A0CF1AF1D9FFA7B006EEBAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A0CF1B61D9FFA7B006EEBAF;
+			remoteInfo = SUSquare;
+		};
+		16D47D9C2086B9E10075F4CF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7A0CF1AF1D9FFA7B006EEBAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7A0CF1B61D9FFA7B006EEBAF;
+			remoteInfo = SUSquare;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		16D47D892086B9D40075F4CF /* SusquareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SusquareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16D47D8B2086B9D40075F4CF /* SusquareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SusquareUITests.swift; sourceTree = "<group>"; };
+		16D47D8D2086B9D40075F4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		16D47D972086B9E10075F4CF /* SusquareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SusquareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		16D47D992086B9E10075F4CF /* SusquareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SusquareTests.swift; sourceTree = "<group>"; };
+		16D47D9B2086B9E10075F4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BD2E70567D13A74F0D346FB /* Pods-SUSquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare.debug.xcconfig"; sourceTree = "<group>"; };
 		353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitMapAnnotation.swift; path = Model/HealthUnitMapAnnotation.swift; sourceTree = "<group>"; };
 		358ABEB91DA033F8008B28E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +108,20 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		16D47D862086B9D40075F4CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16D47D942086B9E10075F4CF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7A0CF1B41D9FFA7B006EEBAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -94,6 +133,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		16D47D8A2086B9D40075F4CF /* SusquareUITests */ = {
+			isa = PBXGroup;
+			children = (
+				16D47D8B2086B9D40075F4CF /* SusquareUITests.swift */,
+				16D47D8D2086B9D40075F4CF /* Info.plist */,
+			);
+			path = SusquareUITests;
+			sourceTree = "<group>";
+		};
+		16D47D982086B9E10075F4CF /* SusquareTests */ = {
+			isa = PBXGroup;
+			children = (
+				16D47D992086B9E10075F4CF /* SusquareTests.swift */,
+				16D47D9B2086B9E10075F4CF /* Info.plist */,
+			);
+			path = SusquareTests;
+			sourceTree = "<group>";
+		};
 		3524B6931DD3C79D005C0409 /* Attendence */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +220,8 @@
 				7A0CF1B91D9FFA7B006EEBAF /* SUSquare */,
 				7A0CF1B81D9FFA7B006EEBAF /* Products */,
 				88E7E8BA43B147952C2815DD /* Pods */,
+				16D47D8A2086B9D40075F4CF /* SusquareUITests */,
+				16D47D982086B9E10075F4CF /* SusquareTests */,
 				3AE13D7130AA87DB3DACE25D /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -171,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				7A0CF1B71D9FFA7B006EEBAF /* SUSquare.app */,
+				16D47D892086B9D40075F4CF /* SusquareUITests.xctest */,
+				16D47D972086B9E10075F4CF /* SusquareTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +306,42 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		16D47D882086B9D40075F4CF /* SusquareUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16D47D922086B9D40075F4CF /* Build configuration list for PBXNativeTarget "SusquareUITests" */;
+			buildPhases = (
+				16D47D852086B9D40075F4CF /* Sources */,
+				16D47D862086B9D40075F4CF /* Frameworks */,
+				16D47D872086B9D40075F4CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16D47D8F2086B9D40075F4CF /* PBXTargetDependency */,
+			);
+			name = SusquareUITests;
+			productName = SusquareUITests;
+			productReference = 16D47D892086B9D40075F4CF /* SusquareUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		16D47D962086B9E10075F4CF /* SusquareTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 16D47D9E2086B9E10075F4CF /* Build configuration list for PBXNativeTarget "SusquareTests" */;
+			buildPhases = (
+				16D47D932086B9E10075F4CF /* Sources */,
+				16D47D942086B9E10075F4CF /* Frameworks */,
+				16D47D952086B9E10075F4CF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				16D47D9D2086B9E10075F4CF /* PBXTargetDependency */,
+			);
+			name = SusquareTests;
+			productName = SusquareTests;
+			productReference = 16D47D972086B9E10075F4CF /* SusquareTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		7A0CF1B61D9FFA7B006EEBAF /* SUSquare */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A0CF1C91D9FFA7B006EEBAF /* Build configuration list for PBXNativeTarget "SUSquare" */;
@@ -272,10 +369,22 @@
 		7A0CF1AF1D9FFA7B006EEBAF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0800;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = AGES;
 				TargetAttributes = {
+					16D47D882086B9D40075F4CF = {
+						CreatedOnToolsVersion = 9.3;
+						DevelopmentTeam = 22SPKR75FE;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7A0CF1B61D9FFA7B006EEBAF;
+					};
+					16D47D962086B9E10075F4CF = {
+						CreatedOnToolsVersion = 9.3;
+						DevelopmentTeam = 22SPKR75FE;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 7A0CF1B61D9FFA7B006EEBAF;
+					};
 					7A0CF1B61D9FFA7B006EEBAF = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 5CB58H6L4R;
@@ -302,11 +411,27 @@
 			projectRoot = "";
 			targets = (
 				7A0CF1B61D9FFA7B006EEBAF /* SUSquare */,
+				16D47D882086B9D40075F4CF /* SusquareUITests */,
+				16D47D962086B9E10075F4CF /* SusquareTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		16D47D872086B9D40075F4CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16D47D952086B9E10075F4CF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7A0CF1B51D9FFA7B006EEBAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -330,9 +455,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare-resources.sh",
+				"${PODS_ROOT}/Digits/iOS/DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DigitsKitResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -345,9 +473,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/MZAppearance/MZAppearance.framework",
+				"${BUILT_PRODUCTS_DIR}/MZFormSheetPresentationController/MZFormSheetPresentationController.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZAppearance.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MZFormSheetPresentationController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -374,18 +515,37 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SUSquare-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		16D47D852086B9D40075F4CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16D47D8C2086B9D40075F4CF /* SusquareUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		16D47D932086B9E10075F4CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				16D47D9A2086B9E10075F4CF /* SusquareTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7A0CF1B31D9FFA7B006EEBAF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,6 +579,19 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		16D47D8F2086B9D40075F4CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A0CF1B61D9FFA7B006EEBAF /* SUSquare */;
+			targetProxy = 16D47D8E2086B9D40075F4CF /* PBXContainerItemProxy */;
+		};
+		16D47D9D2086B9E10075F4CF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7A0CF1B61D9FFA7B006EEBAF /* SUSquare */;
+			targetProxy = 16D47D9C2086B9E10075F4CF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		7A0CF1BE1D9FFA7B006EEBAF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -439,6 +612,128 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		16D47D902086B9D40075F4CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22SPKR75FE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SusquareUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ghpaul.SusquareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SUSquare;
+			};
+			name = Debug;
+		};
+		16D47D912086B9D40075F4CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22SPKR75FE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SusquareUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ghpaul.SusquareUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SUSquare;
+			};
+			name = Release;
+		};
+		16D47D9F2086B9E10075F4CF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22SPKR75FE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SusquareTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ghpaul.SusquareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SUSquare.app/SUSquare";
+			};
+			name = Debug;
+		};
+		16D47DA02086B9E10075F4CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 22SPKR75FE;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SusquareTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = ghpaul.SusquareTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SUSquare.app/SUSquare";
+			};
+			name = Release;
+		};
 		7A0CF1C71D9FFA7B006EEBAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -571,6 +866,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		16D47D922086B9D40075F4CF /* Build configuration list for PBXNativeTarget "SusquareUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16D47D902086B9D40075F4CF /* Debug */,
+				16D47D912086B9D40075F4CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		16D47D9E2086B9E10075F4CF /* Build configuration list for PBXNativeTarget "SusquareTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				16D47D9F2086B9E10075F4CF /* Debug */,
+				16D47DA02086B9E10075F4CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7A0CF1B21D9FFA7B006EEBAF /* Build configuration list for PBXProject "SUSquare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

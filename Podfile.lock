@@ -22,6 +22,18 @@ DEPENDENCIES:
   - SwiftyJSON
   - TwitterCore
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - Cosmos
+    - Digits
+    - Fabric
+    - MZAppearance
+    - MZFormSheetPresentationController
+    - SVProgressHUD
+    - SwiftyJSON
+    - TwitterCore
+
 SPEC CHECKSUMS:
   Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Cosmos: 2c8299147138758f6ebbb247cf1aeed77998bdf9
@@ -35,4 +47,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: d581c92b5e714e861f41e901ad2685ae5e72cd9a
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.5.0
