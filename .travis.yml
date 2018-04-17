@@ -1,0 +1,4 @@
+language: swift
+xcode_project: SUSquare.xcodeproj
+xcode_scheme: SusquareTests
+podfile: Podfile
