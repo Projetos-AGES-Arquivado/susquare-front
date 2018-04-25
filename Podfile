@@ -16,6 +16,19 @@ target 'SUSquare' do
   pod 'Cosmos', '~> 7.0'
 end
 
+target 'SusquareTests' do
+    inherit! :search_paths
+    # Pods for SUSquare
+    pod 'Alamofire', '~> 4.0'
+    pod 'SwiftyJSON'
+    pod 'SVProgressHUD'
+    pod 'Fabric'
+    pod 'Digits'
+    pod 'TwitterCore'
+    pod 'MZFormSheetPresentationController'
+    pod 'Cosmos', '~> 7.0'
+end
+
 post_install do |installer|
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|

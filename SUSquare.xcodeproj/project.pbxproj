@@ -40,6 +40,7 @@
 		7AB7A1FF1DB27DB200D5D14F /* CustomSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB7A1FE1DB27DB200D5D14F /* CustomSearchBar.swift */; };
 		7AF9B8E01DA0357F0095F9A6 /* HealthUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */; };
 		7AF9B8E31DA037090095F9A6 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF9B8E21DA037090095F9A6 /* Address.swift */; };
+		B14D8830A9C2DAE0848AA586 /* libPods-SusquareTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F55E13F101A20EA7CE8A19F /* libPods-SusquareTests.a */; };
 		D9F829511DBAA82E00C730DF /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F829501DBAA82E00C730DF /* Attendance.swift */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +68,6 @@
 		16D47D972086B9E10075F4CF /* SusquareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SusquareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		16D47D992086B9E10075F4CF /* SusquareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SusquareTests.swift; sourceTree = "<group>"; };
 		16D47D9B2086B9E10075F4CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2BD2E70567D13A74F0D346FB /* Pods-SUSquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare.debug.xcconfig"; sourceTree = "<group>"; };
 		353357C91DA049A9003DCC86 /* HealthUnitMapAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnitMapAnnotation.swift; path = Model/HealthUnitMapAnnotation.swift; sourceTree = "<group>"; };
 		358ABEB91DA033F8008B28E7 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = Controller/MapViewController.swift; sourceTree = "<group>"; };
 		358B2A3C1DBA99240044F418 /* AttendanceStepsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AttendanceStepsViewController.swift; path = Controller/AttendanceStepsViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +78,8 @@
 		35DAC5991DDB840900C97553 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionViewController.swift; path = Controller/QuestionViewController.swift; sourceTree = "<group>"; };
 		35DAC59B1DDB853200C97553 /* MainFromViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFromViewController.swift; sourceTree = "<group>"; };
 		35DAC5B91DDB865800C97553 /* MZFormSheetPresentationController */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MZFormSheetPresentationController; sourceTree = "<group>"; };
+		5C7651D66408C172B944ED7A /* Pods-SUSquare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSquare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare.debug.xcconfig"; sourceTree = "<group>"; };
+		5F55E13F101A20EA7CE8A19F /* libPods-SusquareTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SusquareTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		681A52071DB8F4F20022C16D /* AboutMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMeViewController.swift; path = Controller/AboutMeViewController.swift; sourceTree = "<group>"; };
 		681A52091DB8F5DC0022C16D /* AboutMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AboutMeTableViewCell.swift; path = Model/AboutMeTableViewCell.swift; sourceTree = "<group>"; };
 		681A520B1DB9153C0022C16D /* PartnersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PartnersViewController.swift; path = Controller/PartnersViewController.swift; sourceTree = "<group>"; };
@@ -103,8 +105,10 @@
 		7AF9B8DF1DA0357F0095F9A6 /* HealthUnit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HealthUnit.swift; path = Model/HealthUnit.swift; sourceTree = "<group>"; };
 		7AF9B8E21DA037090095F9A6 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Address.swift; path = Model/Address.swift; sourceTree = "<group>"; };
 		7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SUSquare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F429B05489EDA4411C43043 /* Pods-SusquareTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SusquareTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SusquareTests/Pods-SusquareTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFB4C56351FA767C45E44576 /* Pods-SUSquare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SUSquare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare.release.xcconfig"; sourceTree = "<group>"; };
 		D9F829501DBAA82E00C730DF /* Attendance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Attendance.swift; path = Model/Attendance.swift; sourceTree = "<group>"; };
+		E20D40319E17BC15F59C7DB5 /* Pods-SusquareTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SusquareTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SusquareTests/Pods-SusquareTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +123,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B14D8830A9C2DAE0848AA586 /* libPods-SusquareTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				7B32D0214D69CAAB7FC8D56D /* Pods_SUSquare.framework */,
+				5F55E13F101A20EA7CE8A19F /* libPods-SusquareTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -297,8 +303,10 @@
 		88E7E8BA43B147952C2815DD /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2BD2E70567D13A74F0D346FB /* Pods-SUSquare.debug.xcconfig */,
 				AFB4C56351FA767C45E44576 /* Pods-SUSquare.release.xcconfig */,
+				5C7651D66408C172B944ED7A /* Pods-SUSquare.debug.xcconfig */,
+				7F429B05489EDA4411C43043 /* Pods-SusquareTests.debug.xcconfig */,
+				E20D40319E17BC15F59C7DB5 /* Pods-SusquareTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -328,9 +336,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 16D47D9E2086B9E10075F4CF /* Build configuration list for PBXNativeTarget "SusquareTests" */;
 			buildPhases = (
+				49C1559E2D66D3E5F841DDB0 /* [CP] Check Pods Manifest.lock */,
 				16D47D932086B9E10075F4CF /* Sources */,
 				16D47D942086B9E10075F4CF /* Frameworks */,
 				16D47D952086B9E10075F4CF /* Resources */,
+				A8C4045BB2387C747377E6A7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -387,7 +397,7 @@
 					};
 					7A0CF1B61D9FFA7B006EEBAF = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 5CB58H6L4R;
+						DevelopmentTeam = 22SPKR75FE;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
@@ -467,6 +477,24 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		49C1559E2D66D3E5F841DDB0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SusquareTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		739376DAD43983C9542C0475 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -474,12 +502,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SUSquare/Pods-SUSquare-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
-				"${BUILT_PRODUCTS_DIR}/MZAppearance/MZAppearance.framework",
-				"${BUILT_PRODUCTS_DIR}/MZFormSheetPresentationController/MZFormSheetPresentationController.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire-framework/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos-framework/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/MZAppearance-framework/MZAppearance.framework",
+				"${BUILT_PRODUCTS_DIR}/MZFormSheetPresentationController-framework/MZFormSheetPresentationController.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD-framework/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON-framework/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -525,6 +553,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A8C4045BB2387C747377E6A7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SusquareTests/Pods-SusquareTests-resources.sh",
+				"${PODS_ROOT}/Digits/iOS/DigitsKit.framework/Versions/A/Resources/DigitsKitResources.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/DigitsKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SusquareTests/Pods-SusquareTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -674,6 +722,7 @@
 		};
 		16D47D9F2086B9E10075F4CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F429B05489EDA4411C43043 /* Pods-SusquareTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -705,6 +754,7 @@
 		};
 		16D47DA02086B9E10075F4CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E20D40319E17BC15F59C7DB5 /* Pods-SusquareTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -829,15 +879,15 @@
 		};
 		7A0CF1CA1D9FFA7B006EEBAF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BD2E70567D13A74F0D346FB /* Pods-SUSquare.debug.xcconfig */;
+			baseConfigurationReference = 5C7651D66408C172B944ED7A /* Pods-SUSquare.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SUSquare/SUSquare.entitlements;
-				DEVELOPMENT_TEAM = 5CB58H6L4R;
+				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = SUSquare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ages.susquare;
+				PRODUCT_BUNDLE_IDENTIFIER = VW3G.EmpilhAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SUSquare-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
@@ -852,10 +902,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = SUSquare/SUSquare.entitlements;
-				DEVELOPMENT_TEAM = 5CB58H6L4R;
+				DEVELOPMENT_TEAM = 22SPKR75FE;
 				INFOPLIST_FILE = SUSquare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ages.susquare;
+				PRODUCT_BUNDLE_IDENTIFIER = VW3G.EmpilhAR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "SUSquare-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;

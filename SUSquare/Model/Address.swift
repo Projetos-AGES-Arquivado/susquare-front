@@ -18,7 +18,7 @@ class Address{
     let state : String?
     let zip : Int?
     
-    init(json: JSON){
+    init(json: JSON) {
         self.street = json["logradouro"].string
         self.number = json["numero"].string
         self.neighbourhood = json["bairro"].string
@@ -26,4 +26,5 @@ class Address{
         self.state = json["uf"].string
         self.zip = json["cep"].int
     }
+    
 }
